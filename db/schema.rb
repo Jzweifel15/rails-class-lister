@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_10_07_134336) do
 
   create_table "classes", force: :cascade do |t|
+    t.string "course_name"
     t.integer "student_id"
     t.integer "professor_id"
     t.datetime "created_at", precision: 6, null: false
