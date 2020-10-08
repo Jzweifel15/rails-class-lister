@@ -1,4 +1,4 @@
 class Course < ApplicationRecord
-  belongs_to :student
-  belongs_to :professor
+  belongs_to :students
+  belongs_to :professors
 end
