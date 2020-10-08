@@ -1,5 +1,5 @@
 class Professor < ApplicationRecord
   has_many :courses
-  has_many :students, through: :courses
+  has_many :professors, through: :courses
   has_secure_password
 end

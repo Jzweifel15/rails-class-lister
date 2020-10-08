@@ -4,8 +4,6 @@ class CreateCourses < ActiveRecord::Migration[6.0]
       t.string :course_name
       t.belongs_to :student
       t.belongs_to :professor
-
-      t.timestamps null: false
     end
   end
 end

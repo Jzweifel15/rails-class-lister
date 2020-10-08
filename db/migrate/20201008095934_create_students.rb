@@ -1,4 +1,4 @@
-class CreateStudent < ActiveRecord::Migration[6.0]
+class CreateStudents < ActiveRecord::Migration[6.0]
   def change
     create_table :students do |t|
       t.string :name
@@ -6,7 +6,7 @@ class CreateStudent < ActiveRecord::Migration[6.0]
       t.string :password_digest
       t.string :major
 
-      t.timestamps null: false 
+      t.timestamps null: false
     end
   end
 end

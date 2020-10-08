@@ -6,7 +6,7 @@ class CreateProfessors < ActiveRecord::Migration[6.0]
       t.string :password_digest
       t.string :department
 
-      t.timestamps null: false 
+      t.timestamps null: false
     end
   end
 end
