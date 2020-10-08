@@ -1,0 +1,12 @@
+<h2>Welcome Back</h2>
+<h4>Sign In</h4>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  <%= label_tag "Full Name" %><br>
+  <%= text_field_tag :name %><br>
+  <%= label_tag "School Email" %><br>
+  <%= text_field_tag :school_email %><br>
+  <%= label_tag "Password" %><br>
+  <%= password_field_tag :password %><br>
+  <%= submit_tag "Sign In" %>
+<% end %>
+<%= link_to "Don't have an Account? Sign Up as a New Student", new_student_path %>
