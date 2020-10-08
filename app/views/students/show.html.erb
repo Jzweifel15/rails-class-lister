@@ -1,0 +1,12 @@
+<%= link_to "Log Out" %>
+<h2>Welcome, <%= @student.name %></h2>
+<h4>Your Class List</h4>
+<ul>
+<% @student.courses.each do |course| %>
+  <li><%= course.course_name %></li>
+<% end %>
+</ul>
+<div>
+  <%= link_to "Edit Class List" %>
+  <%= link_to "Add a Class" %>
+</div>

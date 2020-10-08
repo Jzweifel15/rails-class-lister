@@ -3604,3 +3604,390 @@ Processing by WelcomeController#home as HTML
 Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4679)
 
 
+Started GET "/students/new" for ::1 at 2020-10-08 07:04:28 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/students/new"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/students/new" for ::1 at 2020-10-08 07:04:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/students/new"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/students/new" for ::1 at 2020-10-08 07:04:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/students/new"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/students/new" for ::1 at 2020-10-08 07:05:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1124)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.8ms | Allocations: 8087)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    1: <%= form_with(@student) do |f| %>
+    2:   <%= f.label :name, "Full Name" %><br>
+    3:   <%= f.text_field :name %><br>
+    4:   <%= f.label :school_email, "School Email" %><br>
+  
+app/views/students/new.html.erb:1
+Started GET "/students/new" for ::1 at 2020-10-08 07:05:50 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 93.1ms | Allocations: 65085)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 0.0ms | Allocations: 66239)
+
+
+  
+ActionView::Template::Error (undefined method `students_path' for #<#<Class:0x00007f89e5a17220>:0x00007f89e5a06510>):
+    1: <%= form_for(@student) do |f| %>
+    2:   <%= f.label :name, "Full Name" %><br>
+    3:   <%= f.text_field :name %><br>
+    4:   <%= f.label :school_email, "School Email" %><br>
+  
+app/views/students/new.html.erb:1
+Started GET "/students/new" for ::1 at 2020-10-08 07:06:50 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 93.5ms | Allocations: 64983)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 0.0ms | Allocations: 66142)
+
+
+  
+ActionView::Template::Error (undefined method `students_path' for #<#<Class:0x00007f89e232e8a8>:0x00007f89e231dee0>):
+    1: <%= form_with model: @student do |f| %>
+    2:   <%= f.label :name, "Full Name" %><br>
+    3:   <%= f.text_field :name %><br>
+    4:   <%= f.label :school_email, "School Email" %><br>
+  
+app/views/students/new.html.erb:1
+Started GET "/students/new" for ::1 at 2020-10-08 07:08:05 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 177.8ms | Allocations: 199471)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 191ms (Views: 182.6ms | ActiveRecord: 0.5ms | Allocations: 208648)
+
+
+Started GET "/students/new" for ::1 at 2020-10-08 07:08:22 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 973)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 5595)
+
+
+Started GET "/students/new" for ::1 at 2020-10-08 07:08:35 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 857)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 5477)
+
+
+Started GET "/students/new" for ::1 at 2020-10-08 07:09:00 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 864)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 5481)
+
+
+Started POST "/students" for ::1 at 2020-10-08 07:14:40 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#create as JS
+  Parameters: {"authenticity_token"=>"mdGV94j54oXhjIHlA0xjmYXcgIWoXufwy4GtAxwQtNOt6JEyMrmOASY1fmOBI0+3gcE2zpuGDPJba2ogIkLA5g==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2419)
+
+
+  
+NoMethodError (undefined method `+' for :student:Symbol):
+  
+app/controllers/students_controller.rb:26:in `student_params'
+app/controllers/students_controller.rb:15:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+Started GET "/students/new" for ::1 at 2020-10-08 07:32:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 924)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 9.7ms | ActiveRecord: 0.5ms | Allocations: 9505)
+
+
+Started GET "/students/1" for ::1 at 2020-10-08 07:32:44 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:22:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/students/show.html.erb:4
+  Rendered students/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4572)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 12.3ms | ActiveRecord: 0.6ms | Allocations: 11310)
+
+
+Started POST "/students" for ::1 at 2020-10-08 07:33:18 -0400
+Processing by StudentsController#create as JS
+  Parameters: {"authenticity_token"=>"/savBHQHE1/rg2KtRLcg6KzLjemQh6oPcJF9SJrvIofK/6vBzkd/2yw6nSvG2AzGqNY7oqNfQQ3ge7prpL1Wsg==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3132)
+
+
+  
+NoMethodError (undefined method `+' for :student:Symbol):
+  
+app/controllers/students_controller.rb:26:in `student_params'
+app/controllers/students_controller.rb:15:in `create'
+Started POST "/students" for ::1 at 2020-10-08 07:33:20 -0400
+Processing by StudentsController#create as JS
+  Parameters: {"authenticity_token"=>"/savBHQHE1/rg2KtRLcg6KzLjemQh6oPcJF9SJrvIofK/6vBzkd/2yw6nSvG2AzGqNY7oqNfQQ3ge7prpL1Wsg==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1224)
+
+
+  
+NoMethodError (undefined method `+' for :student:Symbol):
+  
+app/controllers/students_controller.rb:26:in `student_params'
+app/controllers/students_controller.rb:15:in `create'
+Started POST "/students" for ::1 at 2020-10-08 07:33:20 -0400
+Processing by StudentsController#create as JS
+  Parameters: {"authenticity_token"=>"/savBHQHE1/rg2KtRLcg6KzLjemQh6oPcJF9SJrvIofK/6vBzkd/2yw6nSvG2AzGqNY7oqNfQQ3ge7prpL1Wsg==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1224)
+
+
+  
+NoMethodError (undefined method `+' for :student:Symbol):
+  
+app/controllers/students_controller.rb:26:in `student_params'
+app/controllers/students_controller.rb:15:in `create'
+Started GET "/" for ::1 at 2020-10-08 07:34:49 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 87)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 4653)
+
+
+Started GET "/students/new" for ::1 at 2020-10-08 07:35:13 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 891)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 5529)
+
+
+Started GET "/" for ::1 at 2020-10-08 07:35:16 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 81)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 4349)
+
+
+Started GET "/students/new" for ::1 at 2020-10-08 07:35:49 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 615)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4342)
+
+
+Started POST "/students" for ::1 at 2020-10-08 07:36:06 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"lLOAWe8ADXLJ9oL5Rb6yIpE07UM8WMEV/gHsvnaOm2+gioScVUBh9g5PfX/H0Z4MlSlbCA+AKhdu6yudSNzvWg==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 3143)
+
+
+  
+NoMethodError (undefined method `+' for :student:Symbol):
+  
+app/controllers/students_controller.rb:26:in `student_params'
+app/controllers/students_controller.rb:15:in `create'
+Started POST "/students" for ::1 at 2020-10-08 07:37:29 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"lLOAWe8ADXLJ9oL5Rb6yIpE07UM8WMEV/gHsvnaOm2+gioScVUBh9g5PfX/H0Z4MlSlbCA+AKhdu6yudSNzvWg==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms | Allocations: 5981)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for Student.):
+  
+app/controllers/students_controller.rb:15:in `create'
+Started GET "/" for ::1 at 2020-10-08 07:40:50 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 3837)
+
+
+Started GET "/students/new" for ::1 at 2020-10-08 07:40:57 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 672)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 6.4ms | ActiveRecord: 0.6ms | Allocations: 9736)
+
+
+Started POST "/students" for ::1 at 2020-10-08 07:41:09 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"hngj0ohjt7i3+RtoCLOm1u+9k51xVjSK/8o6ToPNVzKyQScXMiPbPHBA5O6K3Ir466Al1kKO34hvIP1tvZ8jBw==", "student"=>{"name"=>"Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 836)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for Student.):
+  
+app/controllers/students_controller.rb:15:in `create'
+Started POST "/students" for ::1 at 2020-10-08 07:43:54 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"hngj0ohjt7i3+RtoCLOm1u+9k51xVjSK/8o6ToPNVzKyQScXMiPbPHBA5O6K3Ir466Al1kKO34hvIP1tvZ8jBw==", "student"=>{"name"=>"Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:15:in `create'
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "password_digest", "major", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Zweifel"], ["school_email", "justinzweifel@university.com"], ["password_digest", "$2a$12$eG4f02Utk5EyrqZCSO4eH.exjfIiOKnj47aSYa0sYYd6m8RaIJxQq"], ["major", "Software Development"], ["created_at", "2020-10-08 11:43:54.712449"], ["updated_at", "2020-10-08 11:43:54.712449"]]
+  ↳ app/controllers/students_controller.rb:15:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:15:in `create'
+Redirected to http://localhost:3000/students/51
+Completed 302 Found in 208ms (ActiveRecord: 1.8ms | Allocations: 8567)
+
+
+Started GET "/students/51" for ::1 at 2020-10-08 07:43:54 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:22:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ?[0m  [["student_id", 51]]
+  ↳ app/views/students/show.html.erb:4
+  Rendered students/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2876)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 7459)
+
+
+Started GET "/students/51" for ::1 at 2020-10-08 07:45:44 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:22:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ?[0m  [["student_id", 51]]
+  ↳ app/views/students/show.html.erb:4
+  Rendered students/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1155)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 6302)
+
+
+Started GET "/students/51" for ::1 at 2020-10-08 07:46:06 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:22:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ?[0m  [["student_id", 51]]
+  ↳ app/views/students/show.html.erb:5
+  Rendered students/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1148)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 6296)
+
+

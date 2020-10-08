@@ -1,0 +1,15 @@
+<h2>Set up your New Account</h2>
+<%= form_for(@student) do |f| %>
+  <%= f.label :name, "Full Name" %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :school_email, "School Email" %><br>
+  <%= f.text_field :school_email %><br>
+  <%= f.label :password, "Create Password" %><br>
+  <%= f.password_field :password %><br>
+  <%= f.label :password_confirmation, "Confirm Password" %><br>
+  <%= f.password_field :password_confirmation %><br>
+  <%= f.label :major, "What is your Major?" %><br>
+  <%= f.text_field :major %><br>
+  <%= f.submit "Submit" %>
+<% end %>
+<%= link_to "Cancel", '/' %>
