@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  has_many :classes
-  has_many :professors, through: :classes
+  has_many :courses
+  has_many :professors, through: :courses
   has_secure_password
 end

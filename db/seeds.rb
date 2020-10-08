@@ -24,5 +24,5 @@ end
 
 50.times do 
   course_name = Faker::Educator.course_name
-  Class.create(course_name: course_name)
+  Course.create(course_name: course_name)
 end
