@@ -3,8 +3,8 @@ class CreateProfessors < ActiveRecord::Migration[6.0]
     create_table :professors do |t|
       t.string :name
       t.string :school_email
-      t.string :password_digest
       t.string :department
+      t.string :password_digest      
 
       t.timestamps null: false
     end

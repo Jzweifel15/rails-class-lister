@@ -14,17 +14,17 @@ ActiveRecord::Schema.define(version: 2020_10_08_095952) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
-    t.integer "student_id"
-    t.integer "professor_id"
-    t.index ["professor_id"], name: "index_courses_on_professor_id"
-    t.index ["student_id"], name: "index_courses_on_student_id"
+    t.integer "students_id"
+    t.integer "professors_id"
+    t.index ["professors_id"], name: "index_courses_on_professors_id"
+    t.index ["students_id"], name: "index_courses_on_students_id"
   end
 
   create_table "professors", force: :cascade do |t|
     t.string "name"
     t.string "school_email"
-    t.string "password_digest"
     t.string "department"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2020_10_08_095952) do
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "school_email"
-    t.string "password_digest"
     t.string "major"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
