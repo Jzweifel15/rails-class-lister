@@ -8,10 +8,6 @@
 
 require 'faker'
 
-Student.destroy_all
-Professor.destroy_all
-Course.destroy_all
-
 50.times do 
   student_name = Faker::Name.name 
   student_email = "#{student_name}@#{Faker::Educator.university}.com".delete " "
@@ -28,7 +24,7 @@ end
   Professor.create(name: professor_name, school_email: professor_email, department: professor_department)
 end
 
-25.times do 
+30.times do 
   name = Faker::Educator.course_name
   Course.create(course_name: name)
 end

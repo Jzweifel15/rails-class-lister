@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @student = Student.find_by(school_email: params[:student][:school_email])
-    return head(:forbidden) unless @student && @student.authenticate(params[:student][:password])
+    @student = Student.find_by(school_email: params[:school_email])
+    return head(:forbidden) unless @student && @student.authenticate(params[:password])
     session[:user_id] = @student.id 
     redirect_to student_path(@student)
   end
