@@ -5093,3 +5093,149 @@ Migrating to CreateCourses (20201008095952)
   [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mProfessor Load (0.2ms)[0m  [1m[34mSELECT "professors".* FROM "professors" ORDER BY "professors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-10-09 15:44:06 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1059)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 20.1ms | ActiveRecord: 0.0ms | Allocations: 7845)
+
+
+Started GET "/students/new" for ::1 at 2020-10-09 15:44:09 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1295)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 11.1ms | ActiveRecord: 0.5ms | Allocations: 11453)
+
+
+Started GET "/" for ::1 at 2020-10-09 15:44:11 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 0.8ms | Allocations: 375)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 4080)
+
+
+Started GET "/students/new" for ::1 at 2020-10-09 15:44:14 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 607)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4348)
+
+
+Started POST "/students" for ::1 at 2020-10-09 15:44:35 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"S9SRiHPeF3EA30GhyYoE79Hx9Wai3cacSCXSVJaAhjV80MFI4S9CQPSjPmqtxZpIZ84Tw7eRWZoUcX3+mw5HmA==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:15:in `create'
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Justin Zweifel"], ["school_email", "justinzweifel@university.com"], ["major", "Software Development"], ["password_digest", "$2a$12$TeDRZZj5mFach5vMH3/yuOMmahejywxYmVhoYuO3nSVW9BWF0vVqS"], ["created_at", "2020-10-09 19:44:35.669116"], ["updated_at", "2020-10-09 19:44:35.669116"]]
+  ↳ app/controllers/students_controller.rb:15:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:15:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 212ms (ActiveRecord: 1.3ms | Allocations: 3425)
+
+
+Started GET "/students/11" for ::1 at 2020-10-09 15:44:35 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (1.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ?[0m  [["student_id", 11]]
+  ↳ app/views/students/show.html.erb:5
+  Rendered students/show.html.erb within layouts/application (Duration: 18.0ms | Allocations: 6141)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.7ms | Allocations: 7670)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: courses.student_id):
+    2: <h2>Welcome, <%= @student.name %></h2>
+    3: <h4>Your Class List</h4>
+    4: <ul>
+    5: <% @student.courses.each do |course| %>
+    6:   <li><%= course.course_name %></li>
+    7: <% end %>
+    8: </ul>
+  
+app/views/students/show.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-10-12 06:01:29 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1059)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 7859)
+
+
+Started GET "/students/new" for ::1 at 2020-10-12 06:01:35 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1297)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 9.7ms | ActiveRecord: 0.6ms | Allocations: 11463)
+
+
+Started GET "/" for ::1 at 2020-10-12 06:01:37 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.0ms | Allocations: 375)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4088)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-12 06:01:57 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"+r3DkaZO61ST3tcao2ZzS2WSBn72Zl7a6r1utLTFcolqsPBpQxYXtg8SABLDuVPUuwE7hed96aug6Dxadvvq+Q==", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_email" = ? LIMIT ?[0m  [["school_email", "justinzweifel@university.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 214ms (ActiveRecord: 0.2ms | Allocations: 1405)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 06:01:57 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.8ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."student_id" = ?[0m  [["student_id", 11]]
+  ↳ app/views/students/show.html.erb:5
+  Rendered students/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 6145)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.1ms | Allocations: 7389)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: courses.student_id):
+    2: <h2>Welcome, <%= @student.name %></h2>
+    3: <h4>Your Class List</h4>
+    4: <ul>
+    5: <% @student.courses.each do |course| %>
+    6:   <li><%= course.course_name %></li>
+    7: <% end %>
+    8: </ul>
+  
+app/views/students/show.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "courses_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_courses_id" ON "lists" ("courses_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
