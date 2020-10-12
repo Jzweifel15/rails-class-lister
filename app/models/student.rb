@@ -1,5 +1,6 @@
 class Student < ApplicationRecord
-  has_many :courses, through: :lists
+  has_one :list
+  has_many :courses, through: :list
   has_many :professors, through: :courses
 
   has_secure_password

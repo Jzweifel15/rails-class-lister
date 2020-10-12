@@ -1,12 +1,11 @@
 <%= link_to "Log Out" %>
 <h2>Welcome, <%= @student.name %></h2>
-<h4>Your Class List</h4>
-<ul>
-<% @student.courses.each do |course| %>
-  <li><%= course.course_name %></li>
+<% if @student.list == nil %>
+  <h4>It does not appear that you have any scheduled classes</h4>
+<% else %>
+  <h4>Your Class List</h4>
 <% end %>
-</ul>
 <div>
+  <%= link_to "Create a Class List",  new_student_list_path(@student) %>
   <%= link_to "Edit Class List" %>
-  <%= link_to "Add a Class" %>
 </div>

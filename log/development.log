@@ -5239,3 +5239,1167 @@ Migrating to CreateLists (20201012100507)
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "major" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfessors (20201008095944)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "professors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "department" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095944"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar, "lists_id" integer, "professors_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_courses_on_lists_id" ON "courses" ("lists_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_on_professors_id" ON "courses" ("professors_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "courses_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_courses_id" ON "lists" ("courses_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-12 10:16:44.021055"], ["updated_at", "2020-10-12 10:16:44.021055"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "major" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfessors (20201008095944)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "professors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "department" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095944"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "courses_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_courses_id" ON "lists" ("courses_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-12 10:18:40.238967"], ["updated_at", "2020-10-12 10:18:40.238967"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Msgr. Johnnie Bergnaum"], ["school_email", "msgr.johnniebergnaum@marblewaldtafe.com"], ["major", "Communications"], ["password_digest", "1091932148"], ["created_at", "2020-10-12 10:18:54.665954"], ["updated_at", "2020-10-12 10:18:54.665954"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Josiah Bogan"], ["school_email", "josiahbogan@ironstontafe.com"], ["major", "Communications"], ["password_digest", "2689039882"], ["created_at", "2020-10-12 10:18:54.670216"], ["updated_at", "2020-10-12 10:18:54.670216"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Daphne O'Connell"], ["school_email", "daphneo'connell@mallowtowntechnicalcollege.com"], ["major", "Architectural Technology"], ["password_digest", "2244465040"], ["created_at", "2020-10-12 10:18:54.673826"], ["updated_at", "2020-10-12 10:18:54.673826"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jeffry Feeney"], ["school_email", "jeffryfeeney@ironstoncollege.com"], ["major", "Nursing"], ["password_digest", "2547761110"], ["created_at", "2020-10-12 10:18:54.677162"], ["updated_at", "2020-10-12 10:18:54.677162"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Cayla Nikolaus Ret."], ["school_email", "caylanikolausret.@falconholttafe.com"], ["major", "Criminology"], ["password_digest", "7214356115"], ["created_at", "2020-10-12 10:18:54.680715"], ["updated_at", "2020-10-12 10:18:54.680715"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Alessandra Fay"], ["school_email", "alessandrafay@brighthursttechnicalcollege.com"], ["major", "Education"], ["password_digest", "2404828168"], ["created_at", "2020-10-12 10:18:54.683970"], ["updated_at", "2020-10-12 10:18:54.683970"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Melvin McCullough DO"], ["school_email", "melvinmcculloughdo@mallowpondtechnicalcollege.com"], ["major", "Computer Science"], ["password_digest", "8199555855"], ["created_at", "2020-10-12 10:18:54.687390"], ["updated_at", "2020-10-12 10:18:54.687390"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Danita Mitchell VM"], ["school_email", "danitamitchellvm@iceboroughtafe.com"], ["major", "Medicine"], ["password_digest", "9100968646"], ["created_at", "2020-10-12 10:18:54.691007"], ["updated_at", "2020-10-12 10:18:54.691007"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Faustino Kling"], ["school_email", "faustinokling@flowerlaketechnicalcollege.com"], ["major", "Architectural Technology"], ["password_digest", "9765350116"], ["created_at", "2020-10-12 10:18:54.694358"], ["updated_at", "2020-10-12 10:18:54.694358"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Msgr. Darren Grady"], ["school_email", "msgr.darrengrady@bluemeadowcollege.com"], ["major", "Criminology"], ["password_digest", "8589626929"], ["created_at", "2020-10-12 10:18:54.699801"], ["updated_at", "2020-10-12 10:18:54.699801"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Valencia Abshire"], ["school_email", "valenciaabshire@iceboroughtechnicalcollege.com"], ["department", "Forensic Science"], ["password_digest", "2446678712"], ["created_at", "2020-10-12 10:18:54.709660"], ["updated_at", "2020-10-12 10:18:54.709660"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Aleen Bernier DC"], ["school_email", "aleenbernierdc@ostbarrowcollege.com"], ["department", "Nursing"], ["password_digest", "6055568307"], ["created_at", "2020-10-12 10:18:54.712914"], ["updated_at", "2020-10-12 10:18:54.712914"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mabelle Sipes JD"], ["school_email", "mabellesipesjd@ironstontafe.com"], ["department", "Arts"], ["password_digest", "9490875545"], ["created_at", "2020-10-12 10:18:54.716371"], ["updated_at", "2020-10-12 10:18:54.716371"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Thresa McClure"], ["school_email", "thresamcclure@vertappleuniversity.com"], ["department", "Arts"], ["password_digest", "9312964504"], ["created_at", "2020-10-12 10:18:54.719326"], ["updated_at", "2020-10-12 10:18:54.719326"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.3ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tony Heidenreich JD"], ["school_email", "tonyheidenreichjd@flowerlaketechnicalcollege.com"], ["department", "Communications"], ["password_digest", "1388394394"], ["created_at", "2020-10-12 10:18:54.722301"], ["updated_at", "2020-10-12 10:18:54.722301"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Willy Wehner"], ["school_email", "willywehner@mallowponduniversity.com"], ["department", "Design"], ["password_digest", "2944428288"], ["created_at", "2020-10-12 10:18:54.736041"], ["updated_at", "2020-10-12 10:18:54.736041"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Sherlyn Bruen"], ["school_email", "mrs.sherlynbruen@ironbarrowtafe.com"], ["department", "Commerce"], ["password_digest", "6825102179"], ["created_at", "2020-10-12 10:18:54.739836"], ["updated_at", "2020-10-12 10:18:54.739836"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.3ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ira Mueller"], ["school_email", "iramueller@ironbarrowtechnicalcollege.com"], ["department", "Applied Science (Psychology)"], ["password_digest", "4813084543"], ["created_at", "2020-10-12 10:18:54.743767"], ["updated_at", "2020-10-12 10:18:54.743767"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Elsy Cronin"], ["school_email", "elsycronin@ironbarrowtechnicalcollege.com"], ["department", "Creative Arts"], ["password_digest", "5202459667"], ["created_at", "2020-10-12 10:18:54.747930"], ["updated_at", "2020-10-12 10:18:54.747930"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Pres. Betsy Ernser"], ["school_email", "pres.betsyernser@ironbarrowtechnicalcollege.com"], ["department", "Commerce"], ["password_digest", "3558803381"], ["created_at", "2020-10-12 10:18:54.751777"], ["updated_at", "2020-10-12 10:18:54.751777"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mProfessor Load (0.1ms)[0m  [1m[34mSELECT "professors".* FROM "professors"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "major" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfessors (20201008095944)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "professors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "department" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095944"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "courses_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_courses_id" ON "lists" ("courses_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-12 10:19:49.263055"], ["updated_at", "2020-10-12 10:19:49.263055"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Celestina Gleichner CPA"], ["school_email", "celestinagleichnercpa@ironbarrowtechnicalcollege.com"], ["major", "Psychology"], ["password_digest", "6811833816"], ["created_at", "2020-10-12 10:19:55.293037"], ["updated_at", "2020-10-12 10:19:55.293037"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mitzi Stokes"], ["school_email", "mitzistokes@bluemeadowcollege.com"], ["major", "Law"], ["password_digest", "7901497447"], ["created_at", "2020-10-12 10:19:55.297462"], ["updated_at", "2020-10-12 10:19:55.297462"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mark Gleason"], ["school_email", "markgleason@icelynuniversity.com"], ["major", "Computer Science"], ["password_digest", "2486047458"], ["created_at", "2020-10-12 10:19:55.301051"], ["updated_at", "2020-10-12 10:19:55.301051"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Suellen Nitzsche"], ["school_email", "suellennitzsche@bluemeadowcollege.com"], ["major", "Criminology"], ["password_digest", "3111521519"], ["created_at", "2020-10-12 10:19:55.304699"], ["updated_at", "2020-10-12 10:19:55.304699"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jacob Breitenberg"], ["school_email", "jacobbreitenberg@ostbarrowuniversity.com"], ["major", "Communications"], ["password_digest", "4783828595"], ["created_at", "2020-10-12 10:19:55.308537"], ["updated_at", "2020-10-12 10:19:55.308537"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Estell Keebler"], ["school_email", "estellkeebler@vertappletafe.com"], ["major", "Business"], ["password_digest", "8923860506"], ["created_at", "2020-10-12 10:19:55.312249"], ["updated_at", "2020-10-12 10:19:55.312249"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Duane Mosciski"], ["school_email", "duanemosciski@mallowtowncollege.com"], ["major", "Applied Science (Psychology)"], ["password_digest", "6502124501"], ["created_at", "2020-10-12 10:19:55.315902"], ["updated_at", "2020-10-12 10:19:55.315902"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Lance Runolfsdottir"], ["school_email", "lancerunolfsdottir@mallowponduniversity.com"], ["major", "Law"], ["password_digest", "7898868800"], ["created_at", "2020-10-12 10:19:55.319573"], ["updated_at", "2020-10-12 10:19:55.319573"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Nenita Dicki"], ["school_email", "nenitadicki@mallowponduniversity.com"], ["major", "Design"], ["password_digest", "7243378986"], ["created_at", "2020-10-12 10:19:55.325205"], ["updated_at", "2020-10-12 10:19:55.325205"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Meridith Mitchell"], ["school_email", "meridithmitchell@lakeacreuniversity.com"], ["major", "Information Systems"], ["password_digest", "3577751293"], ["created_at", "2020-10-12 10:19:55.328839"], ["updated_at", "2020-10-12 10:19:55.328839"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Yasmin Corkery"], ["school_email", "yasmincorkery@brookvilletafe.com"], ["department", "Biomedical Science"], ["password_digest", "1394370962"], ["created_at", "2020-10-12 10:19:55.341463"], ["updated_at", "2020-10-12 10:19:55.341463"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Wendell Nitzsche"], ["school_email", "wendellnitzsche@brighthurstcollege.com"], ["department", "Medicine"], ["password_digest", "5353691240"], ["created_at", "2020-10-12 10:19:55.345159"], ["updated_at", "2020-10-12 10:19:55.345159"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Moira Schiller"], ["school_email", "moiraschiller@flowerlaketafe.com"], ["department", "Teaching"], ["password_digest", "5858688103"], ["created_at", "2020-10-12 10:19:55.348452"], ["updated_at", "2020-10-12 10:19:55.348452"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Warren Yost VM"], ["school_email", "warrenyostvm@brighthurstuniversity.com"], ["department", "Teaching"], ["password_digest", "7242640737"], ["created_at", "2020-10-12 10:19:55.351635"], ["updated_at", "2020-10-12 10:19:55.351635"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.3ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Jesica Pacocha"], ["school_email", "jesicapacocha@bluemeadowcollege.com"], ["department", "Teaching"], ["password_digest", "8921117059"], ["created_at", "2020-10-12 10:19:55.355112"], ["updated_at", "2020-10-12 10:19:55.355112"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Amb. Delpha Batz"], ["school_email", "amb.delphabatz@ironbarrowuniversity.com"], ["department", "Commerce"], ["password_digest", "1936505928"], ["created_at", "2020-10-12 10:19:55.368988"], ["updated_at", "2020-10-12 10:19:55.368988"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Faustino Pollich"], ["school_email", "faustinopollich@falconholttafe.com"], ["department", "Architectural Technology"], ["password_digest", "8290191961"], ["created_at", "2020-10-12 10:19:55.372893"], ["updated_at", "2020-10-12 10:19:55.372893"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Yahaira Stanton"], ["school_email", "yahairastanton@falconholttafe.com"], ["department", "Information Systems"], ["password_digest", "2748740561"], ["created_at", "2020-10-12 10:19:55.376966"], ["updated_at", "2020-10-12 10:19:55.376966"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Natalia Balistreri"], ["school_email", "nataliabalistreri@ostbarrowtafe.com"], ["department", "Education"], ["password_digest", "2603255361"], ["created_at", "2020-10-12 10:19:55.380812"], ["updated_at", "2020-10-12 10:19:55.380812"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Johnathan Thiel"], ["school_email", "johnathanthiel@falconholtcollege.com"], ["department", "Psychology"], ["password_digest", "1957160427"], ["created_at", "2020-10-12 10:19:55.384846"], ["updated_at", "2020-10-12 10:19:55.384846"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Biomedical Science 265"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Psychology 154"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Business 122"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Applied Science (Psychology) 211"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Arts 556"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Commerce 531"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Engineering 343"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Applied Science (Psychology) 565"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Biological Science 415"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Information Systems 126"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Architectural Technology 313"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Psychology 579"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Health Science 455"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Education 274"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Education 447"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Business 526"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Biomedical Science 120"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Information Systems 241"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Business 166"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Teaching 478"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Applied Science (Psychology) 464"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Law 248"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Applied Science (Psychology) 185"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Nursing 555"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name") VALUES (?)[0m  [["course_name", "Information Systems 375"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProfessor Load (0.2ms)[0m  [1m[34mSELECT "professors".* FROM "professors" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "lists" ON "courses"."list_id" = "lists"."id" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 11]]
+Started GET "/students/11" for ::1 at 2020-10-12 06:40:40 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.2ms | Allocations: 3259)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=11):
+  
+app/controllers/students_controller.rb:27:in `set_student'
+Started GET "/" for ::1 at 2020-10-12 06:40:54 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.3ms | Allocations: 885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 5487)
+
+
+Started GET "/students/new" for ::1 at 2020-10-12 06:40:58 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 950)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 8507)
+
+
+Started POST "/students" for ::1 at 2020-10-12 06:41:14 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"4csDQwsJPEC/OMupR+0BDF+xC5OZRy3sQzbrqRpo437Wz1ODmfhpcUtEtGIjop+r6Y7tNowLsuofYkQDF+Yi0w==", "student"=>{"name"=>"Justin Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:15:in `create'
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Justin Zweifel"], ["school_email", "justinzweifel@university.com"], ["major", "Software Development"], ["password_digest", "$2a$12$7/2F.O635ZpTXQcplE2kluuiYg887zd1f2lNXUFyrqHzSwFYpPLK6"], ["created_at", "2020-10-12 10:41:14.909653"], ["updated_at", "2020-10-12 10:41:14.909653"]]
+  ↳ app/controllers/students_controller.rb:15:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:15:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 204ms (ActiveRecord: 1.3ms | Allocations: 3424)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 06:41:14 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 378)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 4783)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 06:58:29 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:28:in `set_student'
+Completed 404 Not Found in 13ms (ActiveRecord: 0.7ms | Allocations: 9213)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'={:student_id=>11}):
+  
+app/controllers/students_controller.rb:28:in `set_student'
+Started GET "/students/11" for ::1 at 2020-10-12 06:59:30 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+Completed 404 Not Found in 12ms (ActiveRecord: 0.9ms | Allocations: 7957)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List without an ID):
+  
+app/controllers/students_controller.rb:28:in `set_student'
+Started GET "/students/11" for ::1 at 2020-10-12 07:00:39 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 3457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 11.1ms | ActiveRecord: 1.0ms | Allocations: 14186)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:00:46 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 951)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.3ms | Allocations: 5211)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:00:49 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 946)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 5198)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:06:45 -0400
+  
+SyntaxError (/Users/justin.zweifel/Desktop/rails-class-lister/config/routes.rb:6: syntax error, unexpected ':', expecting ']'
+...rces :students, only: [:index :new, :create]
+...                              ^
+/Users/justin.zweifel/Desktop/rails-class-lister/config/routes.rb:6: syntax error, unexpected ']', expecting '.' or &. or :: or '['
+...s, only: [:index :new, :create]
+...                              ^
+):
+  
+config/routes.rb:6: syntax error, unexpected ':', expecting ']'
+config/routes.rb:6: syntax error, unexpected ']', expecting '.' or &. or :: or '['
+config/routes.rb:6: syntax error, unexpected ':', expecting ']'
+config/routes.rb:6: syntax error, unexpected ']', expecting '.' or &. or :: or '['
+config/routes.rb:6: syntax error, unexpected ':', expecting ']'
+config/routes.rb:6: syntax error, unexpected ']', expecting '.' or &. or :: or '['
+Started GET "/students/11" for ::1 at 2020-10-12 07:06:59 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3075)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 13460)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:09:56 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1081)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.2ms | Allocations: 6241)
+
+
+Started GET "/lists/new" for ::1 at 2020-10-12 07:09:58 -0400
+Processing by ListsController#new as HTML
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 73)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 9.5ms | ActiveRecord: 0.3ms | Allocations: 6790)
+
+
+Started GET "/lists/new" for ::1 at 2020-10-12 07:33:22 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+NameError (undefined local variable or method `only' for ListsController:Class):
+  
+app/controllers/lists_controller.rb:2:in `<class:ListsController>'
+app/controllers/lists_controller.rb:1:in `<main>'
+Started GET "/lists/new" for ::1 at 2020-10-12 07:33:41 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#new as HTML
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 4321)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 12.6ms | ActiveRecord: 1.0ms | Allocations: 12738)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:33:50 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2144)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 8.3ms | ActiveRecord: 0.8ms | Allocations: 12144)
+
+
+Started GET "/lists/new" for ::1 at 2020-10-12 07:33:52 -0400
+Processing by ListsController#new as HTML
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1829)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 5547)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+Started GET "/lists/new" for ::1 at 2020-10-12 07:36:07 -0400
+Processing by ListsController#new as HTML
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1359)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.1ms | Allocations: 5976)
+
+
+Started GET "/lists/new" for ::1 at 2020-10-12 07:37:20 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/lists/new"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/lists/new" for ::1 at 2020-10-12 07:37:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/lists/new"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/lists/new" for ::1 at 2020-10-12 07:38:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/lists/new"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/lists/new" for ::1 at 2020-10-12 07:38:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/lists/new"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-10-12 07:39:17 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1110)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 8207)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-12 07:39:24 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"W+ggDc2o7Q8GJ0+B0olANUHeUtwbtoeBNtGf0DV++6QtJRqA7VNrEMCNf88igNPLQafpqqyr65x2nxvmr0EmPw==", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_email" = ? LIMIT ?[0m  [["school_email", "justinzweifel@university.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 216ms (ActiveRecord: 1.1ms | Allocations: 7615)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:39:24 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 5176)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms | Allocations: 6897)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"lists", :id=>"11"}, missing required keys: [:student_id]):
+     6:   <h4>Your Class List</h4>
+     7: <% end %>
+     8: <div>
+     9:   <%= link_to "Create a Class List",  new_student_list_path %>
+    10:   <%= link_to "Edit Class List" %>
+    11: </div>
+  
+app/views/students/show.html.erb:9
+Started GET "/students/11" for ::1 at 2020-10-12 07:40:01 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1107)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.3ms | Allocations: 6346)
+
+
+Started GET "/" for ::1 at 2020-10-12 07:40:08 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.1ms | Allocations: 577)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 4853)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-12 07:40:16 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"2dlGsnHE5NM6vOf4G6/Js7I558E48ezeO8kYIyGOqUCvFHw/UT9izPwW17brplpNskBct4/sgMN7h5wVu7F02w==", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_email" = ? LIMIT ?[0m  [["school_email", "justinzweifel@university.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 203ms (ActiveRecord: 0.2ms | Allocations: 877)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:40:16 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 906)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 5171)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:40:23 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 89.0ms | Allocations: 65100)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.4ms | Allocations: 68718)
+
+
+  
+ActionView::Template::Error (undefined method `lists_path' for #<#<Class:0x00007fd921bc2378>:0x00007fd921bc01e0>):
+    1: <h2>New Class List</h2>
+    2: <% form_for(@list) do |f| %>
+    3:   <label>Classes</label>
+    4:   <% Course.all.each do |course| %>
+    5:     <input type="checkbox" name="<%= course.id %>" id="<%= course.id %>" value="<%= course.course_name %>" />
+  
+app/views/lists/new.html.erb:2
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:42:04 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3539)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 11.9ms | ActiveRecord: 0.9ms | Allocations: 11284)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:42:56 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 145.7ms | Allocations: 202293)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 152ms (Views: 151.1ms | ActiveRecord: 0.1ms | Allocations: 206835)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:42:58 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1332)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 5074)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:43:29 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1520)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.1ms | Allocations: 6140)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:44:31 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1102)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2257)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    1: <h2>New Class List</h2>
+    2: <% form_with(@list) do |f| %>
+    3:   <%= f.label "Classes" %>
+    4:   <% Course.all.each do |course| %>
+    5:     <input type="checkbox" name="<%= course.id %>" id="<%= course.id %>" value="<%= course.course_name %>" /><br>
+  
+app/views/lists/new.html.erb:2
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:47:57 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1356)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 5987)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:48:20 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1358)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 5984)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:49:06 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1360)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 5974)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:50:18 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1556)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 6178)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:50:19 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1327)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 5046)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:50:33 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:4
+  Rendered lists/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1529)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 6151)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:52:30 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 90.3ms | Allocations: 65651)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 0.0ms | Allocations: 66798)
+
+
+  
+ActionView::Template::Error (undefined method `redirect_to' for #<#<Class:0x00007fd922cf8980>:0x00007fd922cf30c0>):
+    1: <%= link_to "Cancel", redirect_to(:back) %>
+    2: <h2>New Class List</h2>
+    3: <%= form_for(@list) do |f| %>
+    4:   <label>Choose Classes</label><br>
+  
+app/views/lists/new.html.erb:1
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:53:36 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:5
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1568)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.3ms | Allocations: 6191)
+
+
+Started GET "/" for ::1 at 2020-10-12 07:53:38 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.4ms | Allocations: 916)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 5134)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-12 07:54:25 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"0Op1d8rrqXIDyCYWd3WOVz1X17rv/fjjrfJOR5W+vq1A50aPL7NVkJ8E8R4Xqq7I48TqQf7mT5LnpxypV4Am3Q==", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_email" = ? LIMIT ?[0m  [["school_email", "justinzweifel@university.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 214ms (ActiveRecord: 0.6ms | Allocations: 8183)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 07:54:25 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1817)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.2ms | Allocations: 6712)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 07:55:22 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1166)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2327)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"students", :student_id=>"11"}, missing required keys: [:id]):
+    1: <%= link_to "Cancel",  student_path %>
+    2: <h2>New Class List</h2>
+    3: <%= form_for(@list) do |f| %>
+    4:   <label>Choose Classes</label><br>
+  
+app/views/lists/new.html.erb:1
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 08:00:46 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1163)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2329)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"students", :id=>nil}, missing required keys: [:id]):
+    1: <%= link_to "Cancel", student_path(@student) %>
+    2: <h2>New Class List</h2>
+    3: <%= form_for(@list) do |f| %>
+    4:   <label>Choose Classes</label><br>
+  
+app/views/lists/new.html.erb:1
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 08:01:01 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1166)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2332)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"students", :student_id=>"11"}, missing required keys: [:id]):
+    1: <%= link_to "Cancel", student_path %>
+    2: <h2>New Class List</h2>
+    3: <%= form_for(@list) do |f| %>
+    4:   <label>Choose Classes</label><br>
+  
+app/views/lists/new.html.erb:1
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 08:01:40 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:5
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1568)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 6206)
+
+
+Started GET "/students/student_id" for ::1 at 2020-10-12 08:01:41 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"student_id"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1099)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=student_id):
+  
+app/controllers/students_controller.rb:27:in `set_student'
+Started GET "/students/student_id" for ::1 at 2020-10-12 08:05:42 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"student_id"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3439)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=student_id):
+  
+app/controllers/students_controller.rb:27:in `set_student'
+Started GET "/students/11" for ::1 at 2020-10-12 08:05:46 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 3241)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 11.7ms | ActiveRecord: 0.5ms | Allocations: 11580)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 08:05:48 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:5
+  Rendered lists/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3792)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 0.9ms | Allocations: 10470)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 08:05:49 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 905)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 5143)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 08:05:52 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:5
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1345)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 5068)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 08:05:53 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 5149)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 08:05:55 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:5
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1345)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 5053)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 08:05:57 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 5157)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-12 08:05:59 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/new.html.erb:5
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1345)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 5063)
+
+
+Started GET "/students/11" for ::1 at 2020-10-12 08:06:00 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:27:in `set_student'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 896)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 5160)
+
+

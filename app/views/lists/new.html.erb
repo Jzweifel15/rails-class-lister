@@ -1,0 +1,9 @@
+<%= link_to "Cancel", previous_url %>
+<h2>New Class List</h2>
+<%= form_for(@list) do |f| %>
+  <label>Choose Classes</label><br>
+  <% Course.all.each do |course| %>
+    <input type="checkbox" name="<%= course.id %>" id="<%= course.id %>" /> - <%= course.course_name %><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>

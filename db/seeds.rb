@@ -32,5 +32,5 @@ end
 
 25.times do                 
   name = Faker::Educator.course_name
-  Course.create(course_name: name, students_id: Student.all.sample, professors_id: Professor.all.sample)
+  Course.create(course_name: name)
 end

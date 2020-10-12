@@ -14,10 +14,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_100507) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
-    t.integer "students_id"
-    t.integer "professors_id"
-    t.index ["professors_id"], name: "index_courses_on_professors_id"
-    t.index ["students_id"], name: "index_courses_on_students_id"
   end
 
   create_table "lists", force: :cascade do |t|
