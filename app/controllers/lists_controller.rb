@@ -10,7 +10,8 @@ class ListsController < ApplicationController
   end
 
   def create 
-    @list = List.new(list_params)
+    @list = List.create(list_params)
+    byebug
 
     if @list.valid?
       @list.save
@@ -42,7 +43,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:student_id, courses_id: [])
+    params.require(:list).permit(:student_id, course_ids: [])
   end
 
 end

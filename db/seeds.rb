@@ -32,5 +32,6 @@ end
 
 25.times do                 
   name = Faker::Educator.course_name
-  Course.create(course_name: name)
+  desc = Faker::Lorem.paragraph_by_chars
+  Course.create!(course_name: name, description: desc)
 end
