@@ -1,6 +1,6 @@
 <%= form_for(@list) do |f| %>
   <%= f.hidden_field :student_id, value: @student %>
   <label>Choose Classes</label><br>
-  <%= collection_check_boxes(:list, :courses_id, Course.all, :id, :course_name) %><br>
+  <%= f.collection_check_boxes(:courses_id, Course.all, :id, :course_name) %>
   <%= f.submit %>
 <% end %>
