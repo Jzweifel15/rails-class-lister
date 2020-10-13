@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   resources :students, only: [:index, :new, :create]
 
-  resources :lists, only: [:index]
+  resources :lists
 
   resources :students, only: [:show] do
-    resources :lists, only: [:new, :show, :create]
+    resources :lists
   end
 
 end

@@ -4,8 +4,18 @@
   <h4>It does not appear that you have any scheduled classes</h4>
 <% else %>
   <h4>Your Class List</h4>
+  <table>
+    <tbody>
+      <tr>
+        <td><strong>Class Name</strong></td>
+      </tr>
+      <tr><td><%= @student.list.inspect %></td></tr>
+    </tbody>
+  </table>
 <% end %>
 <div>
-  <%= link_to "Create a Class List",  new_student_list_path(@student) %>
+  <% if !@student.list %>
+    <%= link_to "Create a Class List",  new_student_list_path(@student) %>
+  <% end %>
   <%= link_to "Edit Class List" %>
 </div>

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  def previous_url
-    URI(request.referer || '').path
-  end
+  #def previous_url
+    #URI(request.referer || '').path
+  #end
 
 end
