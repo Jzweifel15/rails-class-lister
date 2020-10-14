@@ -16629,3 +16629,1243 @@ Migrating to CreateLists (20201012100507)
   [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Education 129"], ["description", "Totam qui et. Eum qui et. Omnis vel sint. Vero tenetur omnis. Eaque asperiores voluptatum. Perferendis reiciendis molestiae. Tenetur dolor reiciendis. Ut quia consequatur. Tempore et eum. Voluptatem molestiae doloremque. Tenetur doloremque quaerat. Sed fu."]]
   [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-10-13 10:37:55 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 38.6ms | ActiveRecord: 0.0ms | Allocations: 7996)
+
+
+Started GET "/students/new" for ::1 at 2020-10-13 10:37:58 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1295)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 9.3ms | ActiveRecord: 0.6ms | Allocations: 11300)
+
+
+Started POST "/students" for ::1 at 2020-10-13 10:38:09 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"xCH/cx2VbHRMHfDCoxfTXN+HiN3VXs4LwMFjzey9aLzzJa+zj2Q5RbhhjwnHWE37abhueMASUQ2clcxn4TOpEQ==", "student"=>{"name"=>"Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Zweifel"], ["school_email", "justinzweifel@university.com"], ["major", "Software Development"], ["password_digest", "$2a$12$JirXWR/C7IqkqNwoUAJrRORS2D7B66vEJXR./SafeKUIzxRaTHpQ."], ["created_at", "2020-10-13 14:38:09.678504"], ["updated_at", "2020-10-13 14:38:09.678504"]]
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 210ms (ActiveRecord: 1.4ms | Allocations: 3404)
+
+
+Started GET "/students/11" for ::1 at 2020-10-13 10:38:09 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 4197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.8ms | Allocations: 8920)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-13 10:38:12 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 134.4ms | Allocations: 206948)
+  Rendered lists/new.html.erb within layouts/application (Duration: 135.6ms | Allocations: 207363)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 165ms (Views: 158.4ms | ActiveRecord: 0.9ms | Allocations: 214031)
+
+
+Started GET "/students/11" for ::1 at 2020-10-13 10:38:18 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 857)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.4ms | Allocations: 5110)
+
+
+Started GET "/" for ::1 at 2020-10-13 10:38:20 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 0.8ms | Allocations: 372)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 4076)
+
+
+Started GET "/" for ::1 at 2020-10-13 18:46:55 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 42.2ms | ActiveRecord: 0.0ms | Allocations: 8184)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-13 18:47:03 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"7cQ1lBfoqs+10vxW+MbqZUJPhYqG7rnz2XnCBxFIyhabCQ8ZNxMs0HN4zBgIz3mbQjY+/DHz1e6ZN0Yxi3cXjQ==", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_email" = ? LIMIT ?[0m  [["school_email", "justinzweifel@university.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 218ms (ActiveRecord: 0.7ms | Allocations: 7100)
+
+
+Started GET "/students/11" for ::1 at 2020-10-13 18:47:03 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 4153)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 9000)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-13 18:47:42 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 97.6ms | Allocations: 207208)
+  Rendered lists/new.html.erb within layouts/application (Duration: 98.8ms | Allocations: 207624)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 120ms (Views: 112.8ms | ActiveRecord: 1.0ms | Allocations: 214317)
+
+
+Started POST "/lists" for ::1 at 2020-10-13 18:47:48 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"eCN4FvHAgV/MhFEVsvOukHSxxEQPQU+moFFTpmLxnv22uP0mcjIM4YnxPX+GbagMnYtPJSwAeulOmG+3IlK3jg==", "list"=>{"student_id"=>"11", "course_ids"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (?, ?, ?, ?)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 11], ["created_at", "2020-10-13 22:47:48.840368"], ["updated_at", "2020-10-13 22:47:48.840368"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.5ms | Allocations: 6731)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `list_id`):
+  
+app/controllers/lists_controller.rb:13:in `create'
+Started POST "/lists" for ::1 at 2020-10-13 18:50:37 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"MwaUABhbzoy/x8K4AvpJZsOAenXkDX21c4r8GENCOgZFy66NOKBIk3lt8vby89qYw/nBA1MQEagzxHgu2X3nnQ==", "list"=>{"student_id"=>"11", "course_ids"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (?, ?, ?, ?)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 11], ["created_at", "2020-10-13 22:50:38.061257"], ["updated_at", "2020-10-13 22:50:38.061257"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 2.2ms | Allocations: 20854)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `list_id`):
+  
+app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddListIdToLists (20201013225435)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lists" ADD "list_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201013225435"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-10-13 18:56:01 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 29.0ms | ActiveRecord: 0.0ms | Allocations: 8314)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-13 18:56:07 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"nUNQbm+St3n8a0+5vA9HlKaiPqhFSty5UKFdMSFaAZPrjmrjT2kxZjrBf/dMBtRqptuF3vJXsKQQ79kHu2XcCA==", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_email" = ? LIMIT ?[0m  [["school_email", "justinzweifel@university.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/11
+Completed 302 Found in 217ms (ActiveRecord: 1.0ms | Allocations: 7123)
+
+
+Started GET "/students/11" for ::1 at 2020-10-13 18:56:08 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 11], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 4213)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.5ms | Allocations: 9065)
+
+
+Started GET "/students/11/lists/new" for ::1 at 2020-10-13 18:56:09 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"11"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 101.6ms | Allocations: 207211)
+  Rendered lists/new.html.erb within layouts/application (Duration: 103.3ms | Allocations: 207627)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 116ms (Views: 107.6ms | ActiveRecord: 1.0ms | Allocations: 214835)
+
+
+Started POST "/lists" for ::1 at 2020-10-13 18:56:13 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"EYkJ3qr+zcgh5tYZi3B68o3FoGDI1qiXj24haTsvnZffEozuKQxAdmSTunO/7nxuZP8rAeuXndhhpx14e4y05A==", "list"=>{"student_id"=>"11", "course_ids"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (?, ?, ?, ?)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 11], ["created_at", "2020-10-13 22:56:13.904521"], ["updated_at", "2020-10-13 22:56:13.904521"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.3ms | Allocations: 6724)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `list_id`):
+  
+app/controllers/lists_controller.rb:13:in `create'
+Started POST "/lists" for ::1 at 2020-10-13 18:56:43 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"fXf4LUoWcmsC/RrqCPld2FmcXkvuVeob9GlrFKtbAQYLusKgau30dMRXKqT48M4mWeXlPVlIhga0J+8iMWTcnQ==", "list"=>{"student_id"=>"11", "course_ids"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (?, ?, ?, ?)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 11], ["created_at", "2020-10-13 22:56:43.888941"], ["updated_at", "2020-10-13 22:56:43.888941"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 2.6ms | Allocations: 18660)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `list_id`):
+  
+app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "major" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfessors (20201008095944)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "professors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "department" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095944"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar, "description" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_ids" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-13 22:58:50.638635"], ["updated_at", "2020-10-13 22:58:50.638635"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Connie Vandervort"], ["school_email", "connievandervort@ironbarrowuniversity.com"], ["major", "Creative Arts"], ["password_digest", "1008603896"], ["created_at", "2020-10-13 22:59:00.186890"], ["updated_at", "2020-10-13 22:59:00.186890"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Shanice Davis"], ["school_email", "shanicedavis@marblewalduniversity.com"], ["major", "Medicine"], ["password_digest", "5437965668"], ["created_at", "2020-10-13 22:59:00.191016"], ["updated_at", "2020-10-13 22:59:00.191016"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Rep. Nick Monahan"], ["school_email", "rep.nickmonahan@bluemeadowtafe.com"], ["major", "Engineering"], ["password_digest", "7035373562"], ["created_at", "2020-10-13 22:59:00.194534"], ["updated_at", "2020-10-13 22:59:00.194534"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Taylor Doyle"], ["school_email", "taylordoyle@flowerlaketechnicalcollege.com"], ["major", "Criminology"], ["password_digest", "4630817434"], ["created_at", "2020-10-13 22:59:00.198159"], ["updated_at", "2020-10-13 22:59:00.198159"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dr. Melvin Stiedemann"], ["school_email", "dr.melvinstiedemann@mallowponduniversity.com"], ["major", "Information Systems"], ["password_digest", "5356810106"], ["created_at", "2020-10-13 22:59:00.201707"], ["updated_at", "2020-10-13 22:59:00.201707"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Karrie Bartoletti"], ["school_email", "karriebartoletti@vertappleuniversity.com"], ["major", "Applied Science (Psychology)"], ["password_digest", "6629159350"], ["created_at", "2020-10-13 22:59:00.205103"], ["updated_at", "2020-10-13 22:59:00.205103"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Lincoln Waters"], ["school_email", "lincolnwaters@ironbarrowtechnicalcollege.com"], ["major", "Forensic Science"], ["password_digest", "1549959228"], ["created_at", "2020-10-13 22:59:00.208392"], ["updated_at", "2020-10-13 22:59:00.208392"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Marisa Feest DC"], ["school_email", "marisafeestdc@clearcourttafe.com"], ["major", "Arts"], ["password_digest", "8854469608"], ["created_at", "2020-10-13 22:59:00.211702"], ["updated_at", "2020-10-13 22:59:00.211702"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Emmanuel Greenholt"], ["school_email", "emmanuelgreenholt@clearcourttafe.com"], ["major", "Medicine"], ["password_digest", "5352400827"], ["created_at", "2020-10-13 22:59:00.216964"], ["updated_at", "2020-10-13 22:59:00.216964"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Amb. Crissy Lesch"], ["school_email", "amb.crissylesch@vertappletechnicalcollege.com"], ["major", "Biomedical Science"], ["password_digest", "4680641834"], ["created_at", "2020-10-13 22:59:00.220552"], ["updated_at", "2020-10-13 22:59:00.220552"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Stefany Frami IV"], ["school_email", "stefanyframiiv@bluemeadowuniversity.com"], ["department", "Creative Arts"], ["password_digest", "8755736141"], ["created_at", "2020-10-13 22:59:00.230138"], ["updated_at", "2020-10-13 22:59:00.230138"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Rev. Terrance Wiza"], ["school_email", "rev.terrancewiza@ironbarrowtechnicalcollege.com"], ["department", "Medicine"], ["password_digest", "8446637454"], ["created_at", "2020-10-13 22:59:00.233495"], ["updated_at", "2020-10-13 22:59:00.233495"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Lanette Leuschke"], ["school_email", "lanetteleuschke@clearcourttechnicalcollege.com"], ["department", "Design"], ["password_digest", "6648318445"], ["created_at", "2020-10-13 22:59:00.236562"], ["updated_at", "2020-10-13 22:59:00.236562"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Loreta Lynch"], ["school_email", "loretalynch@ironbarrowcollege.com"], ["department", "Biomedical Science"], ["password_digest", "4224635546"], ["created_at", "2020-10-13 22:59:00.239614"], ["updated_at", "2020-10-13 22:59:00.239614"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.3ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Fred Fahey"], ["school_email", "fredfahey@marblewalduniversity.com"], ["department", "Business"], ["password_digest", "3947220637"], ["created_at", "2020-10-13 22:59:00.242651"], ["updated_at", "2020-10-13 22:59:00.242651"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dakota Rempel Esq."], ["school_email", "dakotarempelesq.@marblewalduniversity.com"], ["department", "Biological Science"], ["password_digest", "7156945817"], ["created_at", "2020-10-13 22:59:00.256208"], ["updated_at", "2020-10-13 22:59:00.256208"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Renaldo Vandervort"], ["school_email", "renaldovandervort@iceboroughcollege.com"], ["department", "Communications"], ["password_digest", "9726815379"], ["created_at", "2020-10-13 22:59:00.260108"], ["updated_at", "2020-10-13 22:59:00.260108"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Margarite Turner"], ["school_email", "margariteturner@flowerlaketechnicalcollege.com"], ["department", "Communications"], ["password_digest", "5412141638"], ["created_at", "2020-10-13 22:59:00.263995"], ["updated_at", "2020-10-13 22:59:00.263995"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Shella Lemke"], ["school_email", "shellalemke@ironbarrowuniversity.com"], ["department", "Education"], ["password_digest", "7302120528"], ["created_at", "2020-10-13 22:59:00.267967"], ["updated_at", "2020-10-13 22:59:00.267967"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProfessor Create (0.2ms)[0m  [1m[32mINSERT INTO "professors" ("name", "school_email", "department", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Kevin Franecki"], ["school_email", "kevinfranecki@lakeacretafe.com"], ["department", "Medicine"], ["password_digest", "6065460970"], ["created_at", "2020-10-13 22:59:00.272644"], ["updated_at", "2020-10-13 22:59:00.272644"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Applied Science (Psychology) 432"], ["description", "Cupiditate fuga eum. Nesciunt in temporibus. Nihil aspernatur atque. Qui veniam ab. Non earum alias. Est vitae sit. Quia ducimus autem. Suscipit perspiciatis ullam. Sint sit qui. Asperiores aperiam consequatur. Sit sint similique. Optio voluptatibus aut. ."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 476"], ["description", "Dolor fuga expedita. Ipsam placeat est. Fugiat ut incidunt. Nemo voluptate nisi. Qui consectetur dolores. Quo eveniet dolorum. Sit ut impedit. Nostrum modi laudantium. Excepturi a maxime. Nesciunt corrupti qui. Beatae omnis dolores. Quos repellendus est. ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Education 121"], ["description", "Fugiat reprehenderit omnis. Dolor sed dolorem. Nam saepe dignissimos. Amet et sit. Sint recusandae optio. Cum ut occaecati. Voluptatem pariatur possimus. Aperiam sunt qui. Veniam facere est. Soluta qui voluptatum. Voluptate at ut. Vero cumque error. Excep."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 596"], ["description", "Fugit quia distinctio. Praesentium nulla ut. Necessitatibus omnis impedit. Non repellat in. Esse delectus est. Odit eaque nihil. Et sunt veniam. Ipsa repudiandae eveniet. Eum quasi similique. Saepe id iure. Assumenda veniam minus. Id ut pariatur. Tempora ."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 575"], ["description", "Voluptatum aut dolor. Et eligendi enim. Neque omnis nihil. Sint voluptas quo. Amet sint officia. Voluptatibus ad odit. Consequatur fugit sit. Veritatis nihil veniam. Sunt et incidunt. Cum explicabo molestias. Architecto temporibus ut. Vel quis iste. Ut pe."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 161"], ["description", "Provident sunt ipsum. Aliquid reiciendis et. Praesentium omnis et. Cumque temporibus omnis. Asperiores aut eos. Perspiciatis nostrum unde. Ut alias repudiandae. Neque deserunt ea. Tempora ea fugiat. Ratione architecto cupiditate. Omnis aut sint. Nam venia."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Psychology 156"], ["description", "Non dolores perspiciatis. Quis nihil et. Ut cum vero. Fuga enim possimus. Sequi vitae voluptas. Ea qui quos. Maxime consequuntur eius. Nam illum rerum. Exercitationem modi et. A laboriosam minus. Illum ipsa adipisci. Nostrum qui quos. Explicabo repellendu."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biological Science 368"], ["description", "Quasi et est. Beatae blanditiis laborum. Commodi et necessitatibus. Eligendi voluptas aut. Error molestiae est. Velit magni eos. Quidem minima velit. Et asperiores qui. Occaecati neque exercitationem. Soluta nemo similique. Est et qui. Voluptatibus soluta."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 529"], ["description", "Facilis unde nisi. Quasi fugit enim. Iure tempore quidem. Quae est modi. Consequatur pariatur at. Non eos veritatis. Perspiciatis fuga ut. Nobis vitae saepe. Magnam alias ducimus. Commodi dolores recusandae. Numquam officia impedit. Consequatur architecto."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Medicine 441"], ["description", "Aut temporibus accusantium. Et ut esse. Sunt numquam harum. Unde ab aspernatur. Soluta itaque non. Voluptatem quidem quos. Libero quo voluptates. Quia eos quis. Dolorem consequatur velit. Optio tempore quia. Quidem officia enim. Repellendus soluta optio. ."]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Forensic Science 256"], ["description", "Quisquam explicabo quae. Ducimus quis culpa. Impedit voluptatem doloremque. Sed vero doloribus. Omnis ea vel. Enim quia nam. Minima neque ea. Architecto sint aliquid. Et sequi ut. Dolorem voluptatibus ut. Tempora harum esse. Placeat est ratione. Nemo cons."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Law 490"], ["description", "Sit eos dolorum. Repellat delectus sed. Debitis molestias hic. In et iste. Mollitia deleniti eos. Necessitatibus est et. Dolorem corporis fuga. Alias est provident. Sunt quasi rerum. Facere dicta ex. Veniam rerum consequatur. Tempore velit est. Nihil ut m."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Education 284"], ["description", "Magnam qui sunt. Enim ut eos. Culpa velit est. Molestiae perspiciatis dicta. Soluta in delectus. Nobis veritatis velit. Iure eius ab. Recusandae quaerat et. Non omnis ad. Consequatur qui rerum. Voluptatem commodi eos. Sequi cupiditate aut. Sed nesciunt te."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Applied Science (Psychology) 441"], ["description", "Et odit ex. Earum eaque sit. Autem ut dolorem. Aliquid in quidem. Ut tempora eaque. A doloribus odit. Eos non magnam. Natus id cupiditate. Eos aperiam consequatur. Ab nemo temporibus. Nam id est. Animi officia error. Ut omnis consectetur. Qui minus nesciu."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Arts 555"], ["description", "Ut ea autem. Voluptas aut aperiam. Accusantium omnis placeat. Quos aut magnam. Consectetur similique quas. Quis harum eius. Est doloremque tenetur. Ut enim laborum. Rerum dolorum et. Ut pariatur eveniet. Aspernatur harum voluptatem. At et esse. Ea quo ips."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Computer Science 590"], ["description", "Eum facere doloribus. Nemo odio id. Quam sed ipsam. Nisi aliquid non. Enim omnis in. Nostrum laudantium assumenda. Deserunt ut est. Sunt excepturi maiores. Accusantium earum animi. Commodi aperiam architecto. Quia facere sed. Commodi dignissimos qui. Inve."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Nursing 270"], ["description", "Aut itaque corrupti. Omnis quod veniam. Qui dignissimos enim. Ratione numquam quam. Dolores tempore aliquam. Quibusdam deserunt nihil. Eos quis est. Vel at molestiae. Cupiditate officiis nemo. Iusto qui alias. Adipisci ullam mollitia. Et ut nobis. Aliquam."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Computer Science 568"], ["description", "Cumque nihil sapiente. Expedita non ab. Consequatur modi eligendi. Aspernatur ut quam. Ea et voluptatum. Explicabo ullam rerum. Eos quia quia. Cupiditate eveniet aut. Sed quia dicta. Est in praesentium. Enim quidem et. Modi excepturi aut. Doloribus eos qu."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Architectural Technology 132"], ["description", "Voluptas debitis numquam. Animi sint nesciunt. Velit nostrum vero. Voluptates incidunt optio. Doloremque excepturi harum. Qui quo molestiae. Ut ut omnis. Nihil et quia. Laudantium ut reiciendis. Labore ut similique. Corrupti commodi architecto. Perferendi."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Computer Science 448"], ["description", "Nihil ab fugiat. Voluptatem dignissimos error. Ipsa cum mollitia. Quis accusamus labore. Ut alias saepe. Fuga sunt inventore. Quaerat voluptas et. Ut est ea. Vel omnis voluptates. Dolor inventore et. Magni consequuntur eos. Optio explicabo sapiente. Asper."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Nursing 188"], ["description", "Atque ipsa voluptate. Autem praesentium adipisci. Culpa accusantium eius. Ullam eius debitis. Possimus dolores qui. Dolores ea occaecati. Sunt eius qui. Et et consectetur. Velit omnis nobis. Laudantium magni eum. Qui commodi nam. Ipsa rerum occaecati. Qui."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Commerce 141"], ["description", "Dolor sit quis. Quis provident illo. Sint fuga ut. Ea tempora odit. Adipisci assumenda autem. Placeat non pariatur. Iure magni officia. Unde neque rerum. Iste consequuntur ad. Ea sint aliquam. Quia omnis velit. Nam vitae quos. Odit possimus error. Maxime ."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Education 151"], ["description", "Aliquid sed ea. Distinctio dolor qui. Quia sed sed. Aliquam repellendus autem. Repellat architecto doloremque. Adipisci dolorem commodi. Minima molestiae amet. Nesciunt pariatur aut. Dolores sapiente labore. Iste minima voluptate. Possimus corrupti quae. ."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Teaching 358"], ["description", "Qui ex error. Qui nemo velit. Ea quia iusto. Iste aperiam non. Quaerat et quibusdam. Perspiciatis harum incidunt. Non quod commodi. Iure hic qui. Dolorem quibusdam fugit. Nisi sapiente est. Quod officia eos. Amet cum quidem. Omnis vero dolores. Rem volupt."]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Communications 487"], ["description", "Et debitis sed. Et maiores laboriosam. Est non fugit. Dignissimos ducimus recusandae. Voluptatem natus ex. Animi deleniti quasi. Suscipit expedita quos. Voluptatem et quia. Magnam optio autem. Delectus similique ratione. Voluptas delectus ipsam. Ad volupt."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "major" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProfessors (20201008095944)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "professors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "department" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095944"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar, "description" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_ids" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-13 22:59:51.981807"], ["updated_at", "2020-10-13 22:59:51.981807"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Forensic Science 365"], ["description", "Dolorem ut quo. In perspiciatis illo. Qui tenetur aliquam. Eum optio ad. Blanditiis nesciunt autem. Quia id accusamus. Illo vitae omnis. Aut facilis dolorem. Enim quisquam qui. Voluptas voluptas tempore. Quasi facilis repellat. Labore rem molestias. Cum q."]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Health Science 317"], ["description", "Quae consectetur ab. Rerum error sapiente. Doloribus ut consequatur. Enim laborum cupiditate. Aut corporis qui. Rerum aliquam labore. Deleniti pariatur asperiores. Incidunt at possimus. Eum incidunt nesciunt. Ut quam blanditiis. Culpa nobis sit. Ad ut off."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Psychology 442"], ["description", "Quia sed dolorem. Harum praesentium et. Nesciunt hic debitis. Explicabo consequatur deserunt. Et doloribus ut. Ut omnis qui. Est quia mollitia. Qui neque quidem. Adipisci tenetur qui. Officia nulla quod. Veniam autem nesciunt. Aspernatur voluptate libero.."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 430"], ["description", "Autem iusto non. Voluptatum rerum commodi. In soluta corrupti. Ut et nihil. Nobis aliquam recusandae. Quia cum eaque. Sed rerum fugiat. Et libero ut. Nihil nam deserunt. Molestias enim dolore. Aut placeat porro. Explicabo vero et. Ad voluptatum minus. Non."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biological Science 416"], ["description", "Sequi sunt eius. Enim dolores dolorem. Reiciendis dicta veritatis. Exercitationem rem et. Qui repellendus eveniet. Quisquam id libero. Voluptates impedit maxime. Iste fugit possimus. Et enim qui. Aut fugiat quos. Omnis reprehenderit ea. Similique aspernat."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Communications 382"], ["description", "Doloribus beatae quasi. Dolor dolor sapiente. Est in qui. Mollitia soluta id. Neque incidunt iure. Quia eveniet deleniti. Soluta enim ut. Veniam sunt dolor. Sed laboriosam voluptates. Aspernatur velit nisi. Quibusdam doloribus eos. Vero repellat et. Aliqu."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Engineering 283"], ["description", "Repudiandae dignissimos voluptate. Adipisci reiciendis illum. Voluptas aperiam rerum. Sunt cum error. Modi dolorem suscipit. Rerum suscipit nemo. Placeat voluptatem rerum. Voluptas neque rerum. Aut ipsam perferendis. Praesentium enim totam. Est deleniti d."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Communications 173"], ["description", "Error adipisci quia. Hic est neque. Aut commodi vero. Optio fugiat suscipit. Molestias nesciunt non. Vitae vel est. Velit fuga aut. Illo iure optio. Sint temporibus iste. Est ut error. Laudantium iusto culpa. Veritatis quia ut. Nobis quasi animi. Voluptat."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Communications 121"], ["description", "Deserunt et assumenda. Sit perferendis dolorem. Exercitationem voluptate alias. Dicta id qui. Aut dolor id. Laboriosam commodi ullam. Ea autem corporis. Omnis earum velit. Exercitationem molestiae sed. Sed eos ipsam. Voluptatum autem ab. Aut ut aut. Sed c."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Business 326"], ["description", "Autem aliquam vel. Hic labore debitis. Cupiditate quasi alias. Est fuga eum. Fugit maxime sapiente. Eaque neque nostrum. Voluptas ratione quia. Et occaecati sequi. Cum voluptatem molestiae. Ut recusandae doloribus. Non voluptatem quos. Quam itaque ullam. ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Applied Science (Psychology) 384"], ["description", "Aut qui dolore. Officiis dolorum quia. Nihil saepe consequatur. Sed voluptas optio. Accusantium ullam voluptas. Totam nihil eaque. Dolor labore autem. Et quod mollitia. Voluptatem qui id. Deserunt quae eligendi. Illo perspiciatis consequatur. Corporis lib."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Business 591"], ["description", "Neque ut dolore. Et voluptas quis. Nihil deleniti ipsa. Culpa consectetur vel. Quia sint aut. Quia odio excepturi. Ut sint dolorum. Doloribus repellendus quia. Aspernatur fuga ullam. Placeat expedita et. Aspernatur quia accusamus. Itaque cum inventore. Co."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Architectural Technology 571"], ["description", "Enim quisquam voluptatem. Repellendus ratione quos. Vitae est illum. Minima quidem nihil. Placeat ex officia. Non dicta aut. Nobis accusantium velit. Eum eum pariatur. Sunt deserunt delectus. Vitae ipsam cupiditate. Architecto quo non. Consequatur suscipi."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Commerce 189"], ["description", "Porro provident veniam. Maiores ratione rerum. Distinctio praesentium voluptatem. Alias quae omnis. Nesciunt eos facilis. Reiciendis esse voluptate. Voluptatum sunt et. Est molestiae doloremque. Velit et labore. Illo facere aut. Laboriosam ipsa aliquam. M."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Commerce 424"], ["description", "Corporis similique laboriosam. Nam culpa alias. Quidem quia id. Perferendis iure cum. Voluptatum deleniti consequatur. Iusto qui eveniet. Nemo sint hic. Ratione ut magni. Non harum incidunt. Deserunt dolores cum. Hic molestiae aut. Praesentium rerum tempo."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Computer Science 118"], ["description", "Voluptatem voluptas consectetur. Et et at. Est esse accusantium. Voluptatem odit enim. Iure perspiciatis rem. Nam harum vero. Cum eos et. Est velit commodi. Aut excepturi dolor. Fuga a ipsa. Dignissimos natus quis. Quas suscipit nobis. Laborum tenetur est."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biological Science 374"], ["description", "Nemo et harum. Voluptatibus accusantium cumque. Molestiae culpa vero. Reiciendis vero voluptas. Inventore et facere. Mollitia quas eius. Ex quidem eum. Reiciendis dicta laudantium. Omnis sit earum. Sint quis similique. Occaecati quo omnis. Dolor sed volup."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Information Systems 149"], ["description", "Repudiandae commodi aut. Et eveniet autem. Veritatis eum excepturi. Molestias qui nesciunt. Voluptates fugiat delectus. Delectus sequi nemo. Neque sapiente vel. Blanditiis et est. Eos voluptatem quia. Dicta sed voluptatem. Accusamus et possimus. Fuga impe."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Medicine 521"], ["description", "Placeat culpa voluptate. Consequatur natus alias. Illo quo necessitatibus. Atque sunt perspiciatis. Non atque deleniti. Omnis explicabo voluptas. Placeat quo sunt. Molestiae rerum autem. Nam quaerat corporis. Enim aut libero. Inventore voluptatum impedit.."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Computer Science 442"], ["description", "Exercitationem doloribus mollitia. Ea animi nobis. Nobis itaque blanditiis. Aut fuga qui. Dolor cum saepe. Sed quisquam voluptas. Est expedita sint. Odit aliquid aut. Sequi earum hic. Qui veritatis quos. Placeat voluptatem et. Velit occaecati quos. Dolore."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Health Science 468"], ["description", "Accusamus quo iusto. Veniam velit eos. Et eaque ut. Tenetur possimus est. In consequatur eius. Debitis et id. Architecto nihil enim. Reprehenderit qui earum. Cumque qui quo. Est quia ut. Cumque explicabo nihil. Labore rerum asperiores. Esse nemo laborum. ."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Psychology 541"], ["description", "Pariatur quas voluptas. Consequatur labore aut. A ut tempore. Ut a similique. Error quam corporis. Facilis laudantium quibusdam. Et officia excepturi. Nemo eveniet officiis. Vero est voluptate. Est non quidem. Mollitia nihil enim. Voluptatem ut laudantium."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Arts 168"], ["description", "Accusamus voluptas aut. Facilis qui enim. Inventore aut consequatur. Quisquam dolorem in. Repellat maxime est. Veritatis qui nulla. Eius quo soluta. In rerum nihil. Quis ducimus officia. Optio vel ea. Aut nobis et. Alias quia sit. Rem earum molestiae. Ut ."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biomedical Science 140"], ["description", "Eligendi nisi cumque. Et consequatur doloribus. Officia quis minus. Expedita aut voluptas. Quaerat eos et. Inventore modi perspiciatis. Qui rerum aut. Ipsam maxime fuga. Et quia architecto. Quaerat eos delectus. Et in aut. Nemo deleniti sunt. Quis ut anim."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Criminology 217"], ["description", "Id culpa ullam. Debitis ipsa aliquid. Veniam porro qui. Similique maxime dolorum. Eaque harum nihil. Quis ut pariatur. Ex libero temporibus. Magnam quaerat illum. Asperiores sit consequuntur. Qui similique officiis. Cum at praesentium. Eum vel modi. Ea qu."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Architectural Technology 217"], ["description", "Aliquid explicabo officiis. Commodi non quaerat. Ut voluptatum aut. Cupiditate ipsum non. Consectetur eos quia. Non consequuntur quos. Et est necessitatibus. Facilis dolores esse. Quam aspernatur voluptatem. Voluptatem quasi id. Aliquam est quisquam. Amet."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Applied Science (Psychology) 515"], ["description", "Nulla qui ut. Voluptatibus fugit ipsum. Autem non explicabo. Ab dolor sed. Ipsam omnis sunt. Hic velit dolorum. Qui minima eius. Atque non velit. Voluptate ut dolores. Necessitatibus quam dolore. Quia at voluptates. Quia aut est. Et temporibus iure. Sit m."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biomedical Science 588"], ["description", "Sed eaque nemo. Quo veniam quis. Et necessitatibus voluptate. Asperiores voluptatem ducimus. Officiis nostrum reiciendis. Quia culpa quisquam. Et voluptates et. Repellat molestiae quia. Enim perferendis labore. Dolor amet quas. Quasi veritatis incidunt. R."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Commerce 320"], ["description", "Quidem et autem. Ducimus reiciendis minima. Corporis pariatur nulla. Consequatur sint omnis. Et soluta veniam. Ipsum eveniet voluptatem. Architecto labore ut. Qui est assumenda. Animi magni voluptate. Recusandae cupiditate expedita. Omnis molestiae amet. ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Medicine 583"], ["description", "Rerum quae hic. Iure magnam aut. Ratione culpa deleniti. Dolorem eaque dolores. Quas qui sed. Praesentium omnis quae. Et sapiente incidunt. Ex quas numquam. Quia sunt necessitatibus. Consequatur itaque alias. Numquam perspiciatis voluptatem. Voluptatem ea."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 230"], ["description", "Pariatur magnam omnis. Incidunt cupiditate dolorem. Tenetur libero harum. Non consectetur non. Eum eius voluptatem. Quas dolore aut. Pariatur sunt sit. Rerum labore vero. At eveniet dolorum. Beatae consequuntur vitae. Eius voluptates fugit. Ad fugit ut. R."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Business 253"], ["description", "Architecto dolor ut. Consequatur aut eum. Praesentium labore molestiae. Recusandae sit sed. Magnam consectetur maxime. Suscipit ea voluptatibus. Deserunt explicabo similique. Veritatis nemo et. Quia nisi maiores. Qui ratione amet. Quibusdam quia perspicia."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Engineering 198"], ["description", "Atque molestiae accusamus. Ducimus qui dolore. Ut est velit. Nam nisi laborum. Dolore expedita dolores. Quae et maiores. Id iusto dolorum. Amet saepe minus. Assumenda qui earum. Sunt quia fugiat. Nihil minima omnis. Sunt maiores similique. Ullam eaque pla."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Engineering 330"], ["description", "Quis voluptas et. At fuga inventore. Suscipit itaque nulla. Doloribus et in. Aut voluptatem cum. Est voluptate iste. Quae et rem. Vitae repudiandae sit. Et est ut. Eos assumenda voluptates. Sed tempore qui. Itaque repudiandae est. Sed quia autem. Quaerat ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Psychology 255"], ["description", "Modi excepturi nihil. Ea consequuntur ut. Quis eaque unde. Excepturi perspiciatis culpa. Neque saepe provident. A maxime aut. Vitae cumque amet. Rem perspiciatis est. Aliquid ipsa natus. Sapiente voluptas asperiores. Quaerat neque enim. Ut at sed. Itaque ."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 346"], ["description", "Expedita aliquam debitis. Nisi omnis consequatur. Eum est amet. Quod itaque veritatis. Consequatur molestiae eum. Labore consequatur officiis. Cumque at velit. Dignissimos quasi qui. Quia fugiat vel. Rerum quia impedit. Illum magnam corrupti. Vel ab alias."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Commerce 368"], ["description", "Totam eos cupiditate. Commodi dolorem inventore. Sit est quidem. Aliquid qui odio. Laborum sunt qui. Dolorem dicta ducimus. Eos consequatur aliquid. Qui et rerum. Similique assumenda quo. Quam a voluptas. Est enim tempore. At atque quo. Culpa optio libero."]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Medicine 193"], ["description", "Ducimus alias autem. Dolores nihil veniam. Eos enim et. Amet corporis eligendi. Ipsa error distinctio. Qui quibusdam id. Quia aut quisquam. Voluptatum exercitationem consequatur. Et nisi reiciendis. Sunt voluptatibus qui. Voluptas in dolorem. Inventore hi."]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Psychology 261"], ["description", "Aut voluptatem inventore. Voluptatem officia tempore. Nam quia reiciendis. Esse aut sunt. Quas perspiciatis quia. Magni soluta et. Iure cum qui. Perspiciatis molestiae est. Dolores nihil velit. Dolorem ratione consequuntur. Recusandae sit nemo. Aliquid et."]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Law 168"], ["description", "Aspernatur voluptas sed. Et ea sunt. Voluptatem illo nihil. Ut quia aut. Sit perspiciatis laudantium. Officiis velit nulla. Quis sed atque. Laudantium modi eos. In et est. Temporibus nostrum eaque. Omnis distinctio nobis. Laborum qui doloribus. Illo sunt ."]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-10-13 19:01:35 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 22.9ms | ActiveRecord: 0.0ms | Allocations: 8090)
+
+
+Started GET "/students/new" for ::1 at 2020-10-13 19:01:37 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1297)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 9.5ms | ActiveRecord: 0.7ms | Allocations: 11289)
+
+
+Started POST "/students" for ::1 at 2020-10-13 19:01:49 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"69L9z9C1ZkyfMojuxM91ctU7BGORm1+fFZ20d6TE6fjc1q0PQkQzfWtO9yWggOvVYwTixoTXwJlJyRvdqUooVQ==", "student"=>{"name"=>"Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Zweifel"], ["school_email", "justinzweifel@university.com"], ["major", "Software Development"], ["password_digest", "$2a$12$7R3mM2T/bR5n6foZDMhDJef6dnTPiegopqeYmLJrAk0rANNsprm8m"], ["created_at", "2020-10-13 23:01:49.485389"], ["updated_at", "2020-10-13 23:01:49.485389"]]
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+Redirected to http://localhost:3000/students/1
+Completed 302 Found in 206ms (ActiveRecord: 1.3ms | Allocations: 3404)
+
+
+Started GET "/students/1" for ::1 at 2020-10-13 19:01:49 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 4196)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 8907)
+
+
+Started GET "/students/1/lists/new" for ::1 at 2020-10-13 19:01:53 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"1"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 133.5ms | Allocations: 208658)
+  Rendered lists/new.html.erb within layouts/application (Duration: 134.8ms | Allocations: 209072)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 166ms (Views: 158.6ms | ActiveRecord: 1.0ms | Allocations: 215748)
+
+
+Started POST "/lists" for ::1 at 2020-10-13 19:02:20 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"bZmmB/tBRfiCQNMK4/ejDXNA3rQbF2bDGy9buNlKrcWjAiM3eLPIRsc1v2DXaaWRmnpV1ThWU4z15mepmemEtg==", "list"=>{"student_id"=>"1", "course_ids"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (?, ?, ?, ?)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 1], ["created_at", "2020-10-13 23:02:20.211470"], ["updated_at", "2020-10-13 23:02:20.211470"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.2ms | Allocations: 8587)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `list_id`):
+  
+app/controllers/lists_controller.rb:13:in `create'
+Started POST "/lists" for ::1 at 2020-10-13 19:02:38 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"dQfw0CSVZ+5e0Jks1R6anv3orES40aIhqiTt0Zk8MSQDyspdBG7h8Zh6qWIlFwlg/ZEXMg/MzjzqamnnAwPsvw==", "list"=>{"student_id"=>"1", "course_ids"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (?, ?, ?, ?)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  ↳ (byebug):1:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (byebug):1:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[36mList Create (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 1], ["created_at", "2020-10-13 23:03:40.426778"], ["updated_at", "2020-10-13 23:03:40.426778"]]
+  ↳ (byebug):1:in `create'
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (byebug):1:in `create'
+  [1m[36mCourse Load (2.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" IN (?, ?, ?, ?)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4]]
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[36mList Create (1.8ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 1], ["created_at", "2020-10-13 23:09:16.068865"], ["updated_at", "2020-10-13 23:09:16.068865"]]
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 397292ms (ActiveRecord: 10.6ms | Allocations: 1371185)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `ensure in process'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "major" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar, "description" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "courses_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_courses_id" ON "lists" ("courses_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-13 23:09:42.419123"], ["updated_at", "2020-10-13 23:09:42.419123"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Law 452"], ["description", "Sunt possimus quia. Fugit in voluptatibus. Voluptates sed totam. Et blanditiis aliquam. Expedita animi maiores. Dignissimos minima corporis. Consectetur et fugiat. Molestias sapiente odit. Voluptas dolores exercitationem. Maiores nesciunt recusandae. Et v."]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Forensic Science 429"], ["description", "Iure quae aspernatur. Vero quae ex. Optio atque possimus. Excepturi vel repellat. Repellendus et commodi. Aut illum quia. Molestias consequatur dolores. Nisi et praesentium. Dolores nisi molestiae. Assumenda dolorum itaque. Reprehenderit est blanditiis. H."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Business 357"], ["description", "Nisi praesentium odio. Ea ducimus consectetur. Dolor aut rerum. Et ratione quo. Magni est quia. Aut quidem maxime. Itaque distinctio ea. Totam enim enim. Magni eum aperiam. Nemo laudantium ipsa. Alias rerum ipsum. Eius culpa facilis. Voluptas qui aliquid.."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biological Science 183"], ["description", "Iusto rem laborum. Placeat iure amet. Nemo quam molestias. Distinctio deserunt quae. Exercitationem vel dolores. Voluptatem aspernatur autem. Sed sapiente non. Expedita corporis ullam. Reprehenderit sunt fugit. Velit sint repellat. Est perferendis consequ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Information Systems 320"], ["description", "Ab iusto impedit. Corporis sit non. Modi dolores voluptatem. Explicabo beatae dolorem. Velit impedit modi. Architecto aut eaque. Nesciunt asperiores laboriosam. Et tenetur rerum. Earum sequi quis. Dicta sed debitis. Consequuntur quisquam sunt. Sit vero qu."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Medicine 543"], ["description", "Error rem vero. Quam maiores natus. Quo quod sed. In quae tenetur. Itaque aut aut. Velit laboriosam at. Qui vitae voluptas. Repellat inventore quaerat. Aperiam quia et. Pariatur earum optio. Deleniti iusto eaque. Consequatur rem aut. Quia similique sint. ."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Applied Science (Psychology) 359"], ["description", "Qui non cum. Modi vitae doloribus. Enim modi sunt. Doloribus rerum similique. Perferendis qui in. Consequatur quisquam voluptatem. Quam autem veniam. Recusandae aut aliquam. Consequatur ut voluptatem. Blanditiis ipsa architecto. Assumenda eligendi volupta."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Forensic Science 353"], ["description", "Totam minus consequuntur. Et non vero. Ea ut soluta. Et est voluptatibus. At et aperiam. Totam magni dolorem. Quas qui harum. Culpa sit distinctio. Sit dolorum illo. Enim sed cupiditate. Dolorum consectetur voluptatem. Possimus quia cum. Dolor voluptas li."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biological Science 334"], ["description", "Recusandae voluptas rerum. Totam delectus veniam. Sed veniam debitis. Est omnis et. Explicabo ipsa voluptatem. Est et sed. Est qui velit. Esse et neque. Tenetur fuga omnis. Fugit vitae repudiandae. Architecto et consequuntur. Autem ut distinctio. Voluptas."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Commerce 296"], ["description", "Officia consectetur hic. Qui ab repudiandae. Omnis omnis ad. Omnis sapiente dolores. Blanditiis numquam mollitia. Inventore sit unde. Aut omnis error. Nihil eaque et. Et autem corporis. Reiciendis dignissimos consequatur. Eveniet et modi. In eius tempora.."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Engineering 373"], ["description", "Harum dicta fugit. Est sint nihil. Explicabo modi quibusdam. Atque voluptas qui. Et et deserunt. Maxime esse dignissimos. Et eum omnis. Voluptatem repudiandae dignissimos. Tenetur quasi et. Dolor voluptatum suscipit. Eveniet vel similique. Quia laborum te."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Communications 253"], ["description", "Voluptatibus officia voluptatem. Atque velit dolor. Hic corrupti minima. Nesciunt distinctio amet. Rerum voluptates similique. Animi est dolorum. Repellendus et quia. Reprehenderit ipsam et. Autem natus aut. Quas facere cum. Blanditiis illo sed. Laudantiu."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Law 167"], ["description", "Nulla aperiam officiis. Voluptatibus iste ea. Veritatis consectetur distinctio. Quia et sunt. Asperiores sit est. Ut aspernatur quam. Enim veritatis voluptas. Inventore molestiae aperiam. Voluptas eveniet qui. Aut dicta inventore. Eos et minus. Error susc."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Education 531"], ["description", "Sit illo fugit. Nihil unde aut. Animi ullam rerum. Amet ipsum placeat. Qui ratione cumque. Tempore alias earum. Ea aut esse. Numquam magni enim. Aperiam eos aut. Ipsam aut est. Necessitatibus nemo id. Et quis architecto. Accusamus aperiam neque. Voluptas ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Communications 254"], ["description", "Blanditiis eaque doloremque. Dolorum quos aut. Nisi suscipit et. Quo velit nesciunt. Dolores quia minima. Quia ipsam harum. Ut a ratione. Doloremque corrupti facere. Excepturi quia et. Ea necessitatibus non. Saepe iusto quia. Recusandae laborum veniam. Vo."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Forensic Science 428"], ["description", "Eos voluptate ut. Fugiat corporis placeat. Doloremque velit assumenda. Minus non quos. Ea assumenda sed. Odio aperiam ratione. Rerum qui quas. Praesentium quo ea. Vitae sed tempora. Rerum commodi consequuntur. Enim iusto nulla. Ipsa molestiae eos. Nam dol."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Engineering 587"], ["description", "Veniam recusandae eaque. Possimus enim odio. Amet voluptatibus voluptas. Sit cumque doloremque. Quasi modi deleniti. Mollitia nihil labore. Perferendis nobis incidunt. Minima sit voluptate. Nihil sed nobis. Veritatis cupiditate sint. Accusantium eaque vol."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 449"], ["description", "Asperiores similique nihil. Ut cum labore. Eius aliquam aut. Qui atque distinctio. Sit corporis aperiam. Voluptatem non saepe. Labore commodi illum. Repellat nobis est. Quas repellendus illo. Non iusto architecto. Et sequi quod. Libero cum perspiciatis. F."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Forensic Science 417"], ["description", "Deleniti corrupti dolore. Sint expedita libero. Unde sit dolores. Rerum doloremque et. Voluptatem praesentium possimus. Voluptatum illum ipsam. Qui sed reiciendis. Itaque iusto molestias. Saepe qui reprehenderit. In porro qui. Sit minima non. Incidunt sed."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Teaching 517"], ["description", "Sint reprehenderit ab. Qui iusto vitae. Libero quo pariatur. Cupiditate consequatur culpa. Nisi aspernatur facilis. Et autem consequuntur. Ipsam omnis deserunt. Aut ut et. Dolore aperiam et. Sed incidunt sint. Repudiandae in et. Architecto laboriosam ut. ."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Education 458"], ["description", "Qui quia quae. Tenetur dolorem perferendis. Pariatur sunt fugiat. Ut rerum corrupti. Atque sint saepe. Omnis et soluta. Voluptatem fugiat et. Corrupti nostrum est. Consequuntur sit et. Est ea odit. Libero sunt ab. Itaque dolorem inventore. Totam dolorem i."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 445"], ["description", "Voluptas facilis non. Eius illum et. Est libero quia. Vel tenetur debitis. Nam doloremque ipsa. Fuga cum aliquid. Quibusdam eum assumenda. Aspernatur assumenda et. Id ratione odio. Non soluta animi. Sunt eos rerum. Reprehenderit est ea. Voluptas consequat."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Communications 420"], ["description", "Minima consequatur nisi. Velit omnis sunt. Et occaecati voluptas. Dolor libero omnis. Dolor eveniet sapiente. Corrupti pariatur veniam. Dolor fuga eveniet. Et beatae modi. Neque placeat omnis. Asperiores autem provident. Voluptate nostrum ullam. Quo place."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Information Systems 181"], ["description", "Unde et repudiandae. Dolorum eveniet quibusdam. Unde laboriosam hic. Atque odit distinctio. Et non et. Quis et itaque. Inventore voluptatem culpa. Delectus est in. Ut maxime adipisci. Numquam id voluptatum. Voluptas eos praesentium. Vitae adipisci nostrum."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 297"], ["description", "Deleniti aliquam tempore. Dolores ut quia. Ut et sunt. Velit repellat sit. Rerum qui eum. Sint placeat alias. Tempora ipsa quia. Illo fugit eos. Perspiciatis temporibus nam. Autem sapiente est. Maxime cum sit. Ea et cupiditate. Impedit sint nobis. Iste di."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Arts 165"], ["description", "Dolor vel et. Et dolores nesciunt. Itaque cumque libero. Tenetur consequuntur architecto. Aut tempora velit. Ducimus consequuntur sint. Qui vel et. Quia tempore vero. Amet molestiae atque. Placeat et neque. Reiciendis et corrupti. Qui dignissimos dolor. Q."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Engineering 446"], ["description", "Fugiat libero non. Commodi dolorem voluptatem. Dolore recusandae eos. Atque quaerat vero. Id quia voluptatum. Laborum suscipit sequi. Aut tenetur a. Iste et voluptatem. Quasi voluptatem vel. Rem sequi totam. Reprehenderit inventore vel. Ea dignissimos fac."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biomedical Science 287"], ["description", "Voluptates fuga ut. Dolor voluptate accusamus. Sint iure saepe. Soluta minus quia. Est porro labore. Quasi voluptatem neque. Minus quam dolor. Omnis ipsa commodi. Rem alias iure. Et voluptatem qui. Iure molestiae neque. Autem et atque. Accusamus laudantiu."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Engineering 469"], ["description", "Distinctio error ut. Molestias qui ut. Harum sed veniam. Voluptatem est omnis. Pariatur omnis praesentium. Fuga repellat quia. Voluptas accusamus labore. Natus deleniti at. Ipsum enim et. Ut sit qui. Velit sapiente corrupti. Rerum sunt culpa. Saepe perfer."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biomedical Science 291"], ["description", "Tempore sit quisquam. Magnam iusto in. Aut libero eum. Corrupti ut corporis. Eum illo qui. Nesciunt quidem modi. Eos dolore eaque. Est eligendi quod. Consequuntur sapiente in. Quia natus vel. Commodi nesciunt in. Ut officia qui. Fugit voluptate optio. Et ."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Health Science 537"], ["description", "Aut quod voluptas. Quis ratione voluptatem. Eaque inventore dicta. Saepe totam ut. Adipisci excepturi sequi. Id necessitatibus perspiciatis. Inventore earum omnis. Voluptas quae ab. Odit velit tenetur. Quaerat quibusdam eum. Quidem eum tenetur. Ratione ma."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Design 552"], ["description", "Optio in enim. Porro rerum consequatur. Facere consequatur sunt. Repudiandae quam omnis. Et necessitatibus deleniti. Qui quia et. Et sunt illum. Suscipit recusandae consequatur. Vel voluptatem similique. Sunt voluptatem esse. Iusto nam illo. Consequatur e."]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Design 357"], ["description", "Quo id quo. Temporibus ratione corrupti. Magni ut ut. Maiores eum dolor. Iure natus inventore. Quis unde molestiae. Quia atque rerum. Quisquam provident incidunt. Ratione hic facere. Voluptas qui adipisci. Vel vitae fugiat. Sint non quam. Quis aut explica."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Criminology 312"], ["description", "Et velit autem. Numquam est dolore. Debitis iste error. Recusandae adipisci nulla. Qui aliquid quod. Aut reprehenderit quia. Aut laborum eos. Dolor et sint. Sint eum quo. Omnis consectetur fuga. Consequatur minus at. Fugiat excepturi suscipit. Ad quia ali."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Biological Science 435"], ["description", "Qui earum est. Vitae possimus ipsum. Dolores repellat qui. Quia ea facere. Quos dolorem et. Rerum ut rerum. Sed tempore aut. Ut totam dolor. Sint nisi molestiae. Non sint et. Consequatur sunt nam. Aut ut harum. Et dolore est. Eaque quo laboriosam. Neque m."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Medicine 170"], ["description", "Occaecati quia quisquam. Sint omnis qui. Maxime adipisci similique. Pariatur doloremque cupiditate. Praesentium sunt maiores. Exercitationem eos ipsam. Voluptas dolore reiciendis. Est ipsa dolorem. Ut aliquid libero. Aut et amet. Consequatur eligendi dolo."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Architectural Technology 587"], ["description", "Sit aperiam esse. Vel aliquid quo. Et facere ut. Autem et eligendi. Nihil culpa totam. Vel sit occaecati. Harum maxime est. Tempore et provident. Nisi earum cupiditate. Corporis quod laborum. Ipsam vero perferendis. Assumenda qui eaque. Et quaerat illo. V."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 551"], ["description", "Ea ad molestiae. Aliquam et rerum. Ut laborum qui. Nostrum sunt accusantium. Autem distinctio accusantium. Sit vitae nisi. Et aut perferendis. Enim deleniti facilis. Ut magni et. Voluptatem vero dolor. Expedita eaque inventore. Ut et veritatis. Quas ut eo."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Information Systems 498"], ["description", "Architecto alias fugit. Omnis quis impedit. Molestiae ipsa quis. Tempora omnis numquam. Vitae nihil aperiam. Et rerum vitae. Quasi voluptate ad. Aut praesentium eos. Eius qui corporis. Tenetur et harum. Atque consequatur qui. Sed nobis expedita. Expedita ."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("course_name", "description") VALUES (?, ?)[0m  [["course_name", "Creative Arts 588"], ["description", "Officia eum non. Atque minima voluptatibus. Debitis dolores amet. Aut est autem. Possimus ipsum reiciendis. Ipsum autem harum. Maiores qui molestias. Non officia eaque. Tempore vero alias. A impedit delectus. Eligendi dolorum facere. Repellendus doloribus."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-10-13 19:11:45 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 7959)
+
+
+Started GET "/students/new" for ::1 at 2020-10-13 19:11:46 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1292)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 9.4ms | ActiveRecord: 0.5ms | Allocations: 11271)
+
+
+Started POST "/students" for ::1 at 2020-10-13 19:11:58 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"pbYOJc5yOrt5BHZJKN0t6Fg1NuzoxlOzoWWYbe7dBTiSsl7lXINvio14CYJMkrNP7grQSf2KzLX9MTfH41PElQ==", "student"=>{"name"=>"Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Zweifel"], ["school_email", "justinzweifel@university.com"], ["major", "Software Development"], ["password_digest", "$2a$12$joE8CliNwM7RqYlD4VAC0OVC0JEVSHpa9FtpqZ1F9vvfNUcINdWIO"], ["created_at", "2020-10-13 23:11:58.733442"], ["updated_at", "2020-10-13 23:11:58.733442"]]
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+Redirected to http://localhost:3000/students/1
+Completed 302 Found in 210ms (ActiveRecord: 1.2ms | Allocations: 3394)
+
+
+Started GET "/students/1" for ::1 at 2020-10-13 19:11:58 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 8.2ms | Allocations: 4199)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.5ms | Allocations: 8904)
+
+
+Started GET "/students/1/lists/new" for ::1 at 2020-10-13 19:12:00 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"1"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 151.7ms | Allocations: 207116)
+  Rendered lists/new.html.erb within layouts/application (Duration: 152.8ms | Allocations: 207530)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 166ms (Views: 157.9ms | ActiveRecord: 1.0ms | Allocations: 214256)
+
+
+Started POST "/lists" for ::1 at 2020-10-13 19:12:05 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"9EHKRCGHGXzVq/+hm94Y5q5badtReYicUARIKrCy1tE62k90onWUwpDek8uvQB56R2HiunI4vdO+zXQ78BH/og==", "list"=>{"student_id"=>"1", "courses_id"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[36mList Create (0.9ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 1], ["created_at", "2020-10-13 23:12:40.735932"], ["updated_at", "2020-10-13 23:12:40.735932"]]
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+Redirected to http://localhost:3000/students/1
+Completed 302 Found in 35039ms (ActiveRecord: 3.1ms | Allocations: 1175171)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `call'
+Started POST "/lists" for ::1 at 2020-10-13 19:13:17 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"bjexZ7gfXbJXkelV2is7XgItAMf1XBEUfRAGIflnly0Y+ovqmOTbrZE72RsqIqigAlS7sUJBfQk9XoIXY1hKtg==", "list"=>{"student_id"=>"1", "courses_id"=>["", "1", "2", "3", "4"]}, "commit"=>"Create List"}
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[36mList Create (1.2ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["student_id", 1], ["created_at", "2020-10-13 23:13:19.075043"], ["updated_at", "2020-10-13 23:13:19.075043"]]
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:14:in `create'
+Redirected to http://localhost:3000/students/1
+Completed 302 Found in 289ms (ActiveRecord: 16.2ms | Allocations: 3442795)
+
+
+Started GET "/students/1" for ::1 at 2020-10-13 19:13:19 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (1.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  Rendered students/show.html.erb within layouts/application (Duration: 48.7ms | Allocations: 589168)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 137ms (Views: 107.4ms | ActiveRecord: 2.4ms | Allocations: 1620062)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "school_email" varchar, "major" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar, "description" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_student_id" ON "lists" ("student_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-13 23:22:54.112204"], ["updated_at", "2020-10-13 23:22:54.112204"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/" for ::1 at 2020-10-14 04:11:56 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 25.7ms | ActiveRecord: 0.0ms | Allocations: 8016)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-14 04:12:03 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"6ZQH7nwISedYao5jMOr00Fv64LRnBiZEqmM/2MdnzV+fWT1jXPPP+J7Avi3A42cuW4NbwtAbSlnqLbvuXVgQxA==", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."school_email" = ? LIMIT ?[0m  [["school_email", "justinzweifel@university.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Completed 403 Forbidden in 11ms (ActiveRecord: 0.8ms | Allocations: 3460)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-10-14 04:12:48 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 27.8ms | ActiveRecord: 0.0ms | Allocations: 8287)
+
+
+Started GET "/students/new" for ::1 at 2020-10-14 04:12:51 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1297)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 10.7ms | ActiveRecord: 0.6ms | Allocations: 11439)
+
+
+Started POST "/students" for ::1 at 2020-10-14 04:13:05 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"bvxrual3LyCZOcn7A1+Q+Qs9jTwFjz1ZISQ244PG1XlZ+Dt5O4Z6EW1FtjBnEA5evQJrmRDDol99cJlJjkgU1A==", "student"=>{"name"=>"Zweifel", "school_email"=>"justinzweifel@university.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "major"=>"Software Development"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[36mStudent Create (1.1ms)[0m  [1m[32mINSERT INTO "students" ("name", "school_email", "major", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Zweifel"], ["school_email", "justinzweifel@university.com"], ["major", "Software Development"], ["password_digest", "$2a$12$83efnJAq4SGX30aH8eEa8.pfXD61w.aweVBg1EuZ84FA5PRlWSnMK"], ["created_at", "2020-10-14 08:13:05.280162"], ["updated_at", "2020-10-14 08:13:05.280162"]]
+  ↳ app/controllers/students_controller.rb:12:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:12:in `create'
+Redirected to http://localhost:3000/students/1
+Completed 302 Found in 204ms (ActiveRecord: 1.9ms | Allocations: 3469)
+
+
+Started GET "/students/1" for ::1 at 2020-10-14 04:13:05 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:4:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3690)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 5243)
+
+
+  
+ActionView::Template::Error (undefined method `list' for #<Student:0x00007f939891e4b0>
+Did you mean?  lists):
+    1: <%= link_to "Log Out", root_path %>
+    2: <h2>Welcome, <%= @student.name %></h2>
+    3: <% if @student.list == nil %>
+    4:   <h4>It does not appear that you have any scheduled classes</h4>
+    5: <% else %>
+    6:   <h4>Your Class List</h4>
+  
+app/views/students/show.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudents (20201008095934)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "major" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095934"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20201008095952)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201008095952"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLists (20201012100507)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201012100507"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-14 12:09:11.275865"], ["updated_at", "2020-10-14 12:09:11.275865"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Biomedical Science 220"], ["description", "Et mollitia consectetur. Id impedit et. Et laudantium distinctio. Eos in dolorem. Recusandae sit totam. Aut et consectetur. Fuga ex cum. Porro veniam voluptas. Id velit consequatur. Facere est cum. Repellendus consequatur vel. Qui cumque aliquam. Quod pos."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Design 598"], ["description", "Ut nobis incidunt. Tempore assumenda sed. Ipsa numquam nemo. Voluptates itaque facere. Et rerum natus. Tempore velit ut. Porro quod beatae. Et quis blanditiis. Quo voluptatem dolor. Enim aut qui. Deleniti architecto nemo. Natus corporis quibusdam. Debitis."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Business 419"], ["description", "Omnis sunt quia. Est debitis eum. Est saepe debitis. Omnis exercitationem doloremque. Corrupti illo vitae. Ut corrupti esse. Itaque facilis molestias. Itaque aut in. Repellat corporis hic. Nobis sed sed. Eveniet ut ut. Voluptas neque qui. Modi aliquam dol."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Business 152"], ["description", "Voluptatem aut dolorem. Voluptate ab quas. Repellendus minus quasi. Voluptas corporis quia. Deserunt dolores dignissimos. Voluptatibus et quia. Dolores qui voluptatum. Corrupti reiciendis exercitationem. Ipsam nemo et. Architecto sapiente ullam. Impedit q."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Engineering 178"], ["description", "Ex sapiente temporibus. Reiciendis eius et. Delectus vitae cupiditate. Totam est non. Omnis id vero. Impedit voluptatem quas. Sunt sint error. Omnis numquam minus. Libero occaecati sit. Qui inventore et. Ipsa harum dolore. Accusamus molestiae doloribus. O."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Engineering 267"], ["description", "Veritatis corporis est. Perferendis veritatis iusto. Autem architecto ut. Reiciendis explicabo quo. Molestiae sequi autem. Ad illo a. Deleniti repellat excepturi. Aspernatur enim quisquam. Est qui sunt. Praesentium nam est. Voluptas qui dolores. Sint rem ."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Forensic Science 419"], ["description", "Eum sunt animi. Aut impedit corporis. Aut sunt odio. Enim laudantium ad. Reprehenderit et quia. Est consequatur facere. Doloribus velit maiores. Et voluptatem commodi. Quisquam velit itaque. Dolor dolorum ut. Consequatur aspernatur sit. Sequi sed nihil. E."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Psychology 447"], ["description", "Quis in aperiam. Sint labore enim. Optio blanditiis sit. Commodi reprehenderit distinctio. Distinctio impedit numquam. Perspiciatis ut repellat. Rerum aut sequi. Labore cumque accusamus. Incidunt rem fugit. Illum rerum enim. Temporibus laudantium quas. Vo."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Biological Science 460"], ["description", "Provident blanditiis quam. Natus odit quaerat. Voluptatem illum autem. Impedit deleniti debitis. Nemo autem nam. Explicabo et voluptas. Natus expedita architecto. Unde non soluta. Nulla itaque sit. Aspernatur sit dicta. Neque dolor quidem. Amet reprehende."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Communications 531"], ["description", "Officia molestias illo. Aperiam accusamus autem. Modi quia necessitatibus. Qui eum aliquid. Nesciunt ex enim. Suscipit cum quis. Et dignissimos voluptatem. Aut ut incidunt. Unde id quos. Doloremque voluptatem aut. Repellendus aut aliquam. Ea quo quos. Cum."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Computer Science 128"], ["description", "Rerum est cupiditate. Repellendus est et. Nihil est numquam. Cupiditate doloribus sint. Fugiat non et. Exercitationem libero veritatis. Qui labore saepe. Nihil consectetur autem. Sit veniam ut. Excepturi odio optio. Vero et debitis. Accusantium dignissimo."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Information Systems 310"], ["description", "Fugit iste reprehenderit. Velit impedit sapiente. Nesciunt quibusdam voluptatem. Cum ab voluptatem. Aliquid beatae sapiente. Qui cum suscipit. Accusamus harum ipsa. Pariatur et iste. Eveniet et accusantium. Error rerum velit. Sint ipsum eveniet. Consectet."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Creative Arts 235"], ["description", "Sint et cumque. Perspiciatis deserunt quidem. Consequatur vitae libero. A consequatur mollitia. Aut doloremque aliquid. Tenetur ut quis. Sapiente aut a. Commodi ullam consequatur. Pariatur ipsa ea. Harum soluta possimus. Quae ipsam aut. Natus aut est. Qua."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Law 149"], ["description", "Eos qui quam. Inventore amet aut. Aperiam qui in. Optio deleniti qui. Dolorem qui veniam. Dolorem tenetur dolor. Est occaecati omnis. Dolor distinctio quia. Repellendus at expedita. Nam voluptatibus pariatur. Aut officia laudantium. Error culpa tempora. V."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Nursing 238"], ["description", "Libero vitae enim. Minima atque voluptate. Ut sit dolorem. Est qui amet. Quidem ullam aut. Recusandae distinctio facilis. Voluptas ut quibusdam. Occaecati odio et. Nemo veritatis adipisci. Voluptatibus aliquam et. Quia molestiae eum. Odit cum quisquam. Ex."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Design 274"], ["description", "Voluptatibus aut explicabo. Est doloribus eius. Consequatur illo nesciunt. Animi beatae aperiam. Et possimus deleniti. Exercitationem facere repudiandae. Itaque libero magnam. Repellat reprehenderit quia. Est dolor tenetur. Veniam quis consectetur. Minus ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Information Systems 453"], ["description", "Nihil veritatis nostrum. Aspernatur ducimus omnis. Quasi omnis similique. Qui sed reiciendis. Quas ut consequuntur. Quisquam reprehenderit facere. Molestiae nisi laborum. Modi dolore debitis. Maxime sed provident. Ducimus hic eveniet. Accusantium harum eo."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Biological Science 281"], ["description", "Ab vero magni. Ut et voluptas. Id numquam et. Magni ipsum unde. Aut omnis maiores. Provident aspernatur perferendis. Aliquam veniam praesentium. Occaecati quos tempora. Saepe aut ut. Est aut enim. Aut et dolores. Quam adipisci quas. Omnis placeat in. Nesc."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Architectural Technology 353"], ["description", "Voluptatem soluta non. Maiores consectetur quo. Aut ratione est. Fuga praesentium rem. Et fuga aut. Eligendi sunt error. Omnis id tenetur. Ut et assumenda. Repudiandae ipsa sequi. Qui optio velit. Amet assumenda hic. Odit voluptatem voluptas. Molestiae au."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Forensic Science 372"], ["description", "Quod est quia. Eos reiciendis cum. Asperiores deleniti neque. Nostrum expedita et. At maiores et. Nemo et blanditiis. Officiis ipsam ad. Consequatur consectetur nihil. Animi debitis ut. Sunt exercitationem voluptas. Et quidem ducimus. Ducimus mollitia fac."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Creative Arts 383"], ["description", "Eius ut neque. Veniam quod enim. Architecto sed expedita. Sit earum dolorem. Qui deleniti qui. Beatae aliquam et. Maiores cum itaque. Ad maiores ut. Velit alias tempora. Sed incidunt at. Et distinctio voluptates. Quas iusto quod. Rerum vel harum. Eum expe."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Biological Science 355"], ["description", "Odio a unde. Voluptas eum incidunt. Et harum in. Deserunt incidunt et. Aliquid soluta voluptatem. Qui nobis eum. Vel officia earum. Quis debitis facere. Occaecati quod eaque. Quidem ea qui. Consequatur voluptas voluptatibus. Velit id dolores. Facilis aper."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Arts 417"], ["description", "Esse rem rerum. Nam consectetur sed. Quod ea ipsum. Sint rerum architecto. Possimus aliquam consectetur. Aut eos vel. Id molestiae alias. Maxime officiis excepturi. Aspernatur occaecati rem. Aut et dolores. Rerum similique nulla. Ullam et sunt. Repellat e."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Engineering 378"], ["description", "Perspiciatis alias quia. Sed rem quam. Qui dolor illum. Sint ut optio. Voluptatem voluptatem eveniet. Adipisci iste aut. Officia et aut. Minus delectus corporis. Reiciendis voluptatem consequuntur. Quo qui enim. Eum omnis atque. Excepturi et necessitatibu."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Information Systems 221"], ["description", "Est voluptatem rerum. Assumenda et omnis. Et impedit corporis. Rerum sed ea. Fuga animi temporibus. Possimus aut odit. In aut natus. Nobis doloremque et. Expedita voluptates quia. Est quia repellat. Fugiat voluptate error. Similique dignissimos repellendu."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Education 145"], ["description", "Mollitia ratione occaecati. Non itaque reprehenderit. Quia sequi vitae. Minima vero ipsum. Quisquam iusto quia. Quam corrupti rerum. Nihil dignissimos ducimus. Possimus quo ab. Libero voluptatibus non. Eius voluptatibus praesentium. Iste et nobis. Quis do."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Criminology 219"], ["description", "Delectus qui quisquam. Sed similique ullam. Et rem quia. Totam consequatur molestiae. Delectus qui facere. Accusamus ad incidunt. Animi aut quo. Occaecati velit ducimus. Sed beatae tempore. Est officiis eum. Fugiat repellendus architecto. Dignissimos labo."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Forensic Science 485"], ["description", "Et eos quia. Minus assumenda autem. Nostrum eos beatae. Libero eum ad. Voluptatem eligendi laborum. Laborum repellendus nostrum. Adipisci sed error. Minus voluptates commodi. Voluptatem ex voluptatibus. Laboriosam ut minima. Debitis reprehenderit velit. N."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Forensic Science 397"], ["description", "Consequatur rem eum. Quis provident quam. Officia sint est. Consequatur quis veniam. Commodi nihil maiores. Dolore nostrum amet. Vitae nisi ad. Vitae omnis esse. Illo corrupti vero. Ipsum molestiae neque. Dignissimos perferendis quod. Officiis est omnis. ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Nursing 490"], ["description", "Excepturi eveniet tenetur. Eos sunt quo. Quidem aliquid inventore. Et et nostrum. Tenetur ipsum dolore. Aut deleniti enim. Ducimus qui voluptatum. Nihil laborum pariatur. Nam facilis quo. Molestias fugiat eos. Velit non aut. Non explicabo omnis. Sed hic e."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Communications 235"], ["description", "Tenetur commodi quas. Possimus omnis quis. Rerum quis dolores. Dolorem cum consequatur. Ad ullam quasi. Necessitatibus deleniti earum. Ea ut id. Soluta aut incidunt. Quisquam iusto quas. Perferendis porro et. Quo ut autem. Tenetur sint esse. Ex iusto atqu."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Forensic Science 513"], ["description", "Eius atque quia. Iure quod eos. Fugit corporis nesciunt. Corrupti voluptas dolores. Harum aut maxime. Dolores dignissimos consequatur. Mollitia ut dignissimos. Neque aut quia. Molestias alias beatae. Dolorem maiores qui. Qui non consequatur. Illum autem u."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Architectural Technology 334"], ["description", "Qui sapiente corrupti. Magni veniam id. Nobis rem dolorum. Voluptatem porro asperiores. Minima repellendus dignissimos. Autem dolor perferendis. Nisi qui aliquam. Omnis et explicabo. Illo quo numquam. Qui quis cumque. Voluptatum est non. Nobis qui volupta."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Applied Science (Psychology) 389"], ["description", "Rem nam eos. Nisi modi ut. Eaque explicabo iusto. Ut ut et. Et nesciunt molestias. Unde modi et. Magni quasi blanditiis. Voluptas unde sed. Et soluta ut. Aliquam aperiam rerum. Quia nihil ducimus. Unde molestias et. Dolorem facere ut. Expedita delectus qu."]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Psychology 110"], ["description", "Est optio nihil. Qui excepturi nesciunt. Et aspernatur in. Vitae dolorum inventore. Sit vel possimus. Sit praesentium numquam. Ut dignissimos minus. Repellat voluptatum optio. Dolorem qui consequatur. Aut qui pariatur. Et veritatis ea. Ut sed repudiandae.."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Computer Science 130"], ["description", "Eos iure libero. Iste perspiciatis expedita. Eum quis et. Et commodi itaque. Voluptatibus expedita cupiditate. Quibusdam officiis placeat. Dolores quidem sit. Labore quia voluptas. Aut voluptatem sit. Soluta vel omnis. Unde asperiores tempora. Dolorum nis."]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Arts 272"], ["description", "Autem aliquid iure. Temporibus atque eius. Sint consequatur ipsam. Quis voluptatum non. Et est ab. Explicabo inventore voluptas. Quasi maiores odio. Aut ex aut. Et autem dolore. Id quis reprehenderit. Quo ex facilis. Et aspernatur quos. Laudantium quia at."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Biological Science 250"], ["description", "Itaque eum est. Rem nam ducimus. Eum sed et. Velit molestias accusamus. Dolorem est sed. Repellat aliquid sed. Eveniet blanditiis unde. Libero dolor ab. Quia aliquid illum. Fugiat tempore nam. Quibusdam unde perferendis. Autem architecto enim. Laudantium ."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Law 584"], ["description", "Vel quis et. Nam non dignissimos. Ipsa aut sit. Fugit voluptas eveniet. Non debitis sunt. A voluptates praesentium. Exercitationem et sed. Laudantium error vel. Blanditiis quidem molestiae. Consequatur nam repudiandae. Aut ipsum et. Error in quasi. Vero a."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Creative Arts 163"], ["description", "Quasi maiores voluptas. Sint et rem. Dolorem quia dignissimos. Consectetur est velit. Mollitia magni harum. Ut id et. Deleniti hic veritatis. Ducimus iste quidem. Sit eveniet distinctio. Possimus incidunt officia. Distinctio magni dolor. Officiis iure ali."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Business 199"], ["description", "Dicta minima possimus. Nihil est qui. Similique quo voluptatum. Nobis voluptatem reprehenderit. Aliquam nihil reiciendis. Culpa a minus. Dolor et et. Earum quisquam dolores. Officiis id explicabo. Incidunt qui ab. Voluptates doloremque aut. Veritatis omni."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Communications 311"], ["description", "Ipsa ipsum sequi. Porro facere est. Rerum debitis voluptatum. Sit ipsam aspernatur. Reiciendis magnam ut. Labore ea quibusdam. Suscipit expedita tenetur. Deserunt velit vel. Necessitatibus nemo velit. Adipisci a rerum. Et qui quo. Est exercitationem qui. ."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Commerce 334"], ["description", "Ea quidem aliquam. Enim nostrum odio. Deserunt perspiciatis recusandae. Cum officia fuga. Repellat saepe ea. Fuga rem eius. Nihil nemo consectetur. Blanditiis eos eaque. Error quas non. Ducimus porro doloremque. Deserunt et inventore. Est velit nam. Sint ."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Arts 237"], ["description", "Consequatur itaque rerum. Dolorem vel eligendi. Repellendus qui ab. Enim officiis sint. Consectetur et nostrum. Iste aliquid quisquam. Numquam aspernatur repellat. Qui velit et. Ea pariatur amet. Modi aspernatur atque. Ut eos ex. Voluptas animi et. Conseq."]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Business 345"], ["description", "Sed quia ut. Alias illum natus. Ut natus provident. Nulla officiis laboriosam. Et mollitia officia. Voluptatem ipsum ut. Nostrum provident tempora. Qui doloremque corrupti. Veritatis similique unde. At neque tempora. Aperiam ut et. Exercitationem assumend."]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Law 421"], ["description", "Voluptas et tempora. Incidunt laudantium nam. Sed neque excepturi. Illo illum ut. Placeat dolor facilis. Qui assumenda aliquid. Nisi blanditiis aut. Deserunt hic quidem. Minus aliquid nihil. Quia rerum omnis. Illo sed fuga. Sit in ea. Atque sint eaque. Do."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Architectural Technology 229"], ["description", "Et sit expedita. Aut quasi animi. Voluptas cupiditate est. Consequatur aspernatur ducimus. Consequatur quibusdam corporis. Tenetur et voluptatem. Vel iure quaerat. Et facilis omnis. Non optio vel. Veniam eos exercitationem. Natus ut officia. Possimus impe."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Engineering 149"], ["description", "Suscipit possimus in. Voluptatum porro ratione. Pariatur sed dolore. Incidunt autem atque. Fuga ipsum nulla. Eveniet id dolorem. Ut iusto quibusdam. Voluptas fugiat vel. Explicabo quam tempora. Deserunt veniam aut. Nisi quo eius. Quas in quidem. Culpa nos."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Psychology 530"], ["description", "Consequuntur itaque nesciunt. Quia numquam nam. Earum ut qui. Incidunt qui sapiente. Eaque aliquam omnis. Unde enim et. Explicabo consectetur quis. Accusamus distinctio impedit. Adipisci et deleniti. Numquam assumenda aut. Voluptas asperiores molestiae. M."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO "courses" ("name", "description") VALUES (?, ?)[0m  [["name", "Communications 152"], ["description", "Quis et velit. Aliquid blanditiis nihil. Perferendis non quos. Aperiam quia cumque. Saepe nostrum labore. Nulla rerum quis. Saepe quibusdam neque. Occaecati consequatur sit. Error labore quia. Et animi ducimus. Corporis repudiandae earum. Saepe sint expli."]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]

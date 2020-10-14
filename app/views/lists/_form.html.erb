@@ -2,7 +2,7 @@
   <%= f.hidden_field :student_id, value: @student %>
   <label>Choose Classes</label><br>
   <%= fields_for :list do |x| %>
-    <%= x.collection_check_boxes(:course_ids, Course.all, :id, :course_name) %><br>
+    <%= x.collection_check_boxes(:course_id, Course.all, :id, :name) %><br>
   <% end %>
   <%= f.submit %>
 <% end %>

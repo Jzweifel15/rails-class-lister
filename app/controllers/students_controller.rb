@@ -1,6 +1,9 @@
 class StudentsController < ApplicationController
 
-  def show 
+  def index
+  end
+
+  def show
     @student = Student.find(params[:id])
   end
 
@@ -10,24 +13,18 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create(student_params)
+
     if @student.save
-      session[:user_id] = @student.id
-      redirect_to student_path(@student)
-    else
-      redirect_to new_student_path, alert: "Something went wrong. Make sure all fields are filled out correctly."
+      session[:user_id] = @student.id 
+      redirect_to student_path(@student)  
     end
+
   end
 
-  def destroy
-    session.clear 
-    redirect_to '/'
-  end
-
-  private 
+  private
 
   def student_params
-    params.require(:student).permit(:name, :school_email, :password, :password_confirmation, :major)
+    params.require(:student).permit(:name, :major, :email, :password, :password_confirmation)
   end
-
 
 end

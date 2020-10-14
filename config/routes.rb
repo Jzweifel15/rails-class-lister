@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :lists
 
-  resources :students, only: [:show] do
+  resources :students, only: [:show] do 
     resources :lists
   end
 

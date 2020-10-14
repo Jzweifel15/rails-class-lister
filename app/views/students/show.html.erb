@@ -9,13 +9,18 @@
       <tr>
         <td><strong>Class Name</strong></td>
       </tr>
-      <tr><td><%= @student.list.inspect %></td></tr>
+      <% student_courses(@student).each do |course| %>
+        <tr>
+          <td><%= link_to course.name %></td>
+          <td><%= link_to "Delete From List" %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 <% end %>
 <div>
-  <% if !@student.list %>
-    <%= link_to "Create a Class List",  new_student_list_path(@student) %>
+  <% if @student.list == nil %>
+    <%= link_to "Create a Class List", new_student_list_path(@student.id) %>
   <% end %>
   <%= link_to "Edit Class List" %>
 </div>

@@ -1,6 +1,6 @@
 class List < ApplicationRecord
-  has_many :courses
   belongs_to :student
+  has_many :courses
 
   #validates :courses_id, presence: true
 

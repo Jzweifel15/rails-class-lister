@@ -10,9 +10,4 @@ class SessionsController < ApplicationController
     redirect_to student_path(@student)
   end
 
-  def destroy
-    session.clear 
-    redirect_to '/'
-  end
-
 end

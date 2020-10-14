@@ -13,31 +13,21 @@
 ActiveRecord::Schema.define(version: 2020_10_12_100507) do
 
   create_table "courses", force: :cascade do |t|
-    t.string "course_name"
+    t.string "name"
     t.string "description"
   end
 
   create_table "lists", force: :cascade do |t|
     t.integer "student_id"
-    t.string "course_ids"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_lists_on_student_id"
-  end
-
-  create_table "professors", force: :cascade do |t|
-    t.string "name"
-    t.string "school_email"
-    t.string "department"
-    t.string "password_digest"
+    t.string "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.string "school_email"
     t.string "major"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
