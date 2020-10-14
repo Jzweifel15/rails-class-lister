@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :lists
 
+  resources :courses, only: [:index, :show]
+
   resources :students, only: [:show] do 
     resources :lists
   end

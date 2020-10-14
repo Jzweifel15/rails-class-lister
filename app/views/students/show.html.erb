@@ -11,7 +11,7 @@
       </tr>
       <% student_courses(@student).each do |course| %>
         <tr>
-          <td><%= link_to course.name %></td>
+          <td><%= link_to course.name, course_path(course.id) %></td>
           <td><%= link_to "Delete From List" %></td>
         </tr>
       <% end %>
