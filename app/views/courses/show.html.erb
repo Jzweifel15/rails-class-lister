@@ -1,4 +1,4 @@
 <h2>More Info about <%= @course.name %></h2>
 <h4>Description</h4>
 <p><%= @course.description %></p>
-<%= link_to "Back", student_path(session[:user_id]) %>
+<button class="link-btn"><%= link_to "Back", student_path(session[:user_id]) %></button>

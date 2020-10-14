@@ -1,4 +1,6 @@
-<%= link_to "Cancel", student_path(session[:user_id]) %><br>
+<button class="link-btn">
+  <%= link_to "Cancel", student_path(session[:user_id]) %><br>
+</button>
 <% flash.each do |type, msg| %>
   <div class="error-message">
     <%= msg %>

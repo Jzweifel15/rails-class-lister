@@ -18,9 +18,11 @@
     </tbody>
   </table>
 <% end %>
-<div>
-  <% if @student.list == nil %>
-    <%= link_to "Create a Class List", new_student_list_path(@student.id) %>
-  <% end %>
-  <%= link_to "Edit Class List" %>
+<div class="link-btns-container">
+<% if @student.list == nil %>
+  <button class="link-btn"><%= link_to "Create a Class List", new_student_list_path(@student.id) %></button>
+<% else %>
+  <button class="link-btn"><%= link_to "Edit Class List", edit_student_list_path(@student.list) %></button>
+  <button class="link-btn"><%= link_to "Delete Class List", lists_path(@student.list), method: :delete, data: { confirm: 'Are you sure you would like to delete your current class list?' } %></button>
+<% end %>
 </div>
