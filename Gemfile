@@ -30,6 +30,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+# OmniAuth Multiple Authentication 
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+
+# Ensures our ENV variables are correctly loaded in the ENV hash in a secure manner
+gem 'dotenv-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
