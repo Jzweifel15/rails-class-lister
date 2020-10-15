@@ -21459,3 +21459,2657 @@ Processing by ListsController#edit as HTML
 Completed 200 OK in 421ms (Views: 383.7ms | ActiveRecord: 6.5ms | Allocations: 4847449)
 
 
+Started GET "/" for ::1 at 2020-10-15 12:26:06 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1187)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 36.2ms | ActiveRecord: 0.0ms | Allocations: 8028)
+
+
+Started GET "/rails/routes" for ::1 at 2020-10-15 12:26:14 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/rails/routes"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/sessions?method=post" for ::1 at 2020-10-15 12:26:28 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UFAOUflmPFGF8xnzw5r2PzcWElK6X95hNG369CEAlu0mnTTc2Z26TkNZKb0zk2XBN2+pJA1Csnx0I37Cuz9Ldg==", "email"=>"zweifel@university.edu", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "zweifel@university.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 221ms (ActiveRecord: 1.3ms | Allocations: 7213)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:26:28 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  [1m[36mCourse Load (0.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 34.0ms | Allocations: 12639)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 38.1ms | ActiveRecord: 3.0ms | Allocations: 17568)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:27:01 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:46:in `set_list'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1279)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:46:in `set_list'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/students/4" for ::1 at 2020-10-15 12:28:37 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3918)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 9109)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:28:39 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:46:in `set_list'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1141)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:46:in `set_list'
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:29:04 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:46:in `set_list'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1154)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:46:in `set_list'
+Started POST "/sessions?method=post" for ::1 at 2020-10-15 12:29:11 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UFAOUflmPFGF8xnzw5r2PzcWElK6X95hNG369CEAlu0mnTTc2Z26TkNZKb0zk2XBN2+pJA1Csnx0I37Cuz9Ldg==", "email"=>"zweifel@university.edu", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "zweifel@university.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 195ms (ActiveRecord: 0.1ms | Allocations: 921)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:29:11 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 3917)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.5ms | Allocations: 9111)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:29:13 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:46:in `set_list'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1145)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:46:in `set_list'
+Started GET "/students/4" for ::1 at 2020-10-15 12:29:44 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/views/students/show.html.erb:3
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 17.1ms | Allocations: 11099)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 21.0ms | ActiveRecord: 2.1ms | Allocations: 20607)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:29:46 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 1.2ms | Allocations: 1155)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1575)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2646)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4" for ::1 at 2020-10-15 12:30:44 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 6004)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 13.4ms | ActiveRecord: 1.9ms | Allocations: 21385)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:30:46 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 0.9ms | Allocations: 1151)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1561)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2646)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4" for ::1 at 2020-10-15 12:31:58 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 5680)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 12.4ms | ActiveRecord: 1.8ms | Allocations: 20325)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:31:59 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1259)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:25:in `edit'
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:32:22 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.8ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 189.7ms | Allocations: 208128)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 190.0ms | Allocations: 208244)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 205ms (Views: 193.5ms | ActiveRecord: 1.7ms | Allocations: 216679)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:32:24 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 3428)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 8.7ms | ActiveRecord: 1.1ms | Allocations: 14266)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:32:25 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 7.4ms | Allocations: 6687)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 7.8ms | Allocations: 6796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.5ms | Allocations: 11071)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:32:59 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 9.7ms | Allocations: 9003)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 10.0ms | Allocations: 9119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 14.0ms | ActiveRecord: 1.6ms | Allocations: 23799)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:33:00 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3427)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 8513)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:33:01 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 6.7ms | Allocations: 6687)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 7.0ms | Allocations: 6796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 0.5ms | Allocations: 11777)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:33:21 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 5678)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 10.7ms | ActiveRecord: 1.6ms | Allocations: 20284)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:33:22 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 1.7ms | Allocations: 1928)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2045)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 3936)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for 8:Integer):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4" for ::1 at 2020-10-15 12:33:32 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.6ms | Allocations: 7827)
+
+
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:34:44 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.6ms | Allocations: 2794)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:25:in `edit'
+Started GET "/students/8/lists/4/edit" for ::1 at 2020-10-15 12:34:59 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"8", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1133)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:25:in `edit'
+Started POST "/sessions?method=post" for ::1 at 2020-10-15 12:35:09 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UFAOUflmPFGF8xnzw5r2PzcWElK6X95hNG369CEAlu0mnTTc2Z26TkNZKb0zk2XBN2+pJA1Csnx0I37Cuz9Ldg==", "email"=>"zweifel@university.edu", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "zweifel@university.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 205ms (ActiveRecord: 0.6ms | Allocations: 5737)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:35:10 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 5971)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.5ms | ActiveRecord: 0.7ms | Allocations: 15151)
+
+
+Started GET "/lists/8/edit" for ::1 at 2020-10-15 12:35:11 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 7.5ms | Allocations: 6937)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 8.7ms | Allocations: 7344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 12185)
+
+
+Started PATCH "/lists/8" for ::1 at 2020-10-15 12:36:14 -0400
+Processing by ListsController#update as HTML
+  Parameters: {"authenticity_token"=>"0Cp1ZvKXJ2oGv6ofP9Z9frvgxXLv3Js71en3ZSqPM3b3GNa3TEtKlF7xKoj0NnnpBS6I2zqhsbscJ/rgFqNtpQ==", "list"=>{"student_id"=>"", "course_id"=>["", "12", "13", "14", "15"]}, "commit"=>"Update List", "id"=>"8"}
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.0ms | Allocations: 44302)
+
+
+  
+NoMethodError (undefined method `set_list' for #<ListsController:0x00007fbea29c9e98>
+Did you mean?  set_request!):
+  
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/lists/8" for ::1 at 2020-10-15 12:36:48 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#update as HTML
+  Parameters: {"authenticity_token"=>"0Cp1ZvKXJ2oGv6ofP9Z9frvgxXLv3Js71en3ZSqPM3b3GNa3TEtKlF7xKoj0NnnpBS6I2zqhsbscJ/rgFqNtpQ==", "list"=>{"student_id"=>"", "course_id"=>["", "12", "13", "14", "15"]}, "commit"=>"Update List", "id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:47:in `set_list'
+Redirected to http://localhost:3000/students/4/lists/8/edit
+Completed 302 Found in 12ms (ActiveRecord: 0.7ms | Allocations: 8148)
+
+
+Started GET "/students/4/lists/8/edit" for ::1 at 2020-10-15 12:36:48 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 9.5ms | Allocations: 9055)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.7ms | Allocations: 9172)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.6ms | Allocations: 13640)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:38:14 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 5651)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 10.0ms | ActiveRecord: 1.5ms | Allocations: 20240)
+
+
+Started GET "/lists/8/edit" for ::1 at 2020-10-15 12:38:15 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 10.8ms | Allocations: 6752)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 11.1ms | Allocations: 6867)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 0.4ms | Allocations: 11435)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:38:17 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2829)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.6ms | Allocations: 7809)
+
+
+Started GET "/lists/8/edit" for ::1 at 2020-10-15 12:38:19 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 9.3ms | Allocations: 6687)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.7ms | Allocations: 6796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.3ms | Allocations: 11072)
+
+
+Started PATCH "/lists/8" for ::1 at 2020-10-15 12:38:25 -0400
+Processing by ListsController#update as HTML
+  Parameters: {"authenticity_token"=>"TVQw3MxOcij9rCd3XCkvaNuXFGV3zxvyLMi1OsnoL0BqZpMNcpIf1qXip+CXySv/ZVlZzKKyMXLlBri/9cRxkw==", "list"=>{"student_id"=>"", "course_id"=>["", "18", "19", "20"]}, "commit"=>"Update List", "id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:47:in `set_list'
+Redirected to http://localhost:3000/students/4/lists/8/edit
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 2917)
+
+
+Started GET "/students/4/lists/8/edit" for ::1 at 2020-10-15 12:38:25 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.9ms | Allocations: 6687)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.2ms | Allocations: 6798)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.3ms | Allocations: 11114)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:39:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 6001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 12.7ms | ActiveRecord: 1.6ms | Allocations: 21341)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:39:41 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1255)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:25:in `edit'
+Started GET "/students/4" for ::1 at 2020-10-15 12:40:03 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3163)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.5ms | Allocations: 9036)
+
+
+Started GET "/lists/8/edit" for ::1 at 2020-10-15 12:40:04 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.5ms | Allocations: 6937)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.6ms | Allocations: 7344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.4ms | Allocations: 12191)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:40:18 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2842)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 7824)
+
+
+  [1m[36mList Destroy (1.6ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 8]]
+Started GET "/students/4" for ::1 at 2020-10-15 12:40:25 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 62)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 5018)
+
+
+Started GET "/students/4/lists/new" for ::1 at 2020-10-15 12:40:27 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"4"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 7.6ms | Allocations: 6684)
+  Rendered lists/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 6956)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.4ms | Allocations: 10872)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:42:26 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 389)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 9.7ms | ActiveRecord: 0.8ms | Allocations: 12946)
+
+
+Started GET "/students/4/lists/new" for ::1 at 2020-10-15 12:42:27 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"4"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 12.2ms | Allocations: 9161)
+  Rendered lists/new.html.erb within layouts/application (Duration: 13.6ms | Allocations: 9572)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 19.0ms | ActiveRecord: 1.0ms | Allocations: 16329)
+
+
+Started POST "/lists" for ::1 at 2020-10-15 12:42:38 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"pp8MpgLmBQHMuTTD+Ba9rjMpsehk6Tjv4ALVjojQv5toBImWgRSIv4nMWKnMiLsy2hM6iUeoDaAOy+mfyHOW6A==", "list"=>{"student_id"=>"4", "course_id"=>["", "47", "48", "49", "50"]}, "commit"=>"Create List"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 4], ["course_id", "[\"\", \"47\", \"48\", \"49\", \"50\"]"], ["created_at", "2020-10-15 16:42:38.758919"], ["updated_at", "2020-10-15 16:42:38.758919"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms | Allocations: 5130)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:42:38 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 3425)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.5ms | Allocations: 8413)
+
+
+Started GET "/courses/49" for ::1 at 2020-10-15 12:42:41 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.1ms | Allocations: 5078)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:42:42 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2869)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 0.7ms | Allocations: 7843)
+
+
+Started GET "/courses/50" for ::1 at 2020-10-15 12:42:43 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 49)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 4327)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:42:44 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.7ms | Allocations: 7836)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:43:03 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:48:in `set_list'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1257)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:48:in `set_list'
+Started GET "/students/4" for ::1 at 2020-10-15 12:44:58 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 5679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 11.4ms | ActiveRecord: 1.8ms | Allocations: 20315)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:44:59 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1560)
+
+
+  
+NoMethodError (undefined method `list' for 4:Integer):
+  
+app/controllers/lists_controller.rb:26:in `edit'
+Started GET "/students/4" for ::1 at 2020-10-15 12:45:06 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 7816)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:45:18 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1579)
+
+
+  
+NoMethodError (undefined method `list' for 4:Integer):
+  
+app/controllers/lists_controller.rb:26:in `edit'
+Started GET "/students/4" for ::1 at 2020-10-15 12:45:20 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 5679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 12.3ms | ActiveRecord: 1.9ms | Allocations: 20323)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:45:56 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 5678)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 15.5ms | ActiveRecord: 1.8ms | Allocations: 20279)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:45:57 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 7.2ms | Allocations: 6758)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 8.3ms | Allocations: 7032)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.4ms | Allocations: 12318)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:46:08 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2869)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 7839)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:46:10 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 7.0ms | Allocations: 6693)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 7.4ms | Allocations: 6802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 0.5ms | Allocations: 11774)
+
+
+Started GET "/students/4/lists/9/edit" for ::1 at 2020-10-15 12:46:21 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"9"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1134)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=9):
+  
+app/controllers/lists_controller.rb:26:in `edit'
+Started GET "/students/4" for ::1 at 2020-10-15 12:46:42 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 5679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 10.8ms | ActiveRecord: 1.6ms | Allocations: 20339)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:46:43 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 2.0ms | Allocations: 1921)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2038)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3935)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for 9:Integer):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4" for ::1 at 2020-10-15 12:46:49 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.6ms | ActiveRecord: 0.6ms | Allocations: 7830)
+
+
+Started GET "/" for ::1 at 2020-10-15 12:46:51 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.2ms | Allocations: 581)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 4862)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-15 12:46:57 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"KYOowb6x8204YA+oRYmmi9cmESz6Lxmwf7x5FfEAc4q5jps5W+kPj6Ss2KAlVoYUCbUs1+s0rsE16Sv7Mz7r+g==", "email"=>"zweifel@university.edu", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "zweifel@university.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 201ms (ActiveRecord: 0.2ms | Allocations: 1087)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:46:57 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2869)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 7845)
+
+
+Started GET "/courses/50" for ::1 at 2020-10-15 12:46:59 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 56)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 4551)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:47:00 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.9ms | ActiveRecord: 0.8ms | Allocations: 7826)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:47:01 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:26:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 2.5ms | Allocations: 1967)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2083)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3778)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for 9:Integer):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:47:16 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 1.7ms | Allocations: 1900)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2018)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.0ms | Allocations: 13490)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for 9:Integer):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4" for ::1 at 2020-10-15 12:47:21 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 5711)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 0.9ms | Allocations: 10804)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:47:22 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 2.3ms | Allocations: 1967)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2078)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3768)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for 9:Integer):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4" for ::1 at 2020-10-15 12:47:45 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.7ms | Allocations: 7837)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:47:46 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 2.2ms | Allocations: 1967)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2078)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3758)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for 9:Integer):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @student %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+  
+app/views/lists/_form.html.erb:1
+app/views/lists/edit.html.erb:10
+Started GET "/students/4" for ::1 at 2020-10-15 12:48:09 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 5679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 12.6ms | ActiveRecord: 1.9ms | Allocations: 20314)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:48:10 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:47:in `set_list'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1270)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:47:in `set_list'
+Started GET "/students/4" for ::1 at 2020-10-15 12:48:51 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 5679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 11.7ms | ActiveRecord: 1.9ms | Allocations: 20316)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:48:52 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:48:in `set_list'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1276)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=4):
+  
+app/controllers/lists_controller.rb:48:in `set_list'
+Started GET "/students/4" for ::1 at 2020-10-15 12:49:22 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 12.2ms | Allocations: 5679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 16.2ms | ActiveRecord: 1.7ms | Allocations: 20323)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:49:24 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.0ms | Allocations: 6758)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 8.4ms | Allocations: 6873)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.5ms | Allocations: 11439)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:49:26 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.6ms | Allocations: 7826)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:49:27 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 7.4ms | Allocations: 6693)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 7.8ms | Allocations: 6802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.4ms | Allocations: 11097)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:50:34 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3192)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 1.0ms | Allocations: 9051)
+
+
+Started GET "/students/9/lists/4/edit" for ::1 at 2020-10-15 12:50:35 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"9", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.0ms | Allocations: 6883)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.2ms | Allocations: 7289)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.3ms | Allocations: 12131)
+
+
+  [1m[36mList Destroy (1.7ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 9]]
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/4" for ::1 at 2020-10-15 12:51:17 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 387)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 6235)
+
+
+Started GET "/students/4/lists/new" for ::1 at 2020-10-15 12:51:20 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"4"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.8ms | Allocations: 6849)
+  Rendered lists/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 7254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.2ms | Allocations: 11587)
+
+
+Started POST "/lists" for ::1 at 2020-10-15 12:51:23 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"aAuZ9FDEl7LOmVgqDtOmllm3hIxk2tlW049knCdKwlGmkBzE0zYaDIvsNEA6TaAKsI0P7Ueb7Bk9RliNZ+nrIg==", "list"=>{"student_id"=>"4", "course_id"=>["", "7", "8", "9"]}, "commit"=>"Create List"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.3ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 4], ["course_id", "[\"\", \"7\", \"8\", \"9\"]"], ["created_at", "2020-10-15 16:51:23.856643"], ["updated_at", "2020-10-15 16:51:23.856643"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms | Allocations: 4501)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:51:23 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.4ms | Allocations: 7179)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Destroy (1.4ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 10]]
+Started GET "/students/4" for ::1 at 2020-10-15 12:51:53 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 61)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 5017)
+
+
+Started GET "/students/4/lists/new" for ::1 at 2020-10-15 12:51:55 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"4"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.1ms | Allocations: 6659)
+  Rendered lists/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 6769)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.3ms | Allocations: 10527)
+
+
+Started POST "/lists" for ::1 at 2020-10-15 12:52:19 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"sIVRCOBxQwkSRPVz00A69W8A/YUArJvTN863zPP1ufl+HtQ4Y4POt1cxmRnn3jxphjp25CPtrpzZB4vds1aQig==", "list"=>{"student_id"=>"4", "course_id"=>["", "45", "46", "47", "49", "50"]}, "commit"=>"Create List"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 4], ["course_id", "[\"\", \"45\", \"46\", \"47\", \"49\", \"50\"]"], ["created_at", "2020-10-15 16:52:19.848907"], ["updated_at", "2020-10-15 16:52:19.848907"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 7ms (ActiveRecord: 1.3ms | Allocations: 4205)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:52:19 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 3528)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.5ms | Allocations: 8492)
+
+
+Started GET "/courses/46" for ::1 at 2020-10-15 12:52:23 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 171)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 5080)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:52:25 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3541)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.8ms | Allocations: 8523)
+
+
+Started GET "/courses/45" for ::1 at 2020-10-15 12:52:25 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"45"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 49)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 4328)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:52:27 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3528)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.7ms | Allocations: 8510)
+
+
+Started GET "/courses/45" for ::1 at 2020-10-15 12:53:39 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"45"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:7:in `show'
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.1ms | Allocations: 5361)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:53:43 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 10.2ms | Allocations: 3861)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 16.3ms | ActiveRecord: 0.8ms | Allocations: 9392)
+
+
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:53:56 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.6ms | Allocations: 6883)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.9ms | Allocations: 7292)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.4ms | Allocations: 12142)
+
+
+Started PATCH "/lists/11" for ::1 at 2020-10-15 12:54:02 -0400
+Processing by ListsController#update as HTML
+  Parameters: {"authenticity_token"=>"Q25GhwdTIhZ0T2i4OKG59UCdC5bZ/yeKMBKSeJs0icq3dKm82ly35ioHuuI7YYuu5gYF+MIb6ym5yqKSFNXGOQ==", "list"=>{"student_id"=>"4", "course_id"=>["", "1", "2", "3", "4", "47"]}, "commit"=>"Update List", "id"=>"11"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:49:in `set_list'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[36mList Update (0.4ms)[0m  [1m[33mUPDATE "lists" SET "course_id" = ?, "updated_at" = ? WHERE "lists"."id" = ?[0m  [["course_id", "[\"\", \"1\", \"2\", \"3\", \"4\", \"47\"]"], ["updated_at", "2020-10-15 16:54:02.785080"], ["id", 11]]
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms | Allocations: 5012)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:54:02 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3541)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.6ms | Allocations: 8517)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:54:38 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.0ms | Allocations: 6693)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 8.5ms | Allocations: 6803)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.5ms | Allocations: 11089)
+
+
+Started PATCH "/lists/11" for ::1 at 2020-10-15 12:55:26 -0400
+Processing by ListsController#update as HTML
+  Parameters: {"authenticity_token"=>"WgCnHRzvFldBoBrsYLpBPaMIc5baxhNhDgUBOc0PlA6uGkgmweCDpx/oyLZjenNmBZN9+MEi38KH3THTQu7b/Q==", "list"=>{"student_id"=>"4", "course_id"=>["", "47", "48", "49", "50"]}, "commit"=>"Update List", "id"=>"11"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:49:in `set_list'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[36mList Update (0.4ms)[0m  [1m[33mUPDATE "lists" SET "course_id" = ?, "updated_at" = ? WHERE "lists"."id" = ?[0m  [["course_id", "[\"\", \"47\", \"48\", \"49\", \"50\"]"], ["updated_at", "2020-10-15 16:55:26.370404"], ["id", 11]]
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms | Allocations: 4854)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:55:26 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2856)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.5ms | Allocations: 7824)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:56:09 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 9.1ms | Allocations: 6693)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.6ms | Allocations: 6802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 0.5ms | Allocations: 11097)
+
+
+Started PATCH "/lists/11" for ::1 at 2020-10-15 12:56:28 -0400
+Processing by ListsController#update as HTML
+  Parameters: {"authenticity_token"=>"j76Zs9PI6Um0HnuWOVpaYteR6gbewJdF3WNN2VCItB57pHaIDsd8uepWqcw6mmg5cQrkaMUkW+ZUu30z32n77Q==", "list"=>{"student_id"=>"4", "course_id"=>["", "1", "2", "3", "4"]}, "commit"=>"Update List", "id"=>"11"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:49:in `set_list'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[36mList Update (0.4ms)[0m  [1m[33mUPDATE "lists" SET "course_id" = ?, "updated_at" = ? WHERE "lists"."id" = ?[0m  [["course_id", "[\"\", \"1\", \"2\", \"3\", \"4\"]"], ["updated_at", "2020-10-15 16:56:28.122070"], ["id", 11]]
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:30:in `update'
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms | Allocations: 4856)
+
+
+Started GET "/students/4" for ::1 at 2020-10-15 12:56:28 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2855)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 7825)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/4/lists/4/edit" for ::1 at 2020-10-15 12:57:23 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"4", "id"=>"4"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.1ms | Allocations: 6693)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 9.1ms | Allocations: 6802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.6ms | Allocations: 11100)
+
+
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/4" for ::1 at 2020-10-15 13:01:53 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2855)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 1.0ms | Allocations: 7827)
+
+
+Started GET "/" for ::1 at 2020-10-15 13:01:56 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.1ms | Allocations: 574)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 4832)
+
+
+Started GET "/students/new" for ::1 at 2020-10-15 13:01:58 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1028)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4924)
+
+
+Started POST "/students" for ::1 at 2020-10-15 13:02:29 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"authenticity_token"=>"hcRP0OTaEIBTadA5vf1IrDeLveHBgggjowM+Ztxa6HuywB8QditFsacVr/LZstYLgbRbRNTOlyX/V5HM0dQp1g==", "student"=>{"name"=>"Justin", "major"=>"Computer Science", "email"=>"justin@college.edu", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:16:in `create'
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "major", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Justin"], ["major", "Computer Science"], ["email", "justin@college.edu"], ["password_digest", "$2a$12$7sJQO8qepUrpII.jWyBoieqhkxP6WUzVqUmi0Yh1JNvlOi5qipM1G"], ["created_at", "2020-10-15 17:02:30.199808"], ["updated_at", "2020-10-15 17:02:30.199808"]]
+  ↳ app/controllers/students_controller.rb:16:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:16:in `create'
+Redirected to http://localhost:3000/students/5
+Completed 302 Found in 203ms (ActiveRecord: 1.2ms | Allocations: 3220)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:02:30 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 61)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.1ms | Allocations: 5018)
+
+
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/5/lists/new" for ::1 at 2020-10-15 13:02:49 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"5"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.0ms | Allocations: 6664)
+  Rendered lists/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 6935)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 10832)
+
+
+Started POST "/lists" for ::1 at 2020-10-15 13:02:57 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"5oMvCuZpHOyg9RTIWVHTd4YZ++Aco6FXKXkkpbDbqwooGKo6ZZuRUuWAeKJtz9XrbyNwgT/ilBjHsBi08HiCeQ==", "list"=>{"student_id"=>"5", "course_id"=>["", "7", "8", "9", "10"]}, "commit"=>"Create List"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 5], ["course_id", "[\"\", \"7\", \"8\", \"9\", \"10\"]"], ["created_at", "2020-10-15 17:02:57.442228"], ["updated_at", "2020-10-15 17:02:57.442228"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Redirected to http://localhost:3000/students/5
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms | Allocations: 4192)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:02:57 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2868)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.4ms | Allocations: 7844)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" ORDER BY "students"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" ORDER BY "lists"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" ORDER BY "lists"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/students/5/lists/5/edit" for ::1 at 2020-10-15 13:03:46 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"5", "id"=>"5"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:25:in `edit'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 8.4ms | Allocations: 6694)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 8.8ms | Allocations: 6803)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 11095)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:03:52 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2855)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 9.4ms | ActiveRecord: 0.5ms | Allocations: 7848)
+
+
+Started DELETE "/lists.12" for ::1 at 2020-10-15 13:04:00 -0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/lists.12"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started DELETE "/lists.12" for ::1 at 2020-10-15 13:04:54 -0400
+  
+ActionController::RoutingError (No route matches [DELETE] "/lists.12"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/students/5" for ::1 at 2020-10-15 13:05:13 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3187)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 9061)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:05:15 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2869)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.6ms | Allocations: 7850)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:05:15 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2857)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 7827)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:05:15 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2857)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 0.6ms | Allocations: 7823)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:06:48 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3194)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.5ms | Allocations: 9066)
+
+
+Started GET "/" for ::1 at 2020-10-15 13:06:49 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.2ms | Allocations: 571)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 4885)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-15 13:07:11 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"xCJh9589a7EpHdxnwFf7xbdzghj2DH39AcUY2EMCYyFUL1IPemWXU7XRC2+giNtaaeC/4+cXyoxLkEo2gTz7UQ==", "email"=>"justin@college.edu", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "justin@college.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/students/5
+Completed 302 Found in 200ms (ActiveRecord: 0.2ms | Allocations: 1083)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:07:11 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2872)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 7842)
+
+
+Started DELETE "/students/5/lists/5" for ::1 at 2020-10-15 13:07:15 -0400
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Sc0dK7W908tOvwxv1u991K5z2tfzg9fs4WLxrfL6w+A/ACemlUZV1IgVPCEm5u4qrgphoUSeu/GhLHWbaMUeew==", "student_id"=>"5", "id"=>"5"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1167)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/lists_controller.rb:42:in `destroy'
+Started DELETE "/students/5/lists/5" for ::1 at 2020-10-15 13:07:36 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Sc0dK7W908tOvwxv1u991K5z2tfzg9fs4WLxrfL6w+A/ACemlUZV1IgVPCEm5u4qrgphoUSeu/GhLHWbaMUeew==", "student_id"=>"5", "id"=>"5"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1181)
+
+
+  
+NoMethodError (undefined method `delete' for nil:NilClass):
+  
+app/controllers/lists_controller.rb:42:in `destroy'
+Started DELETE "/students/5/lists/5" for ::1 at 2020-10-15 13:08:56 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Sc0dK7W908tOvwxv1u991K5z2tfzg9fs4WLxrfL6w+A/ACemlUZV1IgVPCEm5u4qrgphoUSeu/GhLHWbaMUeew==", "student_id"=>"5", "id"=>"5"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1181)
+
+
+  
+NoMethodError (undefined method `delete' for nil:NilClass):
+  
+app/controllers/lists_controller.rb:42:in `destroy'
+Started DELETE "/students/5/lists/5" for ::1 at 2020-10-15 13:09:49 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Sc0dK7W908tOvwxv1u991K5z2tfzg9fs4WLxrfL6w+A/ACemlUZV1IgVPCEm5u4qrgphoUSeu/GhLHWbaMUeew==", "student_id"=>"5", "id"=>"5"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1181)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/lists_controller.rb:42:in `destroy'
+Started GET "/students/5/lists/5/edit" for ::1 at 2020-10-15 13:13:34 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"5", "id"=>"5"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:49:in `set_list'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms | Allocations: 2815)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=5):
+  
+app/controllers/lists_controller.rb:49:in `set_list'
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Started GET "/students/5" for ::1 at 2020-10-15 13:15:14 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 6006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 12.6ms | ActiveRecord: 1.6ms | Allocations: 21409)
+
+
+Started GET "/students/5/lists/5/edit" for ::1 at 2020-10-15 13:15:15 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"5", "id"=>"5"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:49:in `set_list'
+  Rendering lists/edit.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/lists/_form.html.erb:2
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 9.2ms | Allocations: 7862)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 10.6ms | Allocations: 8269)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.5ms | Allocations: 13242)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:15:18 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2872)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.7ms | Allocations: 7852)
+
+
+  [1m[36mList Destroy (1.6ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 12]]
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/students/5" for ::1 at 2020-10-15 13:15:36 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 62)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.2ms | Allocations: 5016)
+
+
+Started GET "/students/5/lists/new" for ::1 at 2020-10-15 13:15:38 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"5"}
+  Rendering lists/new.html.erb within layouts/application
+  Rendered lists/_form.html.erb (Duration: 2.0ms | Allocations: 1623)
+  Rendered lists/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1895)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2512)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <%= form_for(@list) do |f| %>
+    2:   <%= f.hidden_field :student_id, value: @list.student.id %>
+    3:   <label>Choose Classes</label><br>
+    4:   <%= fields_for :list do |x| %>
+    5:     <%= x.collection_check_boxes(:course_id, Course.all, :id, :name) %><br>
+  
+app/views/lists/_form.html.erb:2
+app/views/lists/_form.html.erb:1
+app/views/lists/new.html.erb:10
+Started GET "/students/5/lists/new" for ::1 at 2020-10-15 13:15:52 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"5"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 7.9ms | Allocations: 6844)
+  Rendered lists/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 7250)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.2ms | Allocations: 11932)
+
+
+Started POST "/lists" for ::1 at 2020-10-15 13:15:58 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"1R7+xgdRu2FgqVX3ucfBUj04eaAA49jpK77ZPqee4Bej08RLJ6o9fqYDZblJzlKsPUHC1rf+tPRr8F0IPaE9jA==", "list"=>{"student_id"=>"", "course_id"=>["", "17", "18", "19", "23"]}, "commit"=>"Create List"}
+Redirected to http://localhost:3000/students/5/lists/new
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 1658)
+
+
+Started GET "/students/5/lists/new" for ::1 at 2020-10-15 13:15:58 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"5"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 6.4ms | Allocations: 6660)
+  Rendered lists/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 6776)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 10581)
+
+
+Started POST "/lists" for ::1 at 2020-10-15 13:17:02 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"uqdMfOMmalF8CyEVRmmptKO8ykeUCEb+kvszueoQMPrManbxw93sTrqhEVu2YDpKo8VxMSMVKuPStbePcC/tYQ==", "list"=>{"student_id"=>"", "course_id"=>["", "12", "13", "14", "15"]}, "commit"=>"Create List"}
+Redirected to http://localhost:3000/students/5/lists/new
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms | Allocations: 6915)
+
+
+Started GET "/students/5/lists/new" for ::1 at 2020-10-15 13:17:02 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"5"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 10.0ms | Allocations: 9115)
+  Rendered lists/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 9523)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.5ms | Allocations: 14199)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:17:03 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 388)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 6.6ms | ActiveRecord: 0.9ms | Allocations: 10268)
+
+
+Started GET "/students/5/lists/new" for ::1 at 2020-10-15 13:17:07 -0400
+Processing by ListsController#new as HTML
+  Parameters: {"student_id"=>"5"}
+  Rendering lists/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5
+  Rendered lists/_form.html.erb (Duration: 10.4ms | Allocations: 6664)
+  Rendered lists/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 6778)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.3ms | Allocations: 10553)
+
+
+Started POST "/lists" for ::1 at 2020-10-15 13:17:12 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"authenticity_token"=>"OLjAx58HVLqu753ZsMB8Z5jDEVHB3rWNSv1nw3fx6Av2I0X3HPXZBOua8bOEXnr7cfmaMOKfgMKkNFvSN1LBeA==", "list"=>{"student_id"=>"5", "course_id"=>["", "18", "19", "20", "21"]}, "commit"=>"Create List"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[36mList Create (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 5], ["course_id", "[\"\", \"18\", \"19\", \"20\", \"21\"]"], ["created_at", "2020-10-15 17:17:12.081359"], ["updated_at", "2020-10-15 17:17:12.081359"]]
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:13:in `create'
+Redirected to http://localhost:3000/students/5
+Completed 302 Found in 8ms (ActiveRecord: 1.4ms | Allocations: 4443)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:17:12 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3425)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.5ms | Allocations: 8396)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" ORDER BY "lists"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started DELETE "/students/5/lists/5" for ::1 at 2020-10-15 13:17:51 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ListsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FYsUNdunY0lracB3l6eiiDjIOJ8DTxOAxCLTwv9WibRjRi64+1zlVq3D8DlnrjF2OLGD6bRSf52EbFf0ZWlULw==", "student_id"=>"5", "id"=>"5"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:49:in `set_list'
+  [1m[36mList Destroy (1.1ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/lists_controller.rb:42:in `destroy'
+Redirected to http://localhost:3000/students/5
+Completed 302 Found in 10ms (ActiveRecord: 1.6ms | Allocations: 5372)
+
+
+Started GET "/students/5" for ::1 at 2020-10-15 13:17:52 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 69)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 4.7ms | ActiveRecord: 0.6ms | Allocations: 10416)
+
+
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]

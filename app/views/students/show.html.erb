@@ -20,9 +20,9 @@
 <% end %>
 <div class="link-btns-container">
 <% if @student.list == nil %>
-  <button class="link-btn"><%= link_to "Create a Class List", new_student_list_path(@student.id) %></button>
+  <button class="link-btn"><%= link_to "Create a Class List", new_student_list_path(@student) %></button>
 <% else %>
-  <button class="link-btn"><%= link_to "Edit Class List", edit_student_list_path(@student.list) %></button>
-  <button class="link-btn"><%= link_to "Delete Class List", lists_path(@student.list), method: :delete, data: { confirm: 'Are you sure you would like to delete your current class list?' } %></button>
+  <button class="link-btn"><%= link_to "Edit Class List", edit_student_list_path(@student) %></button>
+  <button class="link-btn"><%= link_to "Delete Class List", student_list_path(@student), method: :delete, data: { confirm: 'Are you sure you would like to delete your current class list?' } %></button>
 <% end %>
 </div>
