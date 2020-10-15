@@ -1,4 +1,5 @@
 <h2>Create Your New Class Lister Account</h2>
+<%= render partial: "layouts/error"%>
 <%= form_for(@student) do |f| %>
   <%= f.label :name, "Full Name" %><br>
   <%= f.text_field :name %><br>

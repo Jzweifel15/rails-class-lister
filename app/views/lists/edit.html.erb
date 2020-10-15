@@ -1,10 +1,6 @@
 <button class="link-btn">
   <%= link_to "Cancel", student_path(session[:user_id]) %><br>
 </button>
-<% flash.each do |type, msg| %>
-  <div class="error-message">
-    <%= msg %>
-  </div>
-<% end %>
 <h2>Edit Your Current Classes</h2>
+<%= render partial: "layouts/error"%>
 <%= render 'form' %>

@@ -1,22 +1,15 @@
 <%= link_to "Log Out", root_path %>
 <h2>Welcome, <%= @student.name %></h2>
 <% if @student.list == nil %>
-  <h4>It does not appear that you have any scheduled classes</h4>
+  <h4 class="student-show-header">It does not appear that you have any scheduled classes</h4>
 <% else %>
-  <h4>Your Class List</h4>
-  <table>
-    <tbody>
-      <tr>
-        <td><strong>Class Name</strong></td>
-      </tr>
-      <% student_courses(@student).each do |course| %>
-        <tr>
-          <td><%= link_to course.name, course_path(course.id) %></td>
-          <td><%= link_to "Delete From List" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <h4 class="student-show-header">Your Class List</h4>
+  <div id="student-show-class-list-container">
+  <ul id="student-show-class-list">
+  <% student_courses(@student).each do |course| %>
+    <li class="student-show-class"><%= link_to course.name, course_path(course.id) %></li>
+  <% end %>
+  </ul>
 <% end %>
 <div class="link-btns-container">
 <% if @student.list == nil %>

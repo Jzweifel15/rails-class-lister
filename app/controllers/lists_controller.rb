@@ -10,31 +10,30 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.create(list_params) 
+    @list = List.new(list_params) 
 
-    if @list.valid?
-      @list.save
-      redirect_to student_path(@list.student_id)
-    else
+    if @list.validate_course_ids
       flash[:notice] = "Something went wrong. Make sure you have selected at least 1 class before submitting."
       redirect_to new_student_list_path(session[:user_id])
+    else
+      @list.save
+      redirect_to student_path(@list.student_id)
     end
   end
 
   def edit
-    #@list = List.find_by(student_id: session[:user_id])
     @student = session[:user_id]
   end
 
   def update
     @list.update(list_params)
 
-    if @list.valid?
-      @list.save
-      redirect_to student_path(@list.student_id)
-    else
+    if @list.validate_course_ids
       flash[:notice] = "Something went wrong. Make sure you have selected at least 1 class before submitting."
       redirect_to edit_student_list_path(session[:user_id])
+    else
+      @list.save
+      redirect_to student_path(@list.student_id)
     end
   end
 
