@@ -26883,3 +26883,75 @@ Started GET "/auth/facebook" for ::1 at 2020-10-19 09:27:45 -0400
 Started GET "/auth/facebook" for ::1 at 2020-10-19 09:27:45 -0400
 Started GET "/auth/facebook" for ::1 at 2020-10-19 09:27:50 -0400
 Started GET "/auth/facebook" for ::1 at 2020-10-19 09:27:50 -0400
+Started GET "/" for ::1 at 2020-10-19 09:29:15 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.4ms | Allocations: 642)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 5349)
+
+
+Started GET "/auth/github" for ::1 at 2020-10-19 09:29:16 -0400
+Started GET "/auth/github" for ::1 at 2020-10-19 09:29:16 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUidColumnToStudents (20201019134650)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "students" ADD "uid" varchar[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201019134650"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-10-19 10:51:44 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1277)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 23.5ms | ActiveRecord: 0.0ms | Allocations: 8185)
+
+
+Started GET "/students/new" for ::1 at 2020-10-19 10:51:46 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered layouts/_error.html.erb (Duration: 0.3ms | Allocations: 137)
+  Rendered students/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1662)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 13.5ms | ActiveRecord: 0.5ms | Allocations: 12362)
+
+
+Started GET "/" for ::1 at 2020-10-19 10:51:47 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.0ms | Allocations: 401)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 4218)
+
+
+Started GET "/auth/facebook" for ::1 at 2020-10-19 10:51:49 -0400
+Started GET "/auth/facebook" for ::1 at 2020-10-19 10:51:49 -0400
+Started GET "/auth/github" for ::1 at 2020-10-19 10:51:52 -0400
+Started GET "/auth/github" for ::1 at 2020-10-19 10:51:52 -0400
+Started GET "/" for ::1 at 2020-10-19 11:11:25 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.3ms | Allocations: 858)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4797)
+
+
+Started GET "/auth/facebook" for ::1 at 2020-10-19 11:11:27 -0400
+Started GET "/auth/facebook" for ::1 at 2020-10-19 11:11:27 -0400
+Started GET "/" for ::1 at 2020-10-19 11:11:43 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 0.6ms | Allocations: 391)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 4234)
+
+
+Started GET "/auth/facebook" for ::1 at 2020-10-19 11:12:17 -0400
+Started GET "/auth/facebook" for ::1 at 2020-10-19 11:12:17 -0400
