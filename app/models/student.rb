@@ -4,5 +4,6 @@ class Student < ApplicationRecord
 
   has_secure_password
 
-  validates :name, :major, :email, :password, presence: true
+  validates :name, :major, :email, :password, presence: true        
+
 end

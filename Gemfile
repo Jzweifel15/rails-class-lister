@@ -32,7 +32,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 # OmniAuth Multiple Authentication 
 gem 'omniauth'
-gem 'omniauth-github'
 gem 'omniauth-facebook'
 
 # Ensures our ENV variables are correctly loaded in the ENV hash in a secure manner
