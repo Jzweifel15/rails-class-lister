@@ -5,11 +5,8 @@ class SessionsController < ApplicationController
 
   def create
 
-    @student = Student.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
-      u.email = auth['info']['email']
-    end
-    
+    @student = Student.find_or_create_by(email: auth['info']['email']
+
     return head(:forbidden) unless @student && @student.authenticate(params[:password])
     session[:user_id] = @student.id 
     redirect_to student_path(@student)
