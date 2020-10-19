@@ -1,21 +1,23 @@
-<%= link_to "Log Out", root_path %>
-<h2>Welcome, <%= @student.name %></h2>
-<% if @student.list == nil %>
-  <h4 class="student-show-header">It does not appear that you have any scheduled classes</h4>
-<% else %>
-  <h4 class="student-show-header">Your Class List</h4>
-  <div id="student-show-class-list-container">
-  <ul id="student-show-class-list">
-  <% student_courses(@student).each do |course| %>
-    <li class="student-show-class"><%= link_to course.name, course_path(course.id) %></li>
+<% if session[:user_id] %>
+  <%= link_to "Log Out", root_path %>
+  <h2>Welcome, <%= @student.name %></h2>
+  <% if @student.list == nil %>
+    <h4 class="student-show-header">It does not appear that you have any scheduled classes</h4>
+  <% else %>
+    <h4 class="student-show-header">Your Class List</h4>
+    <div id="student-show-class-list-container">
+    <ul id="student-show-class-list">
+    <% student_courses(@student).each do |course| %>
+      <li class="student-show-class"><%= link_to course.name, course_path(course.id) %></li>
+    <% end %>
+    </ul>
   <% end %>
-  </ul>
+  <div class="link-btns-container">
+  <% if @student.list == nil %>
+    <button class="link-btn"><%= link_to "Create a Class List", new_student_list_path(@student) %></button>
+  <% else %>
+    <button class="link-btn"><%= link_to "Edit Class List", edit_student_list_path(@student) %></button>
+    <button class="link-btn"><%= link_to "Delete Class List", student_list_path(@student), method: :delete, data: { confirm: 'Are you sure you would like to delete your current class list?' } %></button>
+  <% end %>
+  </div>
 <% end %>
-<div class="link-btns-container">
-<% if @student.list == nil %>
-  <button class="link-btn"><%= link_to "Create a Class List", new_student_list_path(@student) %></button>
-<% else %>
-  <button class="link-btn"><%= link_to "Edit Class List", edit_student_list_path(@student) %></button>
-  <button class="link-btn"><%= link_to "Delete Class List", student_list_path(@student), method: :delete, data: { confirm: 'Are you sure you would like to delete your current class list?' } %></button>
-<% end %>
-</div>

@@ -7,4 +7,8 @@
   <%= password_field_tag :password %><br>
   <%= submit_tag "Sign In" %>
 <% end %>
+<div id="oauth-btns-container">
+  <button class="oauth-btn"><%= link_to "Log in with Facebook", '/auth/facebook' %></button>
+  <button class="oauth-btn"><%= link_to "Log in with Github", '/auth/facebook' %></button>
+</div>
 <%= link_to "Not a Member? Sign Up as a New Student", new_student_path %>
