@@ -161,6 +161,59 @@ form {
 }
 
 #sign-up-form form input[type=submit]:hover {
-  cursor: pointer;
-  
+  cursor: pointer; 
+}
+
+/* Student's Show Page (student_path) */
+.log-out-btn {
+  border: none;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  background: var(--hot-pink);
+  color: #fff;
+}
+
+#student-show-header {
+  font-size: 1.75rem;
+  color: #fff;
+  margin: 15px 25px;
+}
+
+#student-class-list-container {
+  width: 50%;
+  background: #fff;
+  margin: 15px 25px;
+  border: 1px solid var(--tiffany-blue);
+  border-radius: 3px;
+} 
+
+#student-class-list-container #student-class-list {
+  background: #fff;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 25px 0;
+}
+
+#student-class-list-container #student-class-list li {
+  background: #fff;
+  margin: 25px 2px;
+  font-size: 1.15rem;
+}
+
+#student-class-list-container #student-class-list li a {
+  color: var(--mint);
+}
+
+.link-btn {
+  background: var(--hot-pink);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1.3rem;
+  margin: 5px 20px;
+}
+
+.link-btn a {
+  color: #fff;
+  background: var(--hot-pink);
 }
