@@ -13,3 +13,103 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Custom Variables */
+ :root {
+   --hot-pink: #FFAEBC;
+   --tiffany-blue: #A0E7E5;
+   --mint: #7CF3A0;
+   --yellow: #FBE7C6;
+ }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #A0E7E5
+}
+a {
+  text-decoration: none;
+  background: #fff;
+}
+
+/* Sign In Form Styles */
+ #sign-in-container {
+   width: 65%;
+   height: 400px;
+   border: 1px solid var(--tiffany-blue);
+   border-radius: 15px;
+   margin: 150px auto;
+   text-align: center;
+   background: #fff;
+ }
+
+ #sign-in-header {
+   font-size: 2.25rem;
+   margin: 15px 0;
+   background: #fff;
+   color: var(--mint);
+ }
+
+ #sign-in-form-header {
+   background: #fff;
+   font-size: 1.75rem;
+   color: var(--mint);
+   margin-bottom: 15px;
+ }
+
+ #sign-in-form form {
+   background: #fff;
+ }
+
+ #sign-in-form form label {
+   background-color: #fff;
+   color: var(--mint);
+   font-size: 1.25rem;
+ }
+
+ #sign-in-form form input {
+  background: #fff;
+  font-size: 1.10rem;
+  margin-bottom: 15px;
+  border-radius: 3px;
+ }
+
+ #sign-in-form form input[type=submit] {
+   font-size: 1rem;
+   margin: 15px 0;
+   width: 155px;
+   height: 25px;
+   background: var(--hot-pink);
+   border: none;
+   border-radius: 3px;
+   color: #fff;
+ }
+
+ #sign-in-form form input[type=submit]:hover {
+   cursor: pointer;
+   
+ }
+
+ #oauth-btns-container {
+   background: #fff;
+ }
+
+ #oauth-btns-container .oauth-btn {
+   font-size: 1rem;
+   height: 25px;
+   border: none;
+   border-radius: 3px;
+   background: rgb(52, 120, 233);
+   margin-bottom: 15px;
+ }
+
+ #oauth-btns-container .oauth-btn a {
+   background: rgb(52, 120, 233);
+   color: #fff;
+ }
+
+ #sign-in-container .sign-up-link {
+   text-decoration: none;
+   color: var(--mint);
+ }
