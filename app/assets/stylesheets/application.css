@@ -204,6 +204,10 @@ form {
   color: var(--mint);
 }
 
+#student-class-list-container #student-class-list li a:hover {
+  border-bottom: 2px solid var(--mint);
+}
+
 .link-btn {
   background: var(--hot-pink);
   border: none;
@@ -216,4 +220,53 @@ form {
 .link-btn a {
   color: #fff;
   background: var(--hot-pink);
+}
+
+/* Lists _form Partial */
+#lists-partial-container {
+  background: var(--tiffany-blue);
+  margin: 15px 25px;
+}
+
+#lists-partial-container form {
+  background: var(--tiffany-blue);
+}
+
+#lists-partial-container form input {
+  background: var(--tiffany-blue);
+  font-size: 1.10rem;
+  margin-bottom: 15px;
+  border-radius: 3px;
+}
+
+#lists-partial-container form input[type=submit] {
+  font-size: 1rem;
+  margin: 15px 0;
+  width: 155px;
+  height: 25px;
+  background: var(--hot-pink);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+
+#lists-partial-container form input[type=submit]:hover {
+  cursor: pointer;
+}
+
+
+#lists-partial-container form .course-link {
+  color: #fff;
+  background: var(--tiffany-blue);
+  font-size: 1.15rem;
+}
+
+#lists-partial-container form .course-link:hover {
+  border-bottom: 2px solid var(--hot-pink);
+}
+
+#lists-partial-container h3 {
+  font-size: 1.75rem;
+  color: #fff;
+  margin-bottom: 15px;
 }

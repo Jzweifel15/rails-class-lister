@@ -1,8 +1,10 @@
-<%= form_for(@list) do |f| %>
-  <%= f.hidden_field :student_id, value: @student %>
-  <label>Choose Classes</label><br>
-  <% Course.all.sort_by{|course| course.name }.each do |course| %>
-    <input type="checkbox" name="list[course_id][]" id="list_course_id_<%= course.id %>" value="<%= course.id %>" /> - <%= link_to course.name, course_path(course) %><br>
+<div id="lists-partial-container">
+  <h3>Choose Classes</h3><br> 
+  <%= form_for(@list) do |f| %>
+    <%= f.hidden_field :student_id, value: @student %>
+    <% Course.all.sort_by{|course| course.name }.each do |course| %>
+      <input type="checkbox" name="list[course_id][]" id="list_course_id_<%= course.id %>" value="<%= course.id %>" /> - <%= link_to course.name, course_path(course), :class => 'course-link' %><br>
+    <% end %>
+    <%= f.submit %>
   <% end %>
-  <%= f.submit %>
-<% end %>
+</div>
