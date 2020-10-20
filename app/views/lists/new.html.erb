@@ -1,6 +1,6 @@
 <button class="link-btn">
   <%= link_to "Cancel", student_path(session[:user_id]) %><br>
 </button>
-<h2>New Class List</h2>
+<h2 id="list-form-header">New Class List</h2>
 <%= render partial: "layouts/error"%>
 <%= render 'form' %>

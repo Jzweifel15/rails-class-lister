@@ -270,3 +270,10 @@ form {
   color: #fff;
   margin-bottom: 15px;
 }
+
+/* Edit and New list Header (edit_student_list_path and new_student_list_path) */
+#list-form-header {
+  font-size: 1.75rem;
+  color: #fff;
+  margin: 15px 25px;
+}
