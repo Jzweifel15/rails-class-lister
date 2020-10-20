@@ -16,10 +16,9 @@
 
  /* Custom Variables */
  :root {
-   --hot-pink: #FFAEBC;
-   --tiffany-blue: #A0E7E5;
+   --sunset: #FB6542;
+   --facebook-blue: rgb(52, 120, 233);
    --mint: #7CF3A0;
-   --yellow: #FBE7C6;
  }
 
 
@@ -28,7 +27,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #A0E7E5
+  background-color: #FB6542;
 }
 a {
   text-decoration: none;
@@ -43,7 +42,7 @@ form {
 #form-container {
   width: 65%;
   height: 400px;
-  border: 1px solid var(--tiffany-blue);
+  border: 1px solid var(--sunsut);
   border-radius: 15px;
   margin: 150px auto;
   text-align: center;
@@ -83,7 +82,7 @@ form {
    margin: 15px 0;
    width: 155px;
    height: 25px;
-   background: var(--hot-pink);
+   background: var(--sunset);
    border: none;
    border-radius: 3px;
    color: #fff;
@@ -102,12 +101,12 @@ form {
    height: 25px;
    border: none;
    border-radius: 3px;
-   background: rgb(52, 120, 233);
+   background: var(--facebook-blue);
    margin-bottom: 15px;
  }
 
  #oauth-btns-container .oauth-btn a {
-   background: rgb(52, 120, 233);
+   background: var(--facebook-blue);
    color: #fff;
  }
 
@@ -121,11 +120,11 @@ form {
    border: none;
    border-radius: 3px;
    font-size: 1.5rem;
-   background: var(--hot-pink);
+   background: var(--mint);
  }
 
  .cancel-btn a {
-  background: var(--hot-pink);
+  background: var(--mint);
   color: #fff;
  }
 
@@ -154,7 +153,7 @@ form {
   margin: 15px 0;
   width: 155px;
   height: 25px;
-  background: var(--hot-pink);
+  background: var(--sunset);
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -169,7 +168,7 @@ form {
   border: none;
   border-radius: 3px;
   font-size: 1.5rem;
-  background: var(--hot-pink);
+  background: var(--mint);
   color: #fff;
 }
 
@@ -183,7 +182,7 @@ form {
   width: 50%;
   background: #fff;
   margin: 15px 25px;
-  border: 1px solid var(--tiffany-blue);
+  border: 1px solid var(--sunset);
   border-radius: 3px;
 } 
 
@@ -205,11 +204,11 @@ form {
 }
 
 #student-class-list-container #student-class-list li a:hover {
-  border-bottom: 2px solid var(--mint);
+  border-bottom: 2px solid var(--sunset);
 }
 
 .link-btn {
-  background: var(--hot-pink);
+  background: var(--mint);
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -219,21 +218,21 @@ form {
 
 .link-btn a {
   color: #fff;
-  background: var(--hot-pink);
+  background: var(--mint);
 }
 
 /* Lists _form Partial */
 #lists-partial-container {
-  background: var(--tiffany-blue);
+  background: var(--sunset);
   margin: 15px 25px;
 }
 
 #lists-partial-container form {
-  background: var(--tiffany-blue);
+  background: var(--sunset);
 }
 
 #lists-partial-container form input {
-  background: var(--tiffany-blue);
+  background: var(--sunset);
   font-size: 1.10rem;
   margin-bottom: 15px;
   border-radius: 3px;
@@ -244,7 +243,7 @@ form {
   margin: 15px 0;
   width: 155px;
   height: 25px;
-  background: var(--hot-pink);
+  background: var(--mint);
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -257,12 +256,12 @@ form {
 
 #lists-partial-container form .course-link {
   color: #fff;
-  background: var(--tiffany-blue);
+  background: var(--sunset);
   font-size: 1.15rem;
 }
 
 #lists-partial-container form .course-link:hover {
-  border-bottom: 2px solid var(--hot-pink);
+  border-bottom: 2px solid var(--mint);
 }
 
 #lists-partial-container h3 {
@@ -276,4 +275,21 @@ form {
   font-size: 1.75rem;
   color: #fff;
   margin: 15px 25px;
+}
+
+/* Course Show Page (course_path) */
+#course-show-container {
+  background: var(--sunset);
+  margin: 15px 25px;
+  color: #fff;
+}
+
+#course-show-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+}
+
+#course-show-container h4 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
 }
