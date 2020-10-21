@@ -19,16 +19,18 @@
    --sunset: #FB6542;
    --facebook-blue: rgb(52, 120, 233);
    --mint: #7CF3A0;
- }
+   --main-bg-color: #d0fbdd;
 
+ }
 
 /* Reused Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #FB6542;
+  background: var(--main-bg-color);
 }
+
 a {
   text-decoration: none;
   background: #fff;
@@ -41,39 +43,57 @@ form {
 
 #form-container {
   width: 65%;
-  height: 400px;
+  height: 500px;
   border: 1px solid var(--sunsut);
-  border-radius: 15px;
   margin: 150px auto;
   text-align: center;
   background: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+/* Application Main Header */
+#main-app-header {
+  border: 1px solid var(--sunset);
+  background: var(--sunset);
+  width: 100%;
+  height: 70px;
+  text-align: center;
+}
+
+#main-app-header h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin: 15px 0;
+  background: var(--sunset);
+}
+
 
 /* Sign In Form Styles */
  #sign-in-header {
    font-size: 2.25rem;
-   margin: 15px 0;
+   transform: translateY(25px);
+   margin: 50px 0;
    background: #fff;
-   color: var(--mint);
+   color: #000;
  }
 
  #form-container #form-header {
    background: #fff;
    font-size: 1.75rem;
-   color: var(--mint);
+   color: #000;
    margin-bottom: 15px;
  }
 
  #sign-in-form form label {
    background-color: #fff;
-   color: var(--mint);
+   color: #000;
    font-size: 1.25rem;
  }
 
  #sign-in-form form input {
   background: #fff;
   font-size: 1.10rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border-radius: 3px;
  }
 
@@ -88,10 +108,6 @@ form {
    color: #fff;
  }
 
- #sign-in-form form input[type=submit]:hover {
-   cursor: pointer;
- }
-
  #oauth-btns-container {
    background: #fff;
  }
@@ -102,30 +118,49 @@ form {
    border: none;
    border-radius: 3px;
    background: var(--facebook-blue);
-   margin-bottom: 15px;
+   margin-bottom: 20px;
+   -webkit-transition: margin 0.5s ease-out;
+   -moz-transition: margin 0.5s ease-out;
+   -o-transition: margin 0.5s ease-out;
  }
 
  #oauth-btns-container .oauth-btn a {
    background: var(--facebook-blue);
    color: #fff;
+   -webkit-transition: margin 0.5s ease-out;
+   -moz-transition: margin 0.5s ease-out;
+   -o-transition: margin 0.5s ease-out;
+ }
+ #sign-in-form form input[type=submit]:hover,
+ #oauth-btns-container .oauth-btn:hover {
+   cursor: pointer;
+   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
  }
 
  #form-container .sign-up-link {
    text-decoration: none;
-   color: var(--mint);
+   color: #000;
+ }
+
+ #form-container .sign-up-link:hover {
+   border-bottom: 2px solid var(--mint);
  }
 
  /* Sign Up Form (new_student_path) */
- .cancel-btn {
+ #sign-up-form .cancel-btn {
    border: none;
    border-radius: 3px;
-   font-size: 1.5rem;
-   background: var(--mint);
+   font-size: 1.15rem;
+   float: left;
+   transform: translateY(15px);
  }
 
- .cancel-btn a {
-  background: var(--mint);
-  color: #fff;
+ #sign-up-form .cancel-btn a {
+  color: #000;
+ }
+
+ #sign-up-form .cancel-btn:hover {
+   border-bottom: 2px solid var(--mint);
  }
 
  #sign-up-form form input {
@@ -136,14 +171,15 @@ form {
  }
 
  #sign-up-form form label {
-  background-color: #fff;
-  color: var(--mint);
+  background: #fff;
+  color: #000;
   font-size: 1.25rem;
 }
 
 #sign-up-form form input {
   background: #fff;
   font-size: 1.10rem;
+  margin-top: 2px;
   margin-bottom: 15px;
   border-radius: 3px;
  }
@@ -161,6 +197,7 @@ form {
 
 #sign-up-form form input[type=submit]:hover {
   cursor: pointer; 
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Student's Show Page (student_path) */
