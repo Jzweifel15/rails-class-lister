@@ -1,5 +1,5 @@
 <div id="lists-partial-container">
-  <h3>Choose Classes</h3><br> 
+  <h3 id="list-header">Choose Classes</h3><br> 
   <%= form_for(@list) do |f| %>
     <%= f.hidden_field :student_id, value: @student %>
     <% Course.all.sort_by{|course| course.name }.each do |course| %>

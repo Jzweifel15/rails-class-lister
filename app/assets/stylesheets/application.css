@@ -203,15 +203,18 @@ form {
 /* Student's Show Page (student_path) */
 .log-out-btn {
   border: none;
-  border-radius: 3px;
   font-size: 1.5rem;
-  background: var(--mint);
+  background: var(--sunset);
   color: #fff;
+}
+
+.log-out-btn:hover {
+  background: #fc9882;
 }
 
 #student-show-header {
   font-size: 1.75rem;
-  color: #fff;
+  color: #000;
   margin: 15px 25px;
 }
 
@@ -219,57 +222,69 @@ form {
   width: 50%;
   background: #fff;
   margin: 15px 25px;
-  border: 1px solid var(--sunset);
-  border-radius: 3px;
+  border: 1px soild var(--main-bg-color);
 } 
 
 #student-class-list-container #student-class-list {
   background: #fff;
   text-decoration: none;
   list-style-type: none;
-  margin: 25px 0;
+  margin: 30px 0;
 }
 
 #student-class-list-container #student-class-list li {
   background: #fff;
-  margin: 25px 2px;
+  margin: 30px 5px;
   font-size: 1.15rem;
 }
 
 #student-class-list-container #student-class-list li a {
-  color: var(--mint);
+  color: #000;
 }
 
 #student-class-list-container #student-class-list li a:hover {
-  border-bottom: 2px solid var(--sunset);
+  border-bottom: 2px solid var(--mint);
+}
+
+#link-btns-container {
+  display: inline-block;
 }
 
 .link-btn {
-  background: var(--mint);
+  background: var(--sunset);
   border: none;
   border-radius: 3px;
   color: #fff;
   font-size: 1.3rem;
-  margin: 5px 20px;
+  margin: auto 10px;
 }
 
 .link-btn a {
   color: #fff;
-  background: var(--mint);
+  background: var(--sunset);
+}
+
+.link-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Lists _form Partial */
 #lists-partial-container {
-  background: var(--sunset);
+  background: var(--main-bg-color);
   margin: 15px 25px;
 }
 
+#lists-partial-container #list-header {
+  color: #000;
+}
+
 #lists-partial-container form {
-  background: var(--sunset);
+  background: var(--main-bg-color);
 }
 
 #lists-partial-container form input {
-  background: var(--sunset);
+  background: var(--main-bg-color);
   font-size: 1.10rem;
   margin-bottom: 15px;
   border-radius: 3px;
@@ -280,7 +295,7 @@ form {
   margin: 15px 0;
   width: 155px;
   height: 25px;
-  background: var(--mint);
+  background: var(--sunset);
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -288,17 +303,17 @@ form {
 
 #lists-partial-container form input[type=submit]:hover {
   cursor: pointer;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
 }
 
-
 #lists-partial-container form .course-link {
-  color: #fff;
-  background: var(--sunset);
+  color: #000;
+  background: var(--main-bg-color);
   font-size: 1.15rem;
 }
 
 #lists-partial-container form .course-link:hover {
-  border-bottom: 2px solid var(--mint);
+  border-bottom: 2px solid var(--sunset);
 }
 
 #lists-partial-container h3 {
@@ -310,15 +325,15 @@ form {
 /* Edit and New list Header (edit_student_list_path and new_student_list_path) */
 #list-form-header {
   font-size: 1.75rem;
-  color: #fff;
+  color: #000;
   margin: 15px 25px;
 }
 
 /* Course Show Page (course_path) */
 #course-show-container {
-  background: var(--sunset);
+  background: var(--main-bg-color);
   margin: 15px 25px;
-  color: #fff;
+  color: #000;
 }
 
 #course-show-container h2 {
