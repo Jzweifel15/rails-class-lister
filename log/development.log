@@ -36201,3 +36201,129 @@ Processing by StudentsController#show as HTML
 Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 1.3ms | Allocations: 8827)
 
 
+Started GET "/" for ::1 at 2020-10-21 10:08:46 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.4ms | Allocations: 629)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 4990)
+
+
+Started GET "/students/new" for ::1 at 2020-10-21 10:08:48 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered layouts/_error.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered students/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1019)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4962)
+
+
+Started GET "/" for ::1 at 2020-10-21 10:09:04 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.3ms | Allocations: 395)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4194)
+
+
+Started GET "/students/new" for ::1 at 2020-10-21 10:09:08 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered layouts/_error.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered students/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 699)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4508)
+
+
+Started GET "/" for ::1 at 2020-10-21 10:09:09 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.0ms | Allocations: 384)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4193)
+
+
+Started POST "/sessions?method=post" for ::1 at 2020-10-21 10:09:15 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"lXkazce3hqhs5LwtvRGdGyPm0rYwL/mV2neDDBnHJqYFdCk1Iu96SvAoayXdzr2E/XXvTSE0TuSQItHi2/m+1g==", "email"=>"justin@college.edu", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."email" = ? LIMIT ?[0m  [["email", "justin@college.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8:in `create'
+Redirected to http://localhost:3000/students/1
+Completed 302 Found in 200ms (ActiveRecord: 0.1ms | Allocations: 1152)
+
+
+Started GET "/students/1" for ::1 at 2020-10-21 10:09:15 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.9ms | Allocations: 8825)
+
+
+Started GET "/students/1/lists/1/edit" for ::1 at 2020-10-21 10:09:22 -0400
+Processing by ListsController#edit as HTML
+  Parameters: {"student_id"=>"1", "id"=>"1"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:48:in `set_list'
+  Rendering lists/edit.html.erb within layouts/application
+  Rendered layouts/_error.html.erb (Duration: 0.0ms | Allocations: 18)
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/lists/_form.html.erb:5:in `sort_by'
+  Rendered lists/_form.html.erb (Duration: 5.5ms | Allocations: 3367)
+  Rendered lists/edit.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3556)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.4ms | Allocations: 7904)
+
+
+Started GET "/students/1" for ::1 at 2020-10-21 10:09:30 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:7:in `show'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."student_id" = ? LIMIT ?[0m  [["student_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:8:in `show'
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/helpers/student_helper.rb:7:in `block in student_courses'
+  Rendered students/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3792)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 1.2ms | Allocations: 8818)
+
+
+Started GET "/" for ::1 at 2020-10-21 10:09:31 -0400
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.0ms | Allocations: 384)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 4185)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" LIMIT ?[0m  [["LIMIT", 11]]
