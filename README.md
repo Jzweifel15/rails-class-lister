@@ -21,6 +21,28 @@ Upon creating a new schedule or editing a current schedule, a user can see a ful
 4. CSS3
 5. JavaScript
 
+## Code Example
+Rails utilizes a MVC architecture. There were three models used for the implementation of **Class Lister**:
+```ruby
+class Student < ApplicationRecord
+  has_one :list   # A Student can only have one class list at a time (per semester)
+  has_many :courses, through: :list   # A Student can have many courses through the class
+                                      # List they create
+end
+#
+#
+class List < ApplicationRecord
+  belongs_to :student   # A List belongs to a Student and no one else
+  has_many :courses     # A List can have many Courses at a time on one class List
+end
+#
+#
+class Course < ApplicationRecord
+  has_many :students, through: :list    # A Course can have many Students through the Lists 
+                                        # a Student creates
+end
+```
+
 ## License
 MIT License
 Copyright (c) 2020 Jzweifel15
