@@ -1,0 +1,12 @@
+<%= link_to "Cancel", student_path(session[:user_id]), :class => 'log-out-btn' %><br>
+<div id="new-course-container">
+  <h2>Create New Course</h2>
+  <%= render partial: "layouts/error" %>
+  <%= form_for(@course) do |f| %>
+    <%= f.label "Course Name and Number" %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label "Course Description - optional" %><br>
+    <%= f.text_area :description, size: "35x10" %><br>
+    <%= f.submit "Submit New Course" %>
+  <% end %>
+</div>

@@ -23,6 +23,7 @@ class ListsController < ApplicationController
 
   def edit
     @student = session[:user_id]
+    #@courses = Course.search(params[:search])
   end
 
   def update

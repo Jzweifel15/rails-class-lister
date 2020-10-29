@@ -3,4 +3,5 @@
   <h4>Description</h4>
   <p><%= @course.description %></p>
 </div>
-<button class="link-btn"><%= link_to "Back", :back %></button>
+<button class="link-btn"><%= link_to "Back to previous page", :back %></button>
+<button class="link-btn"><%= link_to "Back to Home", student_path(session[:user_id]) %></button>

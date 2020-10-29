@@ -345,3 +345,42 @@ form {
   margin-bottom: 10px;
   font-size: 1.25rem;
 }
+
+/* New Course Page (new_course_path) */
+#new-course-container {
+  background: var(--main-bg-color);
+  margin: 15px 25px;
+  color: #000;
+}
+
+#new-course-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+}
+
+#new-course-container form {
+  background: var(--main-bg-color);
+}
+
+#new-course-container form input {
+  background: var(--main-bg-color);
+  font-size: 1.10rem;
+  margin-bottom: 15px;
+  border-radius: 3px;
+}
+
+#new-course-container form input[type=submit] {
+  font-size: 1rem;
+  margin: 15px 0;
+  width: 155px;
+  height: 25px;
+  background: var(--sunset);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+
+#new-course-container form input[type=submit]:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
+}
