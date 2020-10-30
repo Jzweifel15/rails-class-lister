@@ -6,7 +6,7 @@ class Course < ApplicationRecord
   def self.search(search)
     if search 
       course = Course.find_by(name: search)
-      if course 
+      if course
         self.where(name: course.name)
       else
         Course.all

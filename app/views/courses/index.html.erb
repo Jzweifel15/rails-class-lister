@@ -1,0 +1,21 @@
+<div id="courses-container">
+  <div id="nav-btns">
+    <button class="link-btn"><%= link_to "Back to previous page", :back %></button>
+    <button class="link-btn"><%= link_to "Back to Home", student_path(session[:user_id]) %></button>
+  </div>
+  <h2>Looking for a Specific Class?</h2>
+  <p>Search here</p>
+
+  <div>
+    <%= form_tag(courses_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+
+  <ul>
+    <% @courses.sort_by{|course| course.name }.each do |course| %>
+      <li><%= link_to course.name, course_path(course), :class => 'course-link' %></li><br>
+    <% end %>
+  </ul>
+</div>

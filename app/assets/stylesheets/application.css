@@ -329,6 +329,18 @@ form {
   margin: 15px 25px;
 }
 
+.search-class-link {
+  background: var(--main-bg-color);
+  margin-left: 25px;
+  color: #000;
+}
+
+.search-class-link:hover {
+  cursor: pointer;
+  border-bottom: 2px solid var(--sunset);
+}
+
+
 /* Course Show Page (course_path) */
 #course-show-container {
   background: var(--main-bg-color);
@@ -347,29 +359,39 @@ form {
 }
 
 /* New Course Page (new_course_path) */
-#new-course-container {
+.new-course-container {
   background: var(--main-bg-color);
   margin: 15px 25px;
   color: #000;
 }
 
-#new-course-container h2 {
+.new-course-container a {
+  background: var(--main-bg-color);
+  color: #000;
+}
+
+.new-course-container a:hover {
+  cursor: pointer;
+  border-bottom: 2px solid var(--sunset);
+}
+
+.new-course-container h2 {
   margin-bottom: 20px;
   font-size: 1.75rem;
 }
 
-#new-course-container form {
-  background: var(--main-bg-color);
+.new-course-container form {
+  background: var(--main-bg-color)
 }
 
-#new-course-container form input {
+.new-course-container form input {
   background: var(--main-bg-color);
   font-size: 1.10rem;
   margin-bottom: 15px;
   border-radius: 3px;
 }
 
-#new-course-container form input[type=submit] {
+.new-course-container form input[type=submit] {
   font-size: 1rem;
   margin: 15px 0;
   width: 155px;
@@ -380,7 +402,67 @@ form {
   color: #fff;
 }
 
-#new-course-container form input[type=submit]:hover {
+.new-course-container form input[type=submit]:hover {
   cursor: pointer;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Courses Index Page (courses_path) */
+#courses-container {
+  background: var(--main-bg-color);
+  margin: 15px 25px;
+  color: #000;
+}
+
+#courses-container #nav-btns,
+#courses-container h2 {
+  margin-bottom: 10px;
+}
+
+#courses-container p {
+  margin-bottom: 3px;
+  font-size: 1.05rem;
+}
+
+#courses-container form {
+  margin-bottom: 5px;
+  background: var(--main-bg-color);
+}
+
+#courses-container form input[type=text] {
+  background: #fff;
+  width: 225px;
+  height: 25px;
+  font-size: 1rem;
+  border-radius: 3px;
+}
+
+#courses-container form input[type=submit] {
+  font-size: 1rem;
+  margin: 15px 0;
+  width: 100px;
+  height: 25px;
+  background: var(--sunset);
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+
+#courses-container form input[type=submit]:hover {
+  cursor: pointer;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+#courses-container ul {
+  list-style: none;
+}
+
+#courses-container .course-link {
+  background: var(--main-bg-color);
+  color: #000;
+}
+
+#courses-container .course-link:hover {
+  cursor: pointer;
+  border-bottom: 2px solid var(--sunset);
 }

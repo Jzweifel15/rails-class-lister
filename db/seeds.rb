@@ -9,7 +9,7 @@
 require 'faker'
 
 50.times do 
-  course_name = Faker::Educator.course_name 
+  course_name = Faker::Educator.course_name
   desc = Faker::Lorem.paragraph_by_chars
   Course.create!(name: course_name, description: desc)
 end

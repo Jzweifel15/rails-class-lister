@@ -1,8 +1,9 @@
 <%= link_to "Cancel", student_path(session[:user_id]), :class => 'log-out-btn' %><br>
 <h2 id="list-form-header">New Class List</h2>
 <%= render partial: "layouts/error" %>
+<%= link_to "Search by Class Name", courses_path, :class => 'search-class-link' %>
 <%= render 'form' %>
-<div id="new-course-container">
+<div class="new-course-container">
   <h4>Don't see the course you're looking for?</h4>
-  <%= link_to "Create a New Course", new_course_path %>
+  <%= link_to "Share a New Course", new_course_path %>
 </div>

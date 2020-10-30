@@ -1,5 +1,5 @@
 <%= link_to "Cancel", student_path(session[:user_id]), :class => 'log-out-btn' %><br>
-<div id="new-course-container">
+<div class="new-course-container">
   <h2>Create New Course</h2>
   <%= render partial: "layouts/error" %>
   <%= form_for(@course) do |f| %>
