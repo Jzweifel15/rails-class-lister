@@ -12,6 +12,11 @@ class SessionsController < ApplicationController
     redirect_to student_path(@student)
   end
 
+  def destroy
+    current_user = nil
+    redirect_to root_path
+  end
+
   private
 
   def auth 
