@@ -1,53 +1,55 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:edit, :update, :destroy]
 
   def index
   end
 
   def new 
-    @list = List.new
-    @student = session[:user_id]
+    @lists = List.new
+    @student = current_user
   end
 
   def create
-    @list = List.new(list_params) 
-
-    if @list.validate_course_ids
-      flash[:notice] = "Something went wrong. Make sure you have selected at least 1 class before submitting."
-      redirect_to new_student_list_path(session[:user_id])
+    if list_params
+      list_params[:course_id].each do |course_id|
+        if course_id != ""
+          List.create(student_id: current_user, course_id: course_id)
+        end
+      end
+      redirect_to student_path(current_user)
     else
-      @list.save
-      redirect_to student_path(@list.student_id)
+      flash[:notice] = "Something went wrong. Make sure you have selected at least 1 class before submitting."
+      redirect_to new_student_list_path(current_user)
     end
   end
 
+=begin
   def edit
-    @student = session[:user_id]
-    #@courses = Course.search(params[:search])
+    @lists = List.where(student_id: current_user)
+    byebug
   end
 
   def update
-    @list.update(list_params)
-
-    if @list.validate_course_ids
-      flash[:notice] = "Something went wrong. Make sure you have selected at least 1 class before submitting."
-      redirect_to edit_student_list_path(session[:user_id])
+    if list_params
+      list_params[:course_id].each do |course_id|
+        if course_id != ""
+          List.update(student_id: current_user, course_id: course_id)
+        end
+      end
+      redirect_to student_path(current_user)
     else
-      @list.save
-      redirect_to student_path(@list.student_id)
+      flash[:notice] = "Something went wrong. Make sure you have selected at least 1 class before submitting."
+      redirect_to new_student_list_path(current_user)
     end
   end
+=end
 
   def destroy
-    @list.delete
-    redirect_to student_path(session[:user_id])
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to student_path(current_user)
   end
 
   private
-
-  def set_list
-    @list = List.find_by(student_id: session[:user_id])
-  end
 
   def list_params
     params.require(:list).permit(:student_id, course_id: [])

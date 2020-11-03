@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 2020_10_19_134650) do
 
   create_table "lists", force: :cascade do |t|
     t.integer "student_id"
-    t.string "course_id"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_lists_on_course_id"
+    t.index ["student_id"], name: "index_lists_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|

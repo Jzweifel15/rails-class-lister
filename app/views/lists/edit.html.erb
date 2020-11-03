@@ -2,7 +2,14 @@
 <h2 id="list-form-header">Edit Your Current Classes</h2>
 <%= render partial: "layouts/error"%>
 <%= link_to "Search by Class Name", courses_path, :class => 'search-class-link' %>
-<%= render 'form' %>
+<div id="lists-partial-container">
+  <h3 id="list-header">Choose Classes</h3><br> 
+  <%= form_for(@lists) do |f| %>
+    <%= f.hidden_field :student_id, value: @student %>
+    <%= f.collection_check_boxes :course_id, Course.all, :id, :name %>
+    <%= f.submit %>
+  <% end %>
+</div>
 <div class="new-course-container">
   <h4>Don't see the course you're looking for?</h4>
   <%= link_to "Share a New Course", new_course_path %>

@@ -1,10 +1,8 @@
 <div id="lists-partial-container">
   <h3 id="list-header">Choose Classes</h3><br> 
-  <%= form_for(@list) do |f| %>
+  <%= form_for(@lists) do |f| %>
     <%= f.hidden_field :student_id, value: @student %>
-    <% Course.all.sort_by{|course| course.name }.each do |course| %>
-      <input type="checkbox" name="list[course_id][]" id="list_course_id_<%= course.id %>" value="<%= course.id %>" /> - <%= link_to course.name, course_path(course), :class => 'course-link' %><br>
-    <% end %>
+    <%= f.collection_check_boxes :course_id, Course.all, :id, :name %>
     <%= f.submit %>
   <% end %>
 </div>

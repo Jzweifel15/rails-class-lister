@@ -1,5 +1,5 @@
 module StudentHelper
-
+=begin
   def student_courses(student)
     courses = []
     student.list.course_id.split(/\W/).each do |id|
@@ -10,5 +10,5 @@ module StudentHelper
     end
     courses
   end
-
+=end
 end
