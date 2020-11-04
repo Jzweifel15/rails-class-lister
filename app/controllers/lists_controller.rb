@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   end
 
   def new 
-    @lists = List.new
+    @list = List.new
     @student = current_user
   end
 
@@ -12,7 +12,7 @@ class ListsController < ApplicationController
     if list_params
       list_params[:course_id].each do |course_id|
         if course_id != ""
-          List.create(student_id: current_user, course_id: course_id)
+          List.find_or_create_by(student_id: current_user, course_id: course_id)
         end
       end
       redirect_to student_path(current_user)

@@ -1,6 +1,6 @@
 <div id="lists-partial-container">
   <h3 id="list-header">Choose Classes</h3><br> 
-  <%= form_for(@lists) do |f| %>
+  <%= form_for(@list) do |f| %>
     <%= f.hidden_field :student_id, value: @student %>
     <%= f.collection_check_boxes :course_id, Course.all, :id, :name %>
     <%= f.submit %>
